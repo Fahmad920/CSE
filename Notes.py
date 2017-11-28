@@ -33,3 +33,42 @@ print("You are still a teenager")
 
 
 
+# Change to the file
+def print_hw() :
+    print("Hello World")
+
+
+print_hw()
+
+
+def say_hi(name):    # name is a "parameter"
+    print("Hello %s" % name)
+    print("I hope you have a fantastic day.")
+
+
+say_hi("Harris J")
+
+
+def birthday(age):
+    age += 1 # age = age + 1
+    print(age)
+
+
+say_hi("Harris J")
+print("Harris J is 20. Next year:")
+birthday(20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
