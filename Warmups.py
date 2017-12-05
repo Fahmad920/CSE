@@ -17,5 +17,9 @@ def happy_bday(name):
     print("Happy birthday dear %s" % name)
     print("Happy birthday to you!")
 
+# 12.5.17
 
+
+def add_py(name):
+    print(name + ".py")
 
