@@ -1,17 +1,20 @@
 import random
-answer = (random.randint(1, 50))
+answer = random.randint(1, 50)
 print(answer)
-guess = int(input("Guess a Number "))
 turn = 5
+correct_guess = False
 
+while turn > 0 and correct_guess == False:
+    guess = int(input("Guess a Number 1-50 "))
+    if guess == answer:
+        correct_guess = True
+        print("You guessed right")
+    elif guess < answer:
+        print("Higher")
+        turn -= 1
+    elif guess > answer:
+        print("Lower")
+        turn -= 1
 
-def guess_number(number):
-    if int("number") == int("answer)"):
-        print("You Guessed Correctly")
-        if int("number") <= int("answer"):
-            print("Guess Lower")
-            if int("number") >= int("answer"):
-                print("Guess Higher")
-
-
-turn = -1
+if turn == 0:
+    print("Good Job, but that was not the answer. The correct answer was %s" % answer)
