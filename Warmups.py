@@ -25,9 +25,14 @@
 
 # 12.6.17
 
-def add(num1, num2, num3):
-    print(num1 + num2 + num3)
+# def add(num1, num2, num3):
+#     print(num1 + num2 + num3)
+#
+#
+# add(5, 15, 30)
 
+def repeat(string):
+    repeat(string)
 
-add(5, 15, 30)
-
+    for x in range(3):
+        print(string)

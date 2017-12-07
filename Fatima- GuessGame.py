@@ -1,6 +1,5 @@
 import random
 answer = random.randint(1, 50)
-print(answer)
 turn = 5
 correct_guess = False
 
