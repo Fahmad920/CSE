@@ -31,8 +31,17 @@
 #
 # add(5, 15, 30)
 
-def repeat(string):
-    repeat(string)
+# def repeat(string):
+#     repeat(string)
+#
+#     for x in range(3):
+#         print(string)
 
-    for x in range(3):
-        print(string)
+# 12.8.17
+
+def date(month, day, year):
+    print(str(month) + "/" + str(day) + "/" + str(year))
+
+
+date(12, 8, 17)
+
