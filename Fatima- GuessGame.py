@@ -29,4 +29,3 @@ if turn == 0:
 # every round bet $1
 # win = bet $1 + additional $4
 # start with $15
-#
