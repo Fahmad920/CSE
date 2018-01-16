@@ -21,6 +21,5 @@ while money > 0:
 
 print("You played %s rounds." % MaxRound)
 print("You lost all your money")
-
 print("Highest amount of money was $%s" % HighMoney)
 print("You had the most money at round %s" % HighRound)

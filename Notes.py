@@ -133,3 +133,11 @@
 # # for guesses, remove one
 # # github.com/MrWiebe/CSE7
 #
+
+
+# BlackJack Guide Line
+# get two cards or number
+# add up the cards to see the total value of two cards
+# if cards are less than 17 then hit
+# if the card are over 21 then bust
+# if cards are close to 17 then stay
