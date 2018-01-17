@@ -22,10 +22,3 @@ while turn > 0 and correct_guess == False:
 if turn == 0:
     print("Good Job, but that was not the answer. The correct answer was %s" % answer)
 
-# Lucky 7s structure
-# two dice
-# if rolled 7 then you win money
-# if roll anything else then lost money
-# every round bet $1
-# win = bet $1 + additional $4
-# start with $15

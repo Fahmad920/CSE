@@ -1,13 +1,20 @@
 import random
 
-turn = 0
-card1 = random.randint(1, 10)
-card2 = random.randint(1, 10)
+
+def draw_hit():
+    return random.randint(1, 10)
+
+
+def total_value():
+    return
+
+
+card1 = draw_hit()
+card2 = draw_hit()
 print(card1 + card2)
 print("Your cards are %s" % card1, card2)
-print (int(input("Do you want to hit or stay "))
+turn = input("Do you want to hit or stay? ")
 
 if "hit":
-    turn += 1
-elif "stay":
-    turn = 0
+    print("You got %s." % draw_hit())
+    print("Your total is now %s" % (value))
