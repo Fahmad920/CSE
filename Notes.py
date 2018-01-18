@@ -141,3 +141,37 @@
 # if cards are less than 17 then hit
 # if the card are over 21 then bust
 # if cards are close to 17 then stay
+
+
+# lists
+
+the_count = [1, 2, 3, 4, 5]
+characters = ["graves", "Dory", "Boots", "Dora", "Shrek", "Obi-wan", "Carl"]
+print(characters[0])
+print(characters[3])
+
+print(len(characters))  # Gives you the length of the list
+
+# Going through lists
+for char in characters:
+    print(char)
+
+for num in the_count:
+    print(num ** 2)
+
+len(characters)
+range(3)   # makes a list of the numbers from 0 to 2
+range(len(characters))  # Makes a list of ALL INDICES
+
+
+for num in range(len(characters)):
+    char = characters[num]
+    print("The character at index %d is %s" % (num, char))
+
+str1 = "Hello World!"
+listOne = list(str1)
+print(listOne)
+listOne[11] = '.'
+print(listOne)
+newStr = "".join(listOne)
+print(newStr)
