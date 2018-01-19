@@ -175,3 +175,30 @@ listOne[11] = '.'
 print(listOne)
 newStr = "".join(listOne)
 print(newStr)
+print(listOne[-2])
+
+# adding stuff to a list
+characters.append("Belle")
+print(characters)
+
+# removing things from a list
+characters.remove("Carl")
+print(characters)
+
+characters.pop(6)
+print(characters)
+
+
+# the string class
+import string
+print(string.ascii_letters)
+print(string.ascii_lowercase)
+print(string.digits)
+print(string.punctuation)
+
+# make sure to automatically make the punctuation to show up
+# make comparison with upper case and lower case letters
+
+strTwo = 'ThIs sEntENcE iS uNuSuAl'
+lowercase = strTwo.lower()
+print(lowercase)
