@@ -1,13 +1,18 @@
 import random
-
-# ""
-# Outline of Hangman
-# 1. Make a word bank - 10 items
-# 2. Select a random item from the list
-# 3. Hide the word (use *)
-# 4. Reveal letters if they have been guessed
-# 5. Create the win condition
+words = random.choices(["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"])
+guess = 10
+correct_guess = False
+# random.choices(words)
+listOne = list(words)
+print(listOne)
 
 
-words = ["creative", "art", "inspire", "dream", "color", "paint", "Pocahontas", "heart", "wind", "follow"]
-print(words)
+
+# while guess > 0 and correct_guess == False:
+guess = str(input("Guess a letter "))
+# if guess == words:
+# correct_guess == True
+# print("You guessed the letter right")
+# elif guess == False:
+# print("That's not a letter. Guess again")
+

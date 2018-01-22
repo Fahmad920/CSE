@@ -190,11 +190,11 @@ print(characters)
 
 
 # the string class
-import string
-print(string.ascii_letters)
-print(string.ascii_lowercase)
-print(string.digits)
-print(string.punctuation)
+# import string
+# print(string.ascii_letters)
+# print(string.ascii_lowercase)
+# print(string.digits)
+# print(string.punctuation)
 
 # make sure to automatically make the punctuation to show up
 # make comparison with upper case and lower case letters
@@ -202,3 +202,16 @@ print(string.punctuation)
 strTwo = 'ThIs sEntENcE iS uNuSuAl'
 lowercase = strTwo.lower()
 print(lowercase)
+
+
+# ""
+# Outline of Hangman
+# 1. Make a word bank - 10 items
+# 2. Select a random item from the list
+# 3. Hide the word (use *)
+# 4. Reveal letters if they have been guessed
+# 5. Create the win condition
+
+# keep track of turns
+# guess_left = 10  loose a turn when the letter is wrong
+letters_gueesed = ['e', 'c', 'd', 'r']
