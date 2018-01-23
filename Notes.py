@@ -208,10 +208,20 @@ print(lowercase)
 # Outline of Hangman
 # 1. Make a word bank - 10 items
 # 2. Select a random item from the list
-# 3. Hide the word (use *)
-# 4. Reveal letters if they have been guessed
+# 3. Add user input to a list of letters_guessed
+# 4. Build a list of letters to show, and display the string form
 # 5. Create the win condition
 
 # keep track of turns
 # guess_left = 10  loose a turn when the letter is wrong
 letters_gueesed = ['e', 'c', 'd', 'r']
+#listform['A', '_', '_', '_']
+
+# while guess > 0 and correct_guess == False:
+# if guess == words:
+# correct_guess == True
+# print("You guessed the letter right")
+# elif guess == False:
+# print("That's not a letter. Guess again")
+#
+
