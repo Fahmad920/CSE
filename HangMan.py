@@ -4,10 +4,15 @@ guesses_left = 10
 correct_guess = False
 letters_guessed = []
 hidden_word = ["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"]
-listOne = list(words)
-print(listOne)
-guess_left = str(input("Guess a letter "))
+str1 = letters_guessed
+listOne = list(str1)
+print(words)
 
-# while guesses_left < 10:
-# input(letters_guessed))
-# print("You have guessed %s" % letter)
+current_guess = ""
+while current_guess != 'quit':
+    current_guess = input("Guess a letter ")
+    if current_guess == letters_guessed:
+        newStr = "".join(letters_guessed)
+str1 = letters_guessed
+print(letters_guessed)
+
