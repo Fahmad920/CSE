@@ -53,5 +53,5 @@ print(listOne)
 listOne[11] = '.'
 print(listOne)
 newStr = "".join(listOne)
-print(newStr)
-print(listOne[-2])
+# print(newStr)
+# print(listOne[-2])

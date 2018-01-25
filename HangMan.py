@@ -1,12 +1,23 @@
 import random
-words = random.choices(["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"])
+hidden_words = ["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"]
 guesses_left = 10
-correct_guess = False
+words = random.randint(0, 9)
+correct_guess = hidden_words[words]
+print(correct_guess)
 letters_guessed = []
-hidden_word = ["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"]
-str1 = letters_guessed
-listOne = list(str1)
-print(words)
+lowercase = (ascii.lowercase)
+
+
+# listOne = list(str1)
+# print(listOne)
+
+# words = ascii.lowercase
+
+# for letter in words:
+# if letter == words:
+# set(words(ascii.lowercase))
+# elif(letter != words)
+
 
 current_guess = ""
 while current_guess != 'quit':
