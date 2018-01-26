@@ -1,15 +1,15 @@
 import random
+import string
 hidden_words = ["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"]
 guesses_left = 10
 words = random.randint(0, 9)
 correct_guess = hidden_words[words]
 print(correct_guess)
 letters_guessed = []
-lowercase = (ascii.lowercase)
+list1 = hidden_words
 
+letters = string.ascii_lowercase
 
-# listOne = list(str1)
-# print(listOne)
 
 # words = ascii.lowercase
 
