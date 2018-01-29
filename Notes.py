@@ -215,7 +215,7 @@ print(lowercase)
 # keep track of turns
 # guess_left = 10  loose a turn when the letter is wrong
 letters_gueesed = ['e', 'c', 'd', 'r']
-#listform['A', '_', '_', '_']
+# listform['A', '_', '_', '_']
 
 # while guess > 0 and correct_guess == False:
 # if guess == words:
@@ -223,5 +223,3 @@ letters_gueesed = ['e', 'c', 'd', 'r']
 # print("You guessed the letter right")
 # elif guess == False:
 # print("That's not a letter. Guess again")
-#
-

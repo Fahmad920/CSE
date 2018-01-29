@@ -1,29 +1,26 @@
 import random
 import string
+
+
+letters_guessed = []
 hidden_words = ["creative", "art", "inspire", "dream", "color", "paint", "leaf", "heart", "wind", "follow"]
 guesses_left = 10
-words = random.randint(0, 9)
-correct_guess = hidden_words[words]
-print(correct_guess)
-letters_guessed = []
-list1 = hidden_words
-
-letters = string.ascii_lowercase
+words = random.choices(hidden_words)
+newStr = ''.join(words)
+listOne = list(newStr)
+print(newStr)
+letter = string. ascii_letters
 
 
-# words = ascii.lowercase
-
-# for letter in words:
-# if letter == words:
-# set(words(ascii.lowercase))
-# elif(letter != words)
-
-
-current_guess = ""
-while current_guess != 'quit':
-    current_guess = input("Guess a letter ")
-    if current_guess == letters_guessed:
-        newStr = "".join(letters_guessed)
-str1 = letters_guessed
-print(letters_guessed)
-
+while guesses_left > 0:
+    for letter in newStr:
+        if letter in letters_guessed:
+            # letter = True
+        else:
+            # letter = False
+            their_guess = input("Guess a letter ")
+    if their_guess in newStr:
+        print("You guessed it right!")
+    else:
+        guesses_left -= 1
+        print("You are wrong!")
