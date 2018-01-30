@@ -15,9 +15,8 @@ letter = string. ascii_letters
 while guesses_left > 0:
     for letter in newStr:
         if letter in letters_guessed:
-            # letter = True
-        else:
-            # letter = False
+            #else:
+            # hide letters
             their_guess = input("Guess a letter ")
     if their_guess in newStr:
         print("You guessed it right!")
