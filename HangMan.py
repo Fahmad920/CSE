@@ -21,12 +21,15 @@ while guesses_left > 0:
             output.append("*")
     str1 = ''.join(output)
     print(str1)
+    if "*" not in output:
+        print("You Won")
+        exit(0)
 
     their_guess = input("Guess a letter ")
     letters_guessed.append(their_guess)
     if their_guess in newStr:
         print("You guessed it right!")
-        if guesses_left > 0 and their_guess == words:
+        if guesses_left > 0 and their_guess in words:
             print("You have guessed the word, the word was %s" % words)
     else:
         guesses_left -= 1

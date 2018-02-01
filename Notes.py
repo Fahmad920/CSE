@@ -214,7 +214,7 @@ print(lowercase)
 
 # keep track of turns
 # guess_left = 10  loose a turn when the letter is wrong
-letters_gueesed = ['e', 'c', 'd', 'r']
+# letters_gueesed = ['e', 'c', 'd', 'r']
 # listform['A', '_', '_', '_']
 
 # while guess > 0 and correct_guess == False:
@@ -223,3 +223,76 @@ letters_gueesed = ['e', 'c', 'd', 'r']
 # print("You guessed the letter right")
 # elif guess == False:
 # print("That's not a letter. Guess again")
+
+# Dictionaries - make up a key: value pair
+dictionary = {'name': 'Lance', 'age': 18, "height": 6 * 12 + 2}
+
+# Accessing from a dictionary
+print(dictionary['name'])
+print(dictionary['age'])
+print(dictionary['height'])
+
+large_dictionary = {
+    "California": "CA",
+    "Michigan": "MI",
+    "Florida": "FL"
+}
+print(large_dictionary['Florida'])
+
+larger_dictionary = {
+    "California": [
+        "Sacremento",
+        "Los Angles",
+        "Fresno"
+    ],
+    "Washington": [
+        "Seattle",
+        "Tacoma",
+        "Olympia",
+        "Spokane",
+    ],
+    "Illinois": [
+        "Chicago",
+        "Naperville",
+        "Peoria",
+    ]
+}
+
+print(larger_dictionary["Illinois"])
+print(larger_dictionary["Illinois"][0])
+
+print(larger_dictionary["Washington"][3])
+
+
+largest_dictionary = {
+    "CA": {
+        'NAME': "California",
+        'POPULATION': 39250000,
+        'BORDER ST': [
+            'Oregon',
+            'Nevada',
+            'Arizona'
+        ]
+    },
+    "MI": {
+        "NAME": "Michigan",
+        "POPULATION": 9928000,
+        "BORDER ST": [
+            'Wisconsin',
+            'Ohio',
+            'Indiana'
+        ]
+    },
+    "FL": {
+        "NAME": "Florida",
+        "POPULATION": 20610000,
+        "BORDER ST": [
+            'Georgia',
+            'Alabama',
+
+        ]
+        }
+    }
+
+print(largest_dictionary["FL"]["NAME"])
+print(largest_dictionary["MI"]["NAME"])
