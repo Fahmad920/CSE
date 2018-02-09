@@ -232,6 +232,12 @@ print(dictionary['name'])
 print(dictionary['age'])
 print(dictionary['height'])
 
+
+# Adding to a dictionary
+dictionary["eye color"] = "blue"
+dictionary["paper towls"] = True
+print(dictionary)
+
 large_dictionary = {
     "California": "CA",
     "Michigan": "MI",
@@ -296,3 +302,4 @@ largest_dictionary = {
 
 print(largest_dictionary["FL"]["NAME"])
 print(largest_dictionary["MI"]["NAME"])
+
