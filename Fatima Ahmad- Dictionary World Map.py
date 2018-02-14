@@ -178,7 +178,7 @@ brave_map = {
 }
 
 current_node = brave_map['MERIDASROOM']
-direCtions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN']
 
 while True:
     print(current_node['NAME'])
@@ -186,8 +186,11 @@ while True:
     command = input('>_')
     if command == 'quit':
         quit(0)
-    if command in direCtions:
-        print("You moVed")
+    if command in directions:
+        try:
+            name_of_node = current_node['PATHS'][command]
+            current_node = brave_map[name_of_node]
+        except KeyError:
+            print("You cannot go that way.")
     else:
-        print("Command not ReCognized")  
-
+        print("Command not Recognized")
