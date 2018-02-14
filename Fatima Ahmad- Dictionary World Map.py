@@ -28,7 +28,7 @@
 
 # at least 15 rooms
 # Brave setting
-# obstacles: witch , Mordu, Wilo-the-wisp
+# obstacles: witch , Mordu, Wilo-the-wisp]
 
 
 brave_map = {
@@ -176,3 +176,18 @@ brave_map = {
         }
     }
 }
+
+current_node = brave_map['MERIDASROOM']
+direCtions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN']
+
+while True:
+    print(current_node['NAME'])
+    print(current_node['DESCRIPTION'])
+    command = input('>_')
+    if command == 'quit':
+        quit(0)
+    if command in direCtions:
+        print("You moVed")
+    else:
+        print("Command not ReCognized")  
+
