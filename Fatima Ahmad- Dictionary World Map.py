@@ -26,37 +26,33 @@
 # current_node = world_map['SOUTHHOUSE']
 # print(current_node['DESCRIPTION'])
 
-# at least 15 rooms
-# Brave setting
-# obstacles: witch , Mordu, Wilo-the-wisp]
-
 
 brave_map = {
-    'MERIDASROOM': {
+    'MERIDAS ROOM': {
         'NAME': 'MERIDAS ROOM',
         'DESCRIPTION': 'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a sack. \n'
-                       'There is a door North, South, East, and West of the room.',
+                       'There is a door South, East, and West of the room.',
         'PATHS': {
             'WEST': 'KITCHEN',
             'SOUTH': 'DINING ROOM',
             'EAST': 'PARENTS ROOM'
         }
     },
-    'PARENTSROOM': {
+    'PARENTS ROOM': {
         'NAME': 'PARENTS ROOM',
         'DESCRIPTION': 'This is where the king and queen stay.\n'
                        'There is a dresser in the room and a door to the West.',
         'PATHS': {
-            'WEST': 'MERIDASROOM'
+            'EAST': 'MERIDAS ROOM'
         }
     },
-    'DININGROOM': {
+    'DINING ROOM': {
         'NAME': 'DINING ROOM',
         'DESCRIPTION': 'There is a table in the middle of the room.\n'
                        'There is a shield on the wall and a bear statue in the corner.\n'
                        'There is a door to the north.',
         'PATHS': {
-            'WEST': 'MERIDAS ROOM',
+            'NORTH': 'MERIDAS ROOM',
             'DOWN': 'SECRET ROOM'
         }
     },
@@ -66,8 +62,9 @@ brave_map = {
                        'In the kitchen, there is a cake on the table and a box.\n'
                        'There is a little crate on the floor next to the door.',
         'PATHS': {
-            'WEST': 'STABLES',
-            'NORTH': 'GATE'
+            'NORTHWEST': 'STABLES',
+            'NORTH': 'GATE',
+            'EAST': 'MERIDAS ROOM'
         }
     },
     'OUTSIDE': {
@@ -76,9 +73,10 @@ brave_map = {
                        'West to the gate are the stables.\n'
                        'The gate out leads to the forest.',
         'PATHS': {
-            'NORTH': 'FOREST',
-            'WEST': 'STABLES',
-            'SOUTH': 'KITCHEN'
+            'WEST': 'FOREST',
+            'NORTH': 'STABLES',
+            'SOUTH': 'KITCHEN',
+            'SOUTHEAST': 'FIGHTING AREA'
         }
     },
     'FIGHTINGAREA': {
@@ -86,7 +84,7 @@ brave_map = {
         'DESCRIPTION': 'Here are lots of weapons.\n'
                        'Off to the North there is water and some boats',
         'PATHS': {
-            'NORTH': 'OUTSIDE',
+            'NORTHWEST': 'OUTSIDE',
             'SOUTH': 'WATER'
         }
     },
@@ -95,8 +93,8 @@ brave_map = {
         'DESCRIPTION': 'Here are all the horses.\n'
                        'There is hay and water here as well.',
         'PATHS': {
-            'SOUTH': 'STABLES',
-            'WEST': 'OUTSIDE'
+            'SOUTH': 'OUTSIDE',
+            'NORTHEAST': 'KITCHEN',
         }
     },
     'FOREST': {
@@ -105,8 +103,9 @@ brave_map = {
                        'There is a path that leads to the North and to the East',
         'PATHS': {
             'SOUTH': 'FIREFALL',
-            'EAST': 'MAZE',
-            'NORTH': 'OUTSIDE'
+            'NORTH': 'MAZE',
+            'EAST': 'OUTSIDE',
+            'SOUTHEAST': 'THE RING OF STONES'
         }
     },
     'FIREFALL': {
@@ -124,7 +123,7 @@ brave_map = {
                        'People have said that The Ring of Stones tends to take you places to change your fate.',
         'PATHS': {
             'EAST': 'WITCHES COTTAGE',
-            'NORTH': 'FOREST',
+            'NORTHWEST': 'FOREST',
             'WEST': 'FIRE FALL'
         }
     },
@@ -153,7 +152,7 @@ brave_map = {
                        'There is a path that leads north',
         'PATH': {
             'NORTH': 'THE RING OF STONE',
-            'EAST': 'ANCIENT KINGDOM RUINS'
+            'NORTHEAST': 'ANCIENT KINGDOM RUINS'
         }
     },
     'ANCIENT KINGDOM RUINS': {
@@ -162,7 +161,8 @@ brave_map = {
                        'You find the same symbol you seen in the castle of the three bears in a circular pattern.\n'
                        'There is only one path that leads down.',
         'PATHS': {
-            'DOWN': 'MORDUS CAVE'
+            'DOWN': 'MORDUS CAVE',
+            'SOUTHWEST': 'ANCIENT KINGDOM RUINS'
         }
     },
     'MORDUS CAVE': {
@@ -177,13 +177,13 @@ brave_map = {
     }
 }
 
-current_node = brave_map['MERIDASROOM']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN']
+current_node = brave_map['MERIDAS ROOM']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN', 'NORTHEAST', 'NORTHWEST', 'SOUTHEAST', 'JUMP']
 
 while True:
     print(current_node['NAME'])
     print(current_node['DESCRIPTION'])
-    command = input('>_')
+    command = input('> ').strip().upper()
     if command == 'quit':
         quit(0)
     if command in directions:
@@ -192,5 +192,8 @@ while True:
             current_node = brave_map[name_of_node]
         except KeyError:
             print("You cannot go that way.")
+    if command == 'JUMP':
+        print("WHOAHHHHHH")
     else:
         print("Command not Recognized")
+    print()
