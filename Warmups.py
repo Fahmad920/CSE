@@ -47,11 +47,13 @@
 #
 
 
-str1 = "Hello World!"
-listOne = list(str1)
-print(listOne)
+#str1 = "Hello World!"
+#listOne = list(str1)
+#print(listOne)
 # listOne[11] = '.'
 # print(listOne)
 # newStr = "".join(listOne)
 # print(newStr)
 # print(listOne[-2])
+
+

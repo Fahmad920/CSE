@@ -41,7 +41,7 @@ brave_map = {
     'PARENTS ROOM': {
         'NAME': 'PARENTS ROOM',
         'DESCRIPTION': 'This is where the king and queen stay.\n'
-                       'There is a dresser in the room and a door to the West.',
+                       'There is a dresser in the room and a door to the East.',
         'PATHS': {
             'EAST': 'MERIDAS ROOM'
         }
@@ -58,7 +58,7 @@ brave_map = {
     },
     'KITCHEN': {
         'NAME': 'KITCHEN',
-        'DESCRIPTION': 'There is a door that leads North and West.\n'
+        'DESCRIPTION': 'There is a door that leads Northwest, North, and East.\n'
                        'In the kitchen, there is a cake on the table and a box.\n'
                        'There is a little crate on the floor next to the door.',
         'PATHS': {
@@ -70,8 +70,8 @@ brave_map = {
     'OUTSIDE': {
         'NAME': 'OUTSIDE',
         'DESCRIPTION': 'Out here is the main gate.\n'
-                       'West to the gate are the stables.\n'
-                       'The gate out leads to the forest.',
+                       'West to the gate is the forest.\n'
+                       'You can also go South or Southeast.',
         'PATHS': {
             'WEST': 'FOREST',
             'NORTH': 'STABLES',
@@ -82,7 +82,8 @@ brave_map = {
     'FIGHTINGAREA': {
         'NAME': 'FIGHTING AREA',
         'DESCRIPTION': 'Here are lots of weapons.\n'
-                       'Off to the North there is water and some boats',
+                       'Off to the South there is water and some boats',
+        'Northwest leads to the gate to outside'
         'PATHS': {
             'NORTHWEST': 'OUTSIDE',
             'SOUTH': 'WATER'
@@ -91,7 +92,8 @@ brave_map = {
     'STABLES': {
         'NAME': 'STABLES',
         'DESCRIPTION': 'Here are all the horses.\n'
-                       'There is hay and water here as well.',
+                       'There is hay and water here as well.\n'
+                       'You can go South or Northeast.',
         'PATHS': {
             'SOUTH': 'OUTSIDE',
             'NORTHEAST': 'KITCHEN',
@@ -99,11 +101,10 @@ brave_map = {
     },
     'FOREST': {
         'NAME': 'FOREST',
-        'DESCRIPTION': 'There is a path to the south.\n'
-                       'There is a path that leads to the North and to the East',
+        'DESCRIPTION': 'There is a path to the South and to the Southeast.\n'
+                       'There is also a path that leads to the East',
         'PATHS': {
             'SOUTH': 'FIREFALL',
-            'NORTH': 'MAZE',
             'EAST': 'OUTSIDE',
             'SOUTHEAST': 'THE RING OF STONES'
         }
@@ -129,8 +130,9 @@ brave_map = {
     },
     'WITCHES COTTAGE': {
         'NAME': 'WITCHES COTTAGE',
-        'DESCRIPTION': 'You have found the witches.\n'
-                       'Inside you find many wood carvings, but a special carving in the back catches your eye.',
+        'DESCRIPTION': 'You have found the witches cottage.\n'
+                       'Inside you find many wood carvings, but a special carving in the back catches your eye.'
+                       'You also find a strange looking rug on the floor in the back.',
         'PATHS': {
             'WEST': 'THE RING OF STONES',
             'DOWN': 'MAGIC ROOM',
@@ -192,8 +194,8 @@ while True:
             current_node = brave_map[name_of_node]
         except KeyError:
             print("You cannot go that way.")
-    if command == 'JUMP':
-        print("WHOAHHHHHH")
     else:
         print("Command not Recognized")
+    if command == 'JUMP':
+        print("WHOAHHHHHH")
     print()
