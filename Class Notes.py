@@ -13,7 +13,12 @@ class Cat(object):
         print("The cat jumps in the air")
 
     def play(self):
-        self.state = "happy"
+        self.state t the cats
+print(cute_cat.color)
+print(cute_cat2.state)
+print(cute_cat2.color)
+
+= "happy"
         print("You play with the cat")
 
 
@@ -22,12 +27,7 @@ cute_cat = Cat("brown", "Spots")
 cute_cat2 = Cat("gray", "no spots")
 
 
-# Getting information about the cats
-print(cute_cat.color)
-print(cute_cat2.state)
-print(cute_cat2.color)
-
-
+# Getting information abou
 cute_cat.jump()
 print(cute_cat.state)
 print(cute_cat2.state)
