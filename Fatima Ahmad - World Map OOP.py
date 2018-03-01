@@ -12,9 +12,9 @@ class Room(object):
         self.southeast = southeast
         self.description = description
 
-    def move(self, direction):
+    def move(self, direction, description, name):
         global current_node
-        current_node = globals()[getattr(self, direction)]
+        current_node = globals()[getattr(self, direction, description, name)]
 
 
 # west_house = Room("West of House", 'north_house')
@@ -67,4 +67,31 @@ river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancie
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
              'There is a path that leads north')
-ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, None)
+ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, 'river',
+                             'This is the old kingdom of Dunbroch before Mordu destroyed it.\n'
+                             'You find the same symbol you saw in the castle of the three bears.\n'
+                             'There is only one path that leads down.')
+mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins', None, None, None, None,
+                   'Your in a dark cave with only faint light from above.\n'
+                   'There are bones everywhere, and many broken weapons.\n'
+                   'There is also a tapestry of four princes.\n'
+                   'You hear heavy breathing behind you, and you see Mordu behind you.')
+
+
+current_node = ['MERIDAS ROOM']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN', 'NORTHEAST', 'NORTHWEST', 'SOUTHEAST', 'JUMP']
+
+
+while True:
+    print(current_node['name'])
+    print(current_node['description'])
+    command = input('> ').strip().upper()
+    if command == 'quit':
+        quit(0)
+    if command in directions:
+        try:
+            name_of_node = current_node['direction'][command]
+        except KeyError:
+            print("You cannot go that way.")
+    else:
+        print("Command not Recognized")

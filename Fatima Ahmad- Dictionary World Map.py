@@ -96,7 +96,7 @@ brave_map = {
                        'You can go South or Northeast.',
         'PATHS': {
             'SOUTH': 'OUTSIDE',
-            'NORTHEAST': 'KITCHEN',
+            'SOUTHEAST': 'KITCHEN',
         }
     },
     'FOREST': {
@@ -164,7 +164,7 @@ brave_map = {
                        'There is only one path that leads down.',
         'PATHS': {
             'DOWN': 'MORDUS CAVE',
-            'SOUTHWEST': 'ANCIENT KINGDOM RUINS'
+            'SOUTHEAST': 'RIVER'
         }
     },
     'MORDUS CAVE': {
@@ -174,7 +174,7 @@ brave_map = {
                        'There is also a tapestry of four princes.\n'
                        'You hear heavy breathing behind you, and you see Mordu behind you.',
         'PATHS': {
-            'UP': 'MORDUS CAVE'
+            'UP': 'ANCIENT KINGDOM RUINS'
         }
     }
 }
