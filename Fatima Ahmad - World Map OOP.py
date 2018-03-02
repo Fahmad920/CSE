@@ -12,9 +12,10 @@ class Room(object):
         self.southeast = southeast
         self.description = description
 
-    def move(self, direction, description, name):
+    def move(self, name, direction, description):
         global current_node
-        current_node = globals()[getattr(self, direction, description, name)]
+        # current_node = globals()[getattr(self, name, direction, description)]
+        current_node = [name, directions, description]
 
 
 # west_house = Room("West of House", 'north_house')
@@ -78,19 +79,24 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'You hear heavy breathing behind you, and you see Mordu behind you.')
 
 
-current_node = ['MERIDAS ROOM']
-directions = ['NORTH', 'SOUTH', 'EAST', 'WEST', 'UP', 'DOWN', 'NORTHEAST', 'NORTHWEST', 'SOUTHEAST', 'JUMP']
+current_node = meridas_room
+directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
+short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 
 
 while True:
-    print(current_node['name'])
-    print(current_node['description'])
-    command = input('> ').strip().upper()
+    print(current_node('name'))
+    print(current_node('description'))
+    command = input('> ').strip().lower()
     if command == 'quit':
         quit(0)
+    elif command in short_directions:
+        # Finds the command in short directions (index number)
+        pos = short_directions.index(command)
+        command = directions[pos]
     if command in directions:
         try:
-            name_of_node = current_node['direction'][command]
+
         except KeyError:
             print("You cannot go that way.")
     else:
