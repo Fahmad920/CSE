@@ -7,7 +7,7 @@ correct_guess = False
 
 
 # Describes exactly ONE turn. The while loop is the Game Controller.
-while turn > 0 and correct_guess == False:
+while turn > 0 and correct_guess is False:
     guess = int(input("Guess a Number 1-50 "))
     if guess == answer:
         correct_guess = True
@@ -21,4 +21,3 @@ while turn > 0 and correct_guess == False:
 
 if turn == 0:
     print("Good Job, but that was not the answer. The correct answer was %s" % answer)
-

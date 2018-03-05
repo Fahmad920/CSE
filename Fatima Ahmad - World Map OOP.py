@@ -12,10 +12,10 @@ class Room(object):
         self.southeast = southeast
         self.description = description
 
-    def move(self, name, direction, description):
+    def move(self, direction):
         global current_node
-        # current_node = globals()[getattr(self, name, direction, description)]
-        current_node = [name, directions, description]
+        current_node = globals()[getattr(self, direction)]
+# current_node = [name, directions, description]
 
 
 # west_house = Room("West of House", 'north_house')
@@ -85,8 +85,8 @@ short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 
 
 while True:
-    print(current_node('name'))
-    print(current_node('description'))
+    print(current_node.name)
+    print(current_node.description)
     command = input('> ').strip().lower()
     if command == 'quit':
         quit(0)
@@ -96,7 +96,7 @@ while True:
         command = directions[pos]
     if command in directions:
         try:
-
+            current_node.move(command)
         except KeyError:
             print("You cannot go that way.")
     else:
