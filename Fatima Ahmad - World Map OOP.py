@@ -15,11 +15,23 @@ class Room(object):
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
-# current_node = [name, directions, description]
 
 
-# west_house = Room("West of House", 'north_house')
-# north_house = Room("North of House", None)
+class Character(object):
+    def __init__(self, name, inventory, move, talk, steal, fight, look, climb, drop, pick):
+        self.name = name
+        self.inventory = inventory
+        self.move = move
+        self.talk = talk
+        self.steal = steal
+        self.fight = fight
+        self.look = look
+        self.climb = climb
+        self.drop = drop
+        self.pick = pick
+
+        # west_house = Room("West of House", 'north_house')
+        # north_house = Room("North of House", None)
 
 
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
@@ -78,11 +90,9 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'There is also a tapestry of four princes.\n'
                    'You hear heavy breathing behind you, and you see Mordu behind you.')
 
-
 current_node = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
-
 
 while True:
     print(current_node.name)
