@@ -18,20 +18,25 @@ class Room(object):
 
 
 class Character(object):
-    def __init__(self, name, inventory, move, talk, steal, fight, look, climb, drop, pick):
+    def __init__(self, name, description, item, health):
         self.name = name
-        self.inventory = inventory
-        self.move = move
-        self.talk = talk
-        self.steal = steal
-        self.fight = fight
-        self.look = look
-        self.climb = climb
-        self.drop = drop
-        self.pick = pick
+        self.description = description
+        self.inventory = []
+        self.item = item
+        self.health = health
 
-        # west_house = Room("West of House", 'north_house')
-        # north_house = Room("North of House", None)
+    def look(self):
+        print("You have looked around")
+
+    def climb(self):
+        print("You have looked around")
+
+    def take(self, item):
+        self.inventory.append(item)
+        print("You have taken something")
+
+    def health(self):
+        print("You have health")
 
 
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,

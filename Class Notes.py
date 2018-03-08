@@ -13,12 +13,7 @@ class Cat(object):
         print("The cat jumps in the air")
 
     def play(self):
-        self.state t the cats
-print(cute_cat.color)
-print(cute_cat2.state)
-print(cute_cat2.color)
-
-= "happy"
+        self.state = "happy"
         print("You play with the cat")
 
 
@@ -34,6 +29,12 @@ print(cute_cat2.state)
 
 cute_cat.play()
 print(cute_cat.state)
+
+
+# Getting information about the cats
+print(cute_cat.color)
+print(cute_cat2.state)
+print(cute_cat2.color)
 
 
 class Car(object):
