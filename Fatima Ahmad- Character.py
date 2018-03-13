@@ -38,7 +38,7 @@ class Character(object):
     def attack(self, target):
         if self.alive:
             print("%s attacks %s. %s's health is %d. The enemy's health is %d." % (self.name, target.name, self.name,
-                                         self.health,
+                                                                                   self.health,
                                                                                    target.health))
             target.take_damage(self.damage)
         else:

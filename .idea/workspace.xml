@@ -20,7 +20,7 @@
       <file leaf-file-name="Notes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
+            <state relative-caret-position="0">
               <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
               <folding />
             </state>
@@ -47,21 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fatima Ahmad- Character.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Fatima Ahmad- Character.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Character.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="141">
-              <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+              <caret line="40" column="83" lean-forward="false" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fatima Ahmad- Inheritance Notes.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fatima Ahmad- Inheritance Notes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Inheritance Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
+            <state relative-caret-position="323">
               <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fatima Ahmad- Programmer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Programmer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -101,8 +111,10 @@
         <option value="$PROJECT_DIR$/Fatima- GuessGame.py" />
         <option value="$PROJECT_DIR$/Class Notes.py" />
         <option value="$PROJECT_DIR$/Fatima Ahmad - World Map OOP.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Character.py" />
         <option value="$PROJECT_DIR$/Fatima Ahmad- Inheritance Notes.py" />
+        <option value="$PROJECT_DIR$/Programmer.py" />
+        <option value="$PROJECT_DIR$/Fatima Ahmad- Programmer.py" />
+        <option value="$PROJECT_DIR$/Fatima Ahmad- Character.py" />
       </list>
     </option>
   </component>
@@ -126,7 +138,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,7 +150,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,7 +170,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Fatima Ahmad- Inheritance Notes">
+  <component name="RunManager" selected="Python.Fatima Ahmad- Programmer">
     <configuration name="Fatima Ahmad - World Map OOP" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,6 +222,23 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="Fatima Ahmad- Programmer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSE" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fatima Ahmad- Programmer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="Fatima- GuessGame" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,37 +256,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="HangMan" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HangMan.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.HangMan" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad - World Map OOP" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Dictionary World Map" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Fatima- GuessGame" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Fatima Ahmad - World Map OOP" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Dictionary World Map" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Fatima- GuessGame" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Programmer" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad - World Map OOP" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Fatima- GuessGame" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Dictionary World Map" />
-        <item index="4" class="java.lang.String" itemvalue="Python.HangMan" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Programmer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Fatima Ahmad - World Map OOP" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Fatima- GuessGame" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Dictionary World Map" />
       </list>
     </recent_temporary>
   </component>
@@ -276,13 +288,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20278184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20278184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24921136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24921136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -307,21 +320,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Fatima- GuessGame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="35" lean-forward="false" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Warmups.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -582,7 +580,7 @@
     <entry file="file://$PROJECT_DIR$/HangMan.py" />
     <entry file="file://$PROJECT_DIR$/Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
+        <state relative-caret-position="0">
           <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding />
         </state>
@@ -619,18 +617,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Character.py">
+    <entry file="file://$PROJECT_DIR$/Programmer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+        <state relative-caret-position="17">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Inheritance Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
+        <state relative-caret-position="323">
           <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Programmer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Character.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="40" column="83" lean-forward="false" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
           <folding />
         </state>
       </provider>
