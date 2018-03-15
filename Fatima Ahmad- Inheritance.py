@@ -8,6 +8,9 @@ class Item(object):
     def drop(self):
         print("You dropped %s" % self.name)
 
+    def trade(self):
+        print("You traded %s" % self.name)
+
 
 class Consumable(Item):
     def __init__(self, name):
@@ -73,12 +76,14 @@ class NeedleAndThread(Misc):
         print("You sewed the %s with the needle and thread " % self.name)
 
 
-class Sack(Misc):
-    def __init__(self, name):
-        super(Sack, self).__init__(name)
+class Container(Misc):
+    def __init__(self, name, items):
+        super(Container, self).__init__(name)
+        self.inventory = items
+# make a list of items in the container and make a container class
 
     def open(self):
-        print("You opened the %s" % self.name)
+        print("You opened the sack")
 
     def put_in(self):
         print("You put %s into the sack" % self.name)
@@ -87,10 +92,10 @@ class Sack(Misc):
         print("You took %s out of the sack" % self.name)
 
     def carry(self):
-        print("You are carrying the sack with %s" % self.name)
+        print("You are carrying the sack")
 
     def close(self):
-        print("You closed the sack with %s in it" % self.name)
+        print("You closed the sack")
 
 
 class Crate(Misc):
@@ -119,9 +124,6 @@ class Crate(Misc):
 class Necklace(Misc):
     def __init__(self, name):
         super(Necklace, self).__init__(name)
-
-    def trade(self):
-        print("You traded the necklace for %s" % self.name)
 
     def wear(self):
         print("You are wearing the necklace")
