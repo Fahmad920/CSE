@@ -51,7 +51,7 @@ dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secre
                    'There is a door to the north.')
 kitchen = Room("Kitchen", 'gate', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
-               'In the kitchen, there is a cake on the table and a box.\n'
+               'In the kitchen, there is a cake on the table.\n'
                'There is a little crate on the floor next to the door.')
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
@@ -94,6 +94,9 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'There are bones everywhere, and many broken weapons.\n'
                    'There is also a tapestry of four princes.\n'
                    'You hear heavy breathing behind you, and you see Mordu behind you.')
+water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
+             'Out here, there is a lake in front of you and some boats tied to the dock \n'
+             'You can not go onto the boats.')
 
 current_node = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']

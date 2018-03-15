@@ -59,7 +59,7 @@ brave_map = {
     'KITCHEN': {
         'NAME': 'KITCHEN',
         'DESCRIPTION': 'There is a door that leads Northwest, North, and East.\n'
-                       'In the kitchen, there is a cake on the table and a box.\n'
+                       'In the kitchen, there is a cake on the table.\n'
                        'There is a little crate on the floor next to the door.',
         'PATHS': {
             'NORTHWEST': 'STABLES',
@@ -175,6 +175,14 @@ brave_map = {
                        'You hear heavy breathing behind you, and you see Mordu behind you.',
         'PATHS': {
             'UP': 'ANCIENT KINGDOM RUINS'
+        }
+    },
+    'WATER': {
+        'NAME': 'WATER',
+        'DESCRIPTION': 'Out here, there is a lake in front of you and some boats tied to the dock. \n'
+        'You can not go onto the boats.',
+        'PATHS': {
+            'NORTH': 'FIGHTING AREA'
         }
     }
 }
