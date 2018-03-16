@@ -31,12 +31,60 @@ class Hay(Consumable):
         print("You give the hay to a horse.")
 
 
+class Cake(Consumable):
+    def __init__(self, name, color, taste):
+        super(Cake, self).__init__(name)
+        self.color = color
+        self.taste = taste
+
+    def use(self):
+        print("This cake is used as a potion")
+
+    def eat(self):
+        print("You ate the cake, but now you will turn into a bear")
+
+
+class Water(Consumable):
+    def __init__(self, name, container):
+        super(Water, self).__init__(name)
+        self.container = container
+
+    def drink(self):
+        print("You have drank water")
+
+
+class Apple(Consumable):
+    def __init__(self, name, color):
+        super(Apple, self).__init__(name)
+        self.color = color
+
+
 class Weapon(Item):
     def __init__(self, name):
         super(Weapon, self).__init__(name)
 
     def fight(self):
         print("You attacked with %s" % self.name)
+
+
+class Sword(Weapon):
+    def __init__(self, name, sharpness):
+        super(Sword, self).__init__(name)
+        self.sharpness = sharpness
+
+    def stab(self):
+        print("You stabbed %s with the sword" % self.name)
+
+
+class BowAndArrow(Weapon):
+    def __init__(self, name):
+        super(BowAndArrow, self).__init__(name)
+
+    def shoot(self):
+        print("You shot %s with the bow and arrow" % self.name)
+
+    def carry(self):
+        print("You picked up the bow and arrow")
 
 
 class Furniture(Item):
@@ -53,6 +101,9 @@ class Tapestry(Furniture):
 
     def mend(self):
         print("You mended the tapestry with %s." % self.name)
+
+
+class Table(Furniture):
 
 
 class Magic(Item):
@@ -80,45 +131,21 @@ class Container(Misc):
     def __init__(self, name, items):
         super(Container, self).__init__(name)
         self.inventory = items
-# make a list of items in the container and make a container class
 
     def open(self):
-        print("You opened the sack")
+        print("You opened the %s" % self.name)
 
     def put_in(self):
-        print("You put %s into the sack" % self.name)
+        print("You put %s into the %s" % (self.name, self.name))
 
     def take_out(self):
-        print("You took %s out of the sack" % self.name)
+        print("You took %s out of the %s" % (self.name, self.name))
 
     def carry(self):
-        print("You are carrying the sack")
+        print("You are carrying the %s" % self.name)
 
     def close(self):
-        print("You closed the sack")
-
-
-class Crate(Misc):
-    def __init__(self, name):
-        super(Crate, self).__init__(name)
-
-    def open(self):
-        print("You opened the crate")
-
-    def close(self):
-        print("You closed the crate")
-
-    def remove(self):
-        print("You removed %s from the crate" % self.name)
-
-    def place(self):
-        print("You placed %s back into the crate" % self.name)
-
-    def replace(self):
-        print("You replaced %s with %s" % self.name)
-
-    def move(self):
-        print("You moved the crate somewhere else" % self.name)
+        print("You closed the %s" % self.name)
 
 
 class Necklace(Misc):
