@@ -3,7 +3,7 @@ class Item(object):
         self.name = name
 
     def pick_up(self):
-        print("You picked up %s" % self.name)
+        print("%s picked up %s" % self.name)
 
     def drop(self):
         print("You dropped %s" % self.name)
@@ -50,7 +50,7 @@ class Water(Consumable):
         self.container = container
 
     def drink(self):
-        print("You have drank water")
+        print("You drank %s" % self.name)
 
 
 class Apple(Consumable):
@@ -84,7 +84,7 @@ class BowAndArrow(Weapon):
         print("You shot %s with the bow and arrow" % self.name)
 
     def carry(self):
-        print("You picked up the bow and arrow")
+        print("You picked up the %s" % self.name)
 
 
 class Furniture(Item):
@@ -104,6 +104,48 @@ class Tapestry(Furniture):
 
 
 class Table(Furniture):
+    def __init__(self, name, food):
+        super(Table, self).__init__(name)
+        self.food = food
+
+
+class Rug(Furniture):
+    def __init__(self, name, pattern):
+        super(Rug, self).__init__(name)
+        self.pattern = pattern
+
+
+class BearStatue(Furniture):
+    def __init__(self, name):
+        super(BearStatue, self).__init__(name)
+
+    def look_around(self):
+        print("You looked around the %s" % self.name)
+
+
+class Dresser(Furniture):
+    def __init__(self, name, crown, mirror, necklace):
+        super(Dresser, self).__init__(name)
+        self.crown = crown
+        self.mirror = mirror
+        self.necklace = necklace
+
+
+class Shield(Furniture):
+    def __init__(self, name):
+        super(Shield, self).__init__(name)
+
+    def protect(self):
+        print("You used the %s as protection" % self.name)
+
+
+class WoodCarving(Furniture):
+    def __init__(self, name, bear):
+        super(WoodCarving, self).__init__(name)
+        self.bear = bear
+
+    def buy(self):
+        print("You bought %s" % self.name)
 
 
 class Magic(Item):
@@ -112,6 +154,26 @@ class Magic(Item):
 
     def make(self):
         print("You made a %s with a potion" % self.name)
+
+
+class Potion(Magic):
+    def __init__(self, name, cake):
+        super(Potion, self).__init__(name)
+        self.cake = cake
+
+    def transform(self):
+        print("You consumed the potion and now you transformed into a %s" % self.name)
+
+
+class WillowtheWisp(Magic):
+    def __init__(self, name):
+        super(WillowtheWisp, self).__init__(name)
+
+    def follow(self):
+        print("You followed the Willow the Wisp" % self.name)
+
+    def appear(self):
+        print("The %s appeared in front of you" % self.name)
 
 
 class Misc(Item):
@@ -148,12 +210,12 @@ class Container(Misc):
         print("You closed the %s" % self.name)
 
 
-class Necklace(Misc):
+class SpecialNecklace(Misc):
     def __init__(self, name):
-        super(Necklace, self).__init__(name)
+        super(SpecialNecklace, self).__init__(name)
 
     def wear(self):
-        print("You are wearing the necklace")
+        print("You are wearing the %s" % self.name)
 
     def place(self):
         print("You placed the necklace in the %s" % self.name)
