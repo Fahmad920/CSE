@@ -2,8 +2,8 @@ class Item(object):
     def __init__(self, name):
         self.name = name
 
-    def pick_up(self):
-        print("%s picked up %s" % self.name)
+    def pick_up(self, person):
+        print("%s picked up %s" % person.name, self.name)
 
     def drop(self):
         print("You dropped %s" % self.name)
@@ -45,12 +45,13 @@ class Cake(Consumable):
 
 
 class Water(Consumable):
-    def __init__(self, name, container):
+    def __init__(self, name, container, person):
         super(Water, self).__init__(name)
         self.container = container
+        self.person = person
 
-    def drink(self):
-        print("You drank %s" % self.name)
+    def drink(self, person):
+        print("%s drank water" % person.name, self.name)
 
 
 class Apple(Consumable):
@@ -63,8 +64,8 @@ class Weapon(Item):
     def __init__(self, name):
         super(Weapon, self).__init__(name)
 
-    def fight(self):
-        print("You attacked with %s" % self.name)
+    def fight(self, person):
+        print("%s attacked with %s" % person.name, self.name)
 
 
 class Sword(Weapon):
@@ -72,16 +73,16 @@ class Sword(Weapon):
         super(Sword, self).__init__(name)
         self.sharpness = sharpness
 
-    def stab(self):
-        print("You stabbed %s with the sword" % self.name)
+    def stab(self, person):
+        print("You stabbed %s with the sword" % person.name)
 
 
 class BowAndArrow(Weapon):
     def __init__(self, name):
         super(BowAndArrow, self).__init__(name)
 
-    def shoot(self):
-        print("You shot %s with the bow and arrow" % self.name)
+    def shoot(self, person):
+        print("You shot %s with the bow and arrow" % person.name)
 
     def carry(self):
         print("You picked up the %s" % self.name)
@@ -144,8 +145,8 @@ class WoodCarving(Furniture):
         super(WoodCarving, self).__init__(name)
         self.bear = bear
 
-    def buy(self):
-        print("You bought %s" % self.name)
+    def buy(self, person):
+        print("You bought %s from %s" % self.name, person.name)
 
 
 class Magic(Item):
@@ -153,7 +154,7 @@ class Magic(Item):
         super(Magic, self).__init__(name)
 
     def make(self):
-        print("You made a %s with a potion" % self.name)
+        print("You made %s with magic" % self.name)
 
 
 class Potion(Magic):
@@ -161,16 +162,16 @@ class Potion(Magic):
         super(Potion, self).__init__(name)
         self.cake = cake
 
-    def transform(self):
-        print("You consumed the potion and now you transformed into a %s" % self.name)
+    def transform(self, person):
+        print("%s consumed the %s and now you transformed into a bear" % person.name, self.name)
 
 
 class WillowtheWisp(Magic):
     def __init__(self, name):
         super(WillowtheWisp, self).__init__(name)
 
-    def follow(self):
-        print("You followed the Willow the Wisp" % self.name)
+    def follow(self, person):
+        print("%s followed the Willow the Wisp" % person.name, self.name)
 
     def appear(self):
         print("The %s appeared in front of you" % self.name)
@@ -194,8 +195,8 @@ class Container(Misc):
         super(Container, self).__init__(name)
         self.inventory = items
 
-    def open(self):
-        print("You opened the %s" % self.name)
+    def open(self, person):
+        print("You opened the %s" % person.name, self.name)
 
     def put_in(self):
         print("You put %s into the %s" % (self.name, self.name))
@@ -214,8 +215,8 @@ class SpecialNecklace(Misc):
     def __init__(self, name):
         super(SpecialNecklace, self).__init__(name)
 
-    def wear(self):
-        print("You are wearing the %s" % self.name)
+    def wear(self, person):
+        print("%s are wearing the %s" % person.name, self.name)
 
     def place(self):
         print("You placed the necklace in the %s" % self.name)

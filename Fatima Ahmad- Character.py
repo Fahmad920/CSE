@@ -58,3 +58,22 @@ player.attack(enemy)
 enemy.attack(player)
 print("%s's health is %s." % (player.name, player.health))
 print("%s's health is %s." % (enemy.name, enemy.health))
+
+
+class Merida(Character):
+    def __init__(self, name, description, item, health, location, tree, bow_and_arrow, special_necklace):
+        super(Merida, self).__init__(name, description, item, health, location, tree,)
+        self.bow_and_arrow = bow_and_arrow
+        self.special_necklace = special_necklace
+
+    def walk(self):
+        print("% has moved" % self.name)
+
+
+class Queen(Character):
+    def __init__(self, name, description, item, health, location, tree, crown):
+        super(Queen, self).__init__(name, description, item, health, location, tree)
+        self.crown = crown
+
+    def transform(self):
+        print("After the Queen ate the %s Merida gave her, the Queen transformed into a bear." % self.name)
