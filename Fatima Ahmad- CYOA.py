@@ -1,7 +1,8 @@
 # Any import statements
 class Item(object):
-    def __init__(self, name):
+    def __init__(self, name, description):
         self.name = name
+        self.description = description
 
     def pick_up(self, person):
         print("%s picked up %s" % person.name, self.name)
@@ -14,8 +15,8 @@ class Item(object):
 
 
 class Consumable(Item):
-    def __init__(self, name):
-        super(Consumable, self).__init__(name)
+    def __init__(self, name, description):
+        super(Consumable, self).__init__(name, description)
 
     def use(self):
         print("You use the %s" % self.name)
@@ -25,16 +26,16 @@ class Consumable(Item):
 
 
 class Hay(Consumable):
-    def __init__(self, name):
-        super(Hay, self).__init__(name)
+    def __init__(self, name, description):
+        super(Hay, self).__init__(name, description)
 
     def use(self):
         print("You give the hay to a horse.")
 
 
 class Cake(Consumable):
-    def __init__(self, name, color, taste):
-        super(Cake, self).__init__(name)
+    def __init__(self, name, color, taste, description):
+        super(Cake, self).__init__(name, description)
         self.color = color
         self.taste = taste
 
@@ -46,8 +47,8 @@ class Cake(Consumable):
 
 
 class Water(Consumable):
-    def __init__(self, name, container, person):
-        super(Water, self).__init__(name)
+    def __init__(self, name, container, person, description):
+        super(Water, self).__init__(name, description)
         self.container = container
         self.person = person
 
@@ -56,22 +57,22 @@ class Water(Consumable):
 
 
 class Apple(Consumable):
-    def __init__(self, name, color):
-        super(Apple, self).__init__(name)
+    def __init__(self, name, color, description):
+        super(Apple, self).__init__(name, description)
         self.color = color
 
 
 class Weapon(Item):
-    def __init__(self, name):
-        super(Weapon, self).__init__(name)
+    def __init__(self, name, description):
+        super(Weapon, self).__init__(name, description)
 
     def fight(self, person):
         print("%s attacked with %s" % person.name, self.name)
 
 
 class Sword(Weapon):
-    def __init__(self, name, sharpness):
-        super(Sword, self).__init__(name)
+    def __init__(self, name, sharpness, description):
+        super(Sword, self).__init__(name, description)
         self.sharpness = sharpness
 
     def stab(self, person):
@@ -79,8 +80,8 @@ class Sword(Weapon):
 
 
 class BowAndArrow(Weapon):
-    def __init__(self, name):
-        super(BowAndArrow, self).__init__(name)
+    def __init__(self, name, description):
+        super(BowAndArrow, self).__init__(name, description)
 
     def shoot(self, person):
         print("You shot %s with the bow and arrow" % person.name)
@@ -90,60 +91,60 @@ class BowAndArrow(Weapon):
 
 
 class Furniture(Item):
-    def __init__(self, name):
-        super(Furniture, self).__init__(name)
+    def __init__(self, name, description):
+        super(Furniture, self).__init__(name, description)
 
     def move(self):
         print("You moved the %s" % self.name)
 
 
 class Tapestry(Furniture):
-    def __init__(self, name):
-        super(Tapestry, self).__init__(name)
+    def __init__(self, name, description):
+        super(Tapestry, self).__init__(name, description)
 
     def mend(self):
         print("You mended the tapestry with %s." % self.name)
 
 
 class Table(Furniture):
-    def __init__(self, name, food):
-        super(Table, self).__init__(name)
+    def __init__(self, name, food, description):
+        super(Table, self).__init__(name, description)
         self.food = food
 
 
 class Rug(Furniture):
-    def __init__(self, name, pattern):
-        super(Rug, self).__init__(name)
+    def __init__(self, name, pattern, description):
+        super(Rug, self).__init__(name, description)
         self.pattern = pattern
 
 
 class BearStatue(Furniture):
-    def __init__(self, name):
-        super(BearStatue, self).__init__(name)
+    def __init__(self, name, description):
+        super(BearStatue, self).__init__(name, description)
 
     def look_around(self):
         print("You looked around the %s" % self.name)
 
 
 class Dresser(Furniture):
-    def __init__(self, name, crown, mirror, necklace):
-        super(Dresser, self).__init__(name)
+    def __init__(self, name, crown, mirror, necklace, description):
+        super(Dresser, self).__init__(name, description)
         self.crown = crown
         self.mirror = mirror
         self.necklace = necklace
 
 
 class Shield(Furniture):
-    def __init__(self, name):
-        super(Shield, self).__init__(name)
+    def __init__(self, name, description):
+        super(Shield, self).__init__(name, description)
 
     def protect(self):
         print("You used the %s as protection" % self.name)
 
 
 class WoodCarving(Furniture):
-    def __init__(self, name, bear):
-        super(WoodCarving, self).__init__(name)
+    def __init__(self, name, bear, description):
+        super(WoodCarving, self).__init__(name, description)
         self.bear = bear
 
     def buy(self, person):
@@ -151,16 +152,16 @@ class WoodCarving(Furniture):
 
 
 class Magic(Item):
-    def __init__(self, name):
-        super(Magic, self).__init__(name)
+    def __init__(self, name, description):
+        super(Magic, self).__init__(name, description)
 
     def make(self):
         print("You made %s with magic" % self.name)
 
 
 class Potion(Magic):
-    def __init__(self, name, cake):
-        super(Potion, self).__init__(name)
+    def __init__(self, name, cake, description):
+        super(Potion, self).__init__(name, description)
         self.cake = cake
 
     def transform(self, person):
@@ -168,8 +169,8 @@ class Potion(Magic):
 
 
 class WillowtheWisp(Magic):
-    def __init__(self, name):
-        super(WillowtheWisp, self).__init__(name)
+    def __init__(self, name, description):
+        super(WillowtheWisp, self).__init__(name, description)
 
     def follow(self, person):
         print("%s followed the Willow the Wisp" % person.name, self.name)
@@ -179,21 +180,21 @@ class WillowtheWisp(Magic):
 
 
 class Misc(Item):
-    def __init__(self, name):
-        super(Misc, self).__init__(name)
+    def __init__(self, name, description):
+        super(Misc, self).__init__(name, description)
 
 
 class NeedleAndThread(Misc):
-    def __init__(self, name):
-        super(NeedleAndThread, self).__init__(name)
+    def __init__(self, name, description):
+        super(NeedleAndThread, self).__init__(name, description)
 
     def sew(self):
         print("You sewed the %s with the needle and thread " % self.name)
 
 
 class Container(Misc):
-    def __init__(self, name, items):
-        super(Container, self).__init__(name)
+    def __init__(self, name, items, description):
+        super(Container, self).__init__(name, description)
         self.inventory = items
 
     def open(self, person):
@@ -213,8 +214,8 @@ class Container(Misc):
 
 
 class SpecialNecklace(Misc):
-    def __init__(self, name):
-        super(SpecialNecklace, self).__init__(name)
+    def __init__(self, name, description):
+        super(SpecialNecklace, self).__init__(name, description)
 
     def wear(self, person):
         print("%s are wearing the %s" % person.name, self.name)
@@ -271,7 +272,10 @@ class Character(object):
 
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, up, down, northeast, northwest, southeast, description):
+    def __init__(self, name, north, south, east, west, up, down, northeast, northwest, southeast, description,
+                 items=None):
+        if items is None:
+            items = []
         self.name = name
         self.north = north
         self.south = south
@@ -283,6 +287,7 @@ class Room(object):
         self.northwest = northwest
         self.southeast = southeast
         self.description = description
+        self.items = items
 
     def move(self, direction):
         global current_node
@@ -290,6 +295,22 @@ class Room(object):
 
 
 # Instantiation of class Room
+hay = Item("Cake", "There is a little cake topped off with blueberries on the table.")
+
+water = Item("Water", "In the dining room there is a bottle of water left on the table.")
+
+apple = Item("Apple", "There is a bowl full of apples in the kitchen.")
+
+sword = Item("Sword", "The swords are kept in the fighting area, but Merida secretly has one in her room.")
+
+bow_and_arrow = Item("Bow and Arrow", "These are kept in the fighting area, but Merida has her own bow and arrow \n"
+                                      "that she keeps in her room.")
+
+tapestry = Item("Tapestry", "Merida's mom has the tapestry hanging in her room. The tapestry has Merida's family \n"
+                            "stitched on it.")
+
+table = Item("Table", "The table is in the dining room. \n"
+                      "There is a bottle of water on the table")
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a sack. \n'
                     'There is a door South, East, and West of the room.')
@@ -303,7 +324,7 @@ dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secre
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
                'In the kitchen, there is a cake on the table.\n'
-               'There is a little crate on the floor next to the door.')
+               'There is a little crate on the floor next to the door.', [apple])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
                'West to the gate is the forest.\n'
