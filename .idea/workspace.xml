@@ -40,8 +40,8 @@
       <file leaf-file-name="Fatima Ahmad- CYOA.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="312" column="62" lean-forward="false" selection-start-line="312" selection-start-column="62" selection-end-line="312" selection-end-column="62" />
+            <state relative-caret-position="224">
+              <caret line="340" column="30" lean-forward="false" selection-start-line="340" selection-start-column="30" selection-end-line="340" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="Fatima Ahmad- Items.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-805">
-              <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="-178">
+              <caret line="176" column="60" lean-forward="true" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -93,6 +93,7 @@
         <option value="$PROJECT_DIR$/Fatima Ahmad- Inheritance.py" />
         <option value="$PROJECT_DIR$/Fatima Ahmad- Character.py" />
         <option value="$PROJECT_DIR$/Fatima Ahmad- Final World Map.py" />
+        <option value="$PROJECT_DIR$/Fatima Ahmad- Items.py" />
         <option value="$PROJECT_DIR$/Fatima Ahmad- CYOA.py" />
       </list>
     </option>
@@ -615,16 +616,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-805">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="-178">
+          <caret line="176" column="60" lean-forward="true" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="312" column="62" lean-forward="false" selection-start-line="312" selection-start-column="62" selection-end-line="312" selection-end-column="62" />
+        <state relative-caret-position="224">
+          <caret line="340" column="30" lean-forward="false" selection-start-line="340" selection-start-column="30" selection-end-line="340" selection-end-column="30" />
           <folding />
         </state>
       </provider>

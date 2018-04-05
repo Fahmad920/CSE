@@ -295,11 +295,13 @@ class Room(object):
 
 
 # Instantiation of class Room
-hay = Item("Cake", "There is a little cake topped off with blueberries on the table.")
+hay = Item("Hay", "There is hay in the stables to feed the horses.")
 
 water = Item("Water", "In the dining room there is a bottle of water left on the table.")
 
 apple = Item("Apple", "There is a bowl full of apples in the kitchen.")
+
+cake = Item("Cake", "There is a little cake topped off with blueberries on the table.")
 
 sword = Item("Sword", "The swords are kept in the fighting area, but Merida secretly has one in her room.")
 
@@ -311,20 +313,59 @@ tapestry = Item("Tapestry", "Merida's mom has the tapestry hanging in her room. 
 
 table = Item("Table", "The table is in the dining room. \n"
                       "There is a bottle of water on the table")
+
+rug = Item("Rug", "There strange looking rug on the floor in the back in the witch's cottage. \n"
+                  "It seems like the rug leads down to something, but the witch won't let you near the rug.")
+
+bear_statue = Item("Bear Statue", "In the dining room, there is a bear statue in the corner. \n"
+                                  "The bear statue is decoration, but sometimes the king uses the statue as practice \n"
+                                  "defeating Mordu.")
+
+dresser = Item("Dresser", "On the dresser has the King and Queen's things that they use to get ready in the morning. ")
+
+shield = Item("Shield", "This shield that the one the King used in the war that they won against another country.\n"
+                        "It hangs proudly in the dining room where everyone can see it.")
+
+wood_carving = Item("Wood Carvings", "All of the wood carvings you see in the witch's cottage are bear themed. \n"
+                                     "Inside you find many wood carvings, but one carving in the back catches your eye")
+
+potion = Item("Potion", "The witch makes many different types of potions that helps change people's fate.\n"
+                        "The witch can only make one potion for you, in exchange for a special necklace. \n"
+                        "Her potions tend to change not only people's fate, but also their physical appearance.")
+
+willo_the_wisp = Item("Willo-the-Wisp", "Willo-the-Wisps are little magic creatures that show up when you most need \n"
+                                        "need help. People say that they can guide you to change your fate")
+
+needle_and_thread = Item("Needle and Thread", "Queen Elanor keeps her sewing materials in their room.")
+
+container = Item("Container", )
+
+
+
+
+
+
+
+
+
+
+
+
+
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a sack. \n'
                     'There is a door South, East, and West of the room.')
 parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None, None, None, None,
                     'This is where the king and queen stay.\n'
-                    'There is a dresser in the room and a door to the East.')
+                    'There is a dresser in the room and a door to the East.', [dresser, needle_and_thread])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
-                   'There is a door to the north.')
+                   'There is a door to the north.', [bear_statue, shield])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
                'In the kitchen, there is a cake on the table.\n'
-               'There is a little crate on the floor next to the door.', [apple])
+               'There is a little crate on the floor next to the door.', [apple, cake])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
                'West to the gate is the forest.\n'
@@ -339,7 +380,7 @@ stables = Room("Stables", None, 'outside', None, None, None, None, 'kitchen', No
                'You can go South or Northeast.')
 forest = Room("Forest", None, 'fire_fall', 'outside', None, None, None, None, None, 'the_ring_of_stones',
               'There is a path to the South and to the Southeast.\n'
-              'There is also a path that leads to the East')
+              'There is also a path that leads to the East', [willo_the_wisp])
 fire_fall = Room("Fire Fall", 'forest', None, 'the_ring_of_stones', None, None, None, None, None, None,
                  'Here there is a water fall and a rock to climb.\n'
                  'Legends say that only kings were brave enough to drink from this water fall. \n'
@@ -352,10 +393,10 @@ witches_cottage = Room("Witches Cottage", None, None, None, 'the_ring_of_stones'
                        None, None, 'You have found the witches cottage.\n'
                                    'Inside you find many wood carvings, but one carving in the back catches your eye.\n'
                                    'You also find a strange looking rug on the floor in the back. \n'
-                                   'From here you can go West.')
+                                   'From here you can go West.', [rug, wood_carving])
 magic_room = Room("Magic Room", None, None, None, None, 'witches_cottage', None, None, None, None,
                   'This is where the witch does her magic.\n'
-                  'The only way out is from the door you came in from.')
+                  'The only way out is from the door you came in from.', [cake, potion])
 river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancient_kingdom_ruins', None, None,
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
@@ -369,9 +410,9 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'There are bones everywhere, and many broken weapons.\n'
                    'There is also a tapestry of four princes.\n'
                    'You hear heavy breathing behind you, and you see Mordu behind you.')
-water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
-             'Out here, there is a lake in front of you and some boats tied to the dock \n'
-             'You can not go onto the boats.')
+# water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
+# 'Out here, there is a lake in front of you and some boats tied to the dock \n'
+# 'You can not go onto the boats.')
 
 current_node = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
