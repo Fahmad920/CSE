@@ -1,6 +1,6 @@
 # Any import statements
 class Item(object):
-    inventory = [container]
+    inventory = []
 
     def __init__(self, name, description):
         self.name = name
@@ -238,11 +238,13 @@ class Character(object):
         self.health = health
         self.damage = damage
         self.alive = False
-# self.location = location
+        self.location = None
 
-# def look(self):
-# print(self.location.name)
-# print("You have looked around")
+    # self.location = location
+
+    # def look(self):
+    # print(self.location.name)
+    # print("You have looked around")
 
     def take(self, item):
         self.inventory.append(item)
@@ -269,13 +271,16 @@ class Character(object):
             target.take_damage(self.damage)
         else:
             print("%s is dead and cannot attack" % self.name)
-
+    def move(self, direction):
+        self.location = globals()[getattr(self.location, direction)]
 
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, northeast, northwest, southeast, description,
-                 items=None):
+                 items=None, characters=None):
         if items is None:
             items = []
+        if characters is None:
+            characters = []
         self.name = name
         self.north = north
         self.south = south
@@ -288,10 +293,9 @@ class Room(object):
         self.southeast = southeast
         self.description = description
         self.items = items
+        self.characters = characters
 
-    def move(self, direction):
-        global current_node
-        current_node = globals()[getattr(self, direction)]
+
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -340,38 +344,52 @@ needle_and_thread = Item("Needle and Thread", "Queen Elanor keeps her sewing mat
 
 container = Item("Container", "You have a little brown sack that has all of your stuff.")
 
-
 special_necklace = Item("Special Necklace", "This special necklace is the one that the Queen gave you. It's valuable \n"
                                             "and it has three bears in a circle engraved onto it.")
 # END OF ITEMS BEGINNING OF CHARACTERS
 
 
 merida = Character("Merida", "Merida is the princes of Dunbroch and has three little brothers. She is adventurous, \n"
-                             "brave, and independent. Merida is the complete opposite of her mom, the Queen.", [], 1)
-
+                             "brave, and independent. Merida is the complete opposite of her mom, the Queen.",
+                   [container], 1)
 
 queen_eleanor = Character("Queen Eleanor", "Queen Eleanor is Merida's mother. She wants her daughter to act like a \n"
                                            "princess and ladylike, but Merida is not like that at all.", 1, [])
 
+king_fergus = Character("King Fergus", "King Fergus is Merida's father. The story of how King Fergus lost his left to\n"
+                                       "Mordu became legend.", [], 1)
 
-king_fergus = Character("King Fergus", "King Fergus is Merida's father. He was the one who got his leg eaten by Mordu\n")
+triplets = Character("Triplets", "The triplets are Merida's three little brothers. They are very mischievous, but \n"
+                                 "they never get caught.", [], 1)
 
+witch = Character("Witch", "The witch covers her identity as a woodcarver and carves pictures of bears. She has a \n"
+                           "secret magic room where she does all of her magic making.", [], 1)
+
+mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, before the kingdom fell.\n"
+                           "He found the witch, and asked her for a spell that would give him the strength of 10 men\n"
+                           "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
+                           "turned back into a human.", [], 1)
+
+
+angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", [], 1)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a little container. \n'
-                    'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container])
+                    'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container], [merida])
 parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None, None, None, None,
                     'This is where the king and queen stay.\n'
-                    'There is a dresser in the room and a door to the East.', [dresser, needle_and_thread,
-                                                                               special_necklace])
+                    "There is a dresser, and a small box that is full of Queen Elanor's needle and threads in the \n"
+                    "room and a door to the East.",
+                    [dresser, needle_and_thread,
+                     special_necklace], [king_fergus, queen_eleanor])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
-                   'There is a door to the north.', [bear_statue, shield])
+                   'There is a door to the north.', [bear_statue, shield], [triplets])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
                'In the kitchen, there is a cake on the table.\n'
-               'There is a little crate on the floor next to the door.', [apple, cake])
+               'There is a little crate on the floor next to the door.', [apple, cake], [queen_eleanor])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
                'West to the gate is the forest.\n'
@@ -417,19 +435,17 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'There is also a tapestry of four princes.\n'
                    'You hear heavy breathing behind you, and you see Mordu behind you.')
 
-
 water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
              'Out here, there is a lake in front of you and some boats tied to the dock \n'
              'You can not go onto the boats.')
-
 
 current_node = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 
 while True:
-    print(current_node.name)
-    print(current_node.description)
+    print(merida.location.name)
+    print(merida.location.description)
     command = input('> ').strip().lower()
     if command == 'quit':
         quit(0)
@@ -439,11 +455,16 @@ while True:
         command = directions[pos]
     if command in directions:
         try:
-            current_node.move(command)
+            merida.move(command)
         except KeyError:
             print("You cannot go that way.")
     else:
         print("Command not Recognized")
+
+    if command == 'eat':
+        print("%s ate %s")
+    elif command == 'cake':
+        print("You turned into a bear.")
 
 
 # 1st import statements
