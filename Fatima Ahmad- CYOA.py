@@ -245,6 +245,9 @@ class Character(object):
     # def look(self):
     # print(self.location.name)
     # print("You have looked around")
+    def eat_cake(self, item):
+        
+
 
     def take(self, item):
         self.inventory.append(item)
@@ -294,8 +297,6 @@ class Room(object):
         self.description = description
         self.items = items
         self.characters = characters
-
-
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -397,11 +398,11 @@ outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None
 fighting_area = Room("Fighting Area", None, 'water', None, None, None, None, None, 'outside', None,
                      'Here are lots of '
                      'weapons.\n Off to the South there is water and some boats \n'
-                     'Northwest leads to the gate to outside', [sword, bow_and_arrow])
+                     'Northwest leads to the gate to outside', [sword, bow_and_arrow], [king_fergus])
 stables = Room("Stables", None, 'outside', None, None, None, None, 'kitchen', None, None,
                'Here are all the horses.\n'
                'There is hay and water here as well.\n'
-               'You can go South or Northeast.', [hay, water])
+               'You can go South or Northeast.', [hay, water], [angus])
 forest = Room("Forest", None, 'fire_fall', 'outside', None, None, None, None, None, 'the_ring_of_stones',
               'There is a path to the South and to the Southeast.\n'
               'There is also a path that leads to the East', [willo_the_wisp])
@@ -417,10 +418,10 @@ witches_cottage = Room("Witches Cottage", None, None, None, 'the_ring_of_stones'
                        None, None, 'You have found the witches cottage.\n'
                                    'Inside you find many wood carvings, but one carving in the back catches your eye.\n'
                                    'You also find a strange looking rug on the floor in the back. \n'
-                                   'From here you can go West.', [rug, wood_carving, potion])
+                                   'From here you can go West.', [rug, wood_carving, potion], [witch])
 magic_room = Room("Magic Room", None, None, None, None, 'witches_cottage', None, None, None, None,
                   'This is where the witch does her magic.\n'
-                  'The only way out is from the door you came in from.', [cake, potion])
+                  'The only way out is from the door you came in from.', [cake, potion], [witch])
 river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancient_kingdom_ruins', None, None,
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
@@ -433,11 +434,11 @@ mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins
                    'Your in a dark cave with only faint light from above.\n'
                    'There are bones everywhere, and many broken weapons.\n'
                    'There is also a tapestry of four princes.\n'
-                   'You hear heavy breathing behind you, and you see Mordu behind you.')
+                   'You hear heavy breathing behind you, and you see Mordu behind you.', [mordu])
 
 water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
              'Out here, there is a lake in front of you and some boats tied to the dock \n'
-             'You can not go onto the boats.')
+             'You can not go onto the boats.', [triplets])
 
 current_node = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
@@ -461,10 +462,12 @@ while True:
     else:
         print("Command not Recognized")
 
-    if command == 'eat':
-        print("%s ate %s")
-    elif command == 'cake':
-        print("You turned into a bear.")
+    if command == cake:
+        queen_eleanor
+
+
+    if command == 'eat cake':
+        print("%s turned into a bear.")
 
 
 # 1st import statements
