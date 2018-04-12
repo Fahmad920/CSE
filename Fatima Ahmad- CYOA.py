@@ -1,4 +1,28 @@
 # Any import statements
+import time
+
+
+def talk_to_witch():
+    time_between = 1
+    print("You go up the witch and start talking.")
+    time.sleep(time_between)
+    print("Witch: Welcome to my wood carving shop. Look around, everything is hal off.")
+    time.sleep(time_between)
+    print("You: What the?")
+    time.sleep(time_between)
+    print("You: Why did the Willo-the-Wisps bring me here?")
+    time.sleep(time_between)
+    print("Crow: You know staring is rude")
+    print("You: THAT CROW JUST TALKED!! Your a witch!")
+    print("Witch: No, woodcarver")
+    print("You: I need a spell that will change my mum.")
+    print("Witch: Too many unsatisfied customers. If you aren't going to buy anything, then get out.")
+    print("You: I'll buy it all, every single wood carving, and a spell that can change my fate.")
+    print("Witch: and how are going to pay for that?")
+    print()
+    print()
+
+
 class Item(object):
     inventory = []
 
@@ -245,9 +269,7 @@ class Character(object):
     # def look(self):
     # print(self.location.name)
     # print("You have looked around")
-    def eat_cake(self, item):
-        
-
+    # def eat_cake(self, item):
 
     def take(self, item):
         self.inventory.append(item)
@@ -274,8 +296,10 @@ class Character(object):
             target.take_damage(self.damage)
         else:
             print("%s is dead and cannot attack" % self.name)
+
     def move(self, direction):
         self.location = globals()[getattr(self.location, direction)]
+
 
 class Room(object):
     def __init__(self, name, north, south, east, west, up, down, northeast, northwest, southeast, description,
@@ -440,40 +464,41 @@ water = Room("Water", 'fighting_area', None, None, None, None, None, None, None,
              'Out here, there is a lake in front of you and some boats tied to the dock \n'
              'You can not go onto the boats.', [triplets])
 
-current_node = meridas_room
+merida.location = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 
 while True:
+    # Room information
     print(merida.location.name)
     print(merida.location.description)
+
+    # Take input
     command = input('> ').strip().lower()
+
+    # Pre-processing
     if command == 'quit':
         quit(0)
     elif command in short_directions:
         # Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
+
+    # Processing
     if command in directions:
         try:
             merida.move(command)
         except KeyError:
             print("You cannot go that way.")
+    if merida.location == witches_cottage:
+        talk_to_witch()
+# elif command == "talk to witch":
+        if potion not in merida.inventory:
+            talk_to_witch()
+        else:
+            print("The witch is gone.")
+    elif command == 'eat cake':
+        print("%s turned into a bear.")
     else:
         print("Command not Recognized")
 
-    if command == cake:
-        queen_eleanor
-
-
-    if command == 'eat cake':
-        print("%s turned into a bear.")
-
-
-# 1st import statements
-# 2nd class definition
-# - Items
-# -Characters
-# - Rooms
-# 3rd instantiation of classes
-# 4th controller
