@@ -19,6 +19,7 @@ def talk_to_witch():
     print("Witch: Too many unsatisfied customers. If you aren't going to buy anything, then get out.")
     print("You: I'll buy it all, every single wood carving, and a spell that can change my fate.")
     print("Witch: and how are going to pay for that?")
+    input()
     print()
     print()
 
@@ -76,7 +77,7 @@ class Cake(Consumable):
 
 
 class Water(Consumable):
-    def __init__(self, name, container, person, description):
+    def __init__(self, name, person, description):
         super(Water, self).__init__(name, description)
         self.container = container
         self.person = person
@@ -105,7 +106,7 @@ class Sword(Weapon):
         self.sharpness = sharpness
 
     def stab(self, person):
-        print("You stabbed %s with the sword" % person.name)
+        print("You stabbed %s with the %s." % (person.name, self.name))
 
 
 class BowAndArrow(Weapon):
@@ -490,15 +491,10 @@ while True:
             merida.move(command)
         except KeyError:
             print("You cannot go that way.")
-    if merida.location == witches_cottage:
-        talk_to_witch()
-# elif command == "talk to witch":
+
         if potion not in merida.inventory:
             talk_to_witch()
         else:
             print("The witch is gone.")
-    elif command == 'eat cake':
-        print("%s turned into a bear.")
     else:
         print("Command not Recognized")
-
