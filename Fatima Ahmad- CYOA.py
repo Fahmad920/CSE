@@ -3,22 +3,29 @@ import time
 
 
 def talk_to_witch():
-    time_between = 1
+    time_between = 3
     print("You go up the witch and start talking.")
     time.sleep(time_between)
-    print("Witch: Welcome to my wood carving shop. Look around, everything is hal off.")
+    print("Witch: Welcome to my wood carving shop. Look around, everything is half off.")
     time.sleep(time_between)
     print("You: What the?")
     time.sleep(time_between)
     print("You: Why did the Willo-the-Wisps bring me here?")
     time.sleep(time_between)
-    print("Crow: You know staring is rude")
+    print("Crow: You know staring is rude.")
+    time.sleep(time_between)
     print("You: THAT CROW JUST TALKED!! Your a witch!")
+    time.sleep(time_between)
     print("Witch: No, woodcarver")
+    time.sleep(time_between)
     print("You: I need a spell that will change my mum.")
+    time.sleep(time_between)
     print("Witch: Too many unsatisfied customers. If you aren't going to buy anything, then get out.")
+    time.sleep(time_between)
     print("You: I'll buy it all, every single wood carving, and a spell that can change my fate.")
+    time.sleep(time_between)
     print("Witch: and how are going to pay for that?")
+    time.sleep(time_between)
     input()
     print()
     print()
@@ -492,9 +499,21 @@ while True:
         except KeyError:
             print("You cannot go that way.")
 
+    else:
+        print("Command not Recognized")
+
+    # talk to characters
+    if merida.location == witches_cottage:
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(5)
         if potion not in merida.inventory:
             talk_to_witch()
         else:
             print("The witch is gone.")
-    else:
-        print("Command not Recognized")
+        if input == special_necklace:
+            print("That's a deal.")
+        elif input != special_necklace:
+            print("That's not worth enough.")
+        else:
+            print("No")
