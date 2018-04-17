@@ -3,7 +3,7 @@ import time
 
 
 def talk_to_witch():
-    time_between = 3
+    time_between = 2.5
     print("You go up the witch and start talking.")
     time.sleep(time_between)
     print("Witch: Welcome to my wood carving shop. Look around, everything is half off.")
@@ -26,9 +26,10 @@ def talk_to_witch():
     time.sleep(time_between)
     print("Witch: and how are going to pay for that?")
     time.sleep(time_between)
-    input()
+    response = input()
     print()
     print()
+    return response
 
 
 class Item(object):
@@ -265,7 +266,7 @@ class Character(object):
     def __init__(self, name, description, item, health, damage=10):
         self.name = name
         self.description = description
-        self.inventory = [container]
+        self.inventory = [container, special_necklace]
         self.item = item
         self.health = health
         self.damage = damage
@@ -413,8 +414,7 @@ parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None
                     'This is where the king and queen stay.\n'
                     "There is a dresser, and a small box that is full of Queen Elanor's needle and threads in the \n"
                     "room and a door to the East.",
-                    [dresser, needle_and_thread,
-                     special_necklace], [king_fergus, queen_eleanor])
+                    [dresser, needle_and_thread], [king_fergus, queen_eleanor])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
@@ -506,14 +506,15 @@ while True:
     if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
-        time.sleep(5)
+        time.sleep(3)
+        print()
+        item = ""
         if potion not in merida.inventory:
-            talk_to_witch()
+            item = talk_to_witch()
         else:
             print("The witch is gone.")
-        if input == special_necklace:
+
+        if item == 'special necklace':
             print("That's a deal.")
-        elif input != special_necklace:
-            print("That's not worth enough.")
         else:
-            print("No")
+            print("That's not worth enough.")
