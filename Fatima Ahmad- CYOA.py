@@ -32,6 +32,12 @@ def talk_to_witch():
     return response
 
 
+def trade_with_witch():
+    print("The witch wants to trade with you for your special necklace.")
+    print("You now have traded your special necklace for the potion from the witch.")
+    merida.inventory = potion
+
+
 class Item(object):
     inventory = []
 
@@ -50,6 +56,9 @@ class Item(object):
 
     def carry(self):
         print("You are carrying %s" % self.name)
+
+    def take(self):
+        print("You took %s" % self.name)
 
 
 class Consumable(Item):
@@ -475,6 +484,7 @@ water = Room("Water", 'fighting_area', None, None, None, None, None, None, None,
 merida.location = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
+inventory = ['inventory']
 
 while True:
     # Room information
@@ -499,8 +509,14 @@ while True:
         except KeyError:
             print("You cannot go that way.")
 
-    else:
-        print("Command not Recognized")
+    elif command == 'inventory':
+        try:
+            for item_ in merida.inventory:  # You said that I could ignore this error.
+                print(item_.name)
+        except KeyError:
+            print("You don't have anything in your inventory.")
+        else:
+            print("Command not Recognized")
 
     # talk to characters
     if merida.location == witches_cottage:
@@ -516,5 +532,9 @@ while True:
 
         if item == 'special necklace':
             print("That's a deal.")
+            trade_with_witch()
+            merida.inventory = potion
         else:
             print("That's not worth enough.")
+
+
