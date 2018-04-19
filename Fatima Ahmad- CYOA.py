@@ -35,7 +35,6 @@ def talk_to_witch():
 def trade_with_witch():
     print("The witch wants to trade with you for your special necklace.")
     print("You now have traded your special necklace for the potion from the witch.")
-    merida.inventory = potion
 
 
 class Item(object):
@@ -511,7 +510,7 @@ while True:
 
     elif command == 'inventory':
         try:
-            for item_ in merida.inventory:  # You said that I could ignore this error.
+            for item_ in merida.inventory:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
@@ -533,8 +532,9 @@ while True:
         if item == 'special necklace':
             print("That's a deal.")
             trade_with_witch()
-            merida.inventory = potion
-        else:
+            merida.inventory.append(potion)
+        elif item != 'special necklace':
             print("That's not worth enough.")
-
+            print("What else do you got?")
+            input()
 
