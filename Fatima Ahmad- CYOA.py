@@ -290,7 +290,11 @@ class Character(object):
 
     def take(self, item):
         self.inventory.append(item)
-        print("You have taken something")
+        print("You have picked up %s" % item.name)
+
+    def remove(self, item):
+        self.inventory.remove(item)
+        print("You dropped %s" % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -537,4 +541,21 @@ while True:
             print("That's not worth enough.")
             print("What else do you got?")
             input()
-
+    elif 'take' in command:
+        take_name = command[5:]
+        found = None
+        for item in merida.location.items:
+            if take_name == item.name.lower():
+                merida.take(item)
+                found = item
+        if found is None:
+            print("It is not in the room.")
+        else:
+            merida.location.items.remove(found)
+    elif 'remove' in command:
+        remove_name = command[5:]
+        for item in merida.inventory:
+            if remove_name == item.name.lower():
+                merida.remove(item)
+            else:
+                merida.inventory.append(item)
