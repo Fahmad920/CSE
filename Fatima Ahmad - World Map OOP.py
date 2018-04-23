@@ -119,3 +119,6 @@ while True:
             print("You cannot go that way.")
     else:
         print("Command not Recognized")
+
+# Key error = when you look in a dictionary for a variable, but there is no item in there
+# errethmetic error = when you try to divide by 0

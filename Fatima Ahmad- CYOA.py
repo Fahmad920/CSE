@@ -1,9 +1,10 @@
 # Any import statements
 import time
 
+time_delay = .3  # Default is 3
 
 def talk_to_witch():
-    time_between = 2.5
+    time_between = .1  # Default is 2.5
     print("You go up the witch and start talking.")
     time.sleep(time_between)
     print("Witch: Welcome to my wood carving shop. Look around, everything is half off.")
@@ -26,10 +27,6 @@ def talk_to_witch():
     time.sleep(time_between)
     print("Witch: and how are going to pay for that?")
     time.sleep(time_between)
-    response = input()
-    print()
-    print()
-    return response
 
 
 def trade_with_witch():
@@ -342,6 +339,7 @@ class Room(object):
         self.description = description
         self.items = items
         self.characters = characters
+        self.first_time = True
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -488,12 +486,14 @@ merida.location = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 inventory = ['inventory']
+moved = True
 
 while True:
     # Room information
-    print(merida.location.name)
-    print(merida.location.description)
-
+    if moved:
+        print(merida.location.name)
+        print(merida.location.description)
+    moved = False
     # Take input
     command = input('> ').strip().lower()
 
@@ -509,6 +509,7 @@ while True:
     if command in directions:
         try:
             merida.move(command)
+            moved = True
         except KeyError:
             print("You cannot go that way.")
 
@@ -525,22 +526,23 @@ while True:
     if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
-        time.sleep(3)
+        time.sleep(time_delay)
         print()
         item = ""
         if potion not in merida.inventory:
-            item = talk_to_witch()
-        else:
-            print("The witch is gone.")
-
-        if item == 'special necklace':
+            talk_to_witch()
+            response = input(">_")
+            while response != 'special necklace':
+                print("That's not worth enough.")
+                print("What else do you got?")
+                response = input(">_").lower()
             print("That's a deal.")
             trade_with_witch()
             merida.inventory.append(potion)
-        elif item != 'special necklace':
-            print("That's not worth enough.")
-            print("What else do you got?")
-            input()
+
+        else:
+            print("The witch is gone.")
+
     elif 'take' in command:
         take_name = command[5:]
         found = None
