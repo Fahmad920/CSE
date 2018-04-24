@@ -3,6 +3,7 @@ import time
 
 time_delay = .3  # Default is 3
 
+
 def talk_to_witch():
     time_between = .1  # Default is 2.5
     print("You go up the witch and start talking.")
@@ -291,7 +292,7 @@ class Character(object):
 
     def remove(self, item):
         self.inventory.remove(item)
-        print("You dropped %s" % self.name)
+        print("You dropped %s" % item.name)
 
     def health(self):
         print(self.name.damage)
@@ -418,7 +419,7 @@ mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, 
 angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", [], 1)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
-                    'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a little container. \n'
+                    'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a container. \n'
                     'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container], [merida])
 parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None, None, None, None,
                     'This is where the king and queen stay.\n'
@@ -494,6 +495,7 @@ while True:
         print(merida.location.name)
         print(merida.location.description)
     moved = False
+    removed = False
     # Take input
     command = input('> ').strip().lower()
 
@@ -536,9 +538,10 @@ while True:
                 print("That's not worth enough.")
                 print("What else do you got?")
                 response = input(">_").lower()
-            print("That's a deal.")
-            trade_with_witch()
-            merida.inventory.append(potion)
+            else:
+                print("That's a deal.")
+                trade_with_witch()
+                merida.inventory.append(potion)
 
         else:
             print("The witch is gone.")
@@ -555,9 +558,13 @@ while True:
         else:
             merida.location.items.remove(found)
     elif 'remove' in command:
-        remove_name = command[5:]
+        remove_name = command[7:]
+        remove = None
         for item in merida.inventory:
             if remove_name == item.name.lower():
                 merida.remove(item)
+                remove = item
+            elif merida.remove(item):
+                merida.location.items.append(item)
             else:
-                merida.inventory.append(item)
+                merida.location.items.append(remove)
