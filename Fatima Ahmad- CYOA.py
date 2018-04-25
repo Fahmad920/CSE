@@ -35,6 +35,32 @@ def trade_with_witch():
     print("You now have traded your special necklace for the potion from the witch.")
 
 
+def talk_with_mom():
+    print("You got the spell from the witch in a form of a little cake.")
+    time.sleep(time_delay)
+    print("Mom: Where have you been? I've been looking all over for you.")
+    time.sleep(time_delay)
+    print("You: I've just been in the forest with Angus.")
+    time.sleep(time_delay)
+    print("Mom: Well I've talked with the suitors about the marriage...")
+    time.sleep(.1)
+    print("You show your mom the little cake, and offer it as a peace offering.")
+    time.sleep(time_delay)
+    print("Your mom takes a bite of the cake, but there is something wrong going on with the cake.")
+    time.sleep(2)
+    print()
+    print()
+    print("After a while, your mom is not feeling so good, and you know it has to do with the cake.")
+    time.sleep(time_delay)
+    print("You take your Mom to your room, and she starts yelling at you about the cake.")
+    time.sleep(time_delay)
+    print("You tried to play it off, but something starts happening to your Mom. \n"
+          "She falls off the bed, and she starts transforming into something else.")
+    time.sleep(1)
+    print("You realize that your Mom just turned into a bear. That spell you got from the witch transformed your Mom /n"
+          "into a bear.")
+
+
 class Item(object):
     inventory = []
 
@@ -293,6 +319,10 @@ class Character(object):
     def remove(self, item):
         self.inventory.remove(item)
         print("You dropped %s" % item.name)
+
+
+    def eat(self, item):
+        print("%s ate %s" % self.name , item.name)
 
     def health(self):
         print(self.name.damage)
@@ -568,3 +598,11 @@ while True:
                 merida.location.items.append(item)
             else:
                 merida.location.items.append(remove)
+    if merida.location == kitchen:
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(time_delay)
+        print()
+        item = ""
+        if cake in merida.inventory:
+            talk_with_mom()
