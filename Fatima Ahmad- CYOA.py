@@ -46,6 +46,7 @@ def talk_with_mom():
     time.sleep(.1)
     print("You show your mom the little cake, and offer it as a peace offering.")
     time.sleep(time_delay)
+    queen_eleanor.eat(cake)
     print("Your mom takes a bite of the cake, but there is something wrong going on with the cake.")
     time.sleep(2)
     print()
@@ -57,8 +58,6 @@ def talk_with_mom():
     print("You tried to play it off, but something starts happening to your Mom. \n"
           "She falls off the bed, and she starts transforming into something else.")
     time.sleep(1)
-    print("You realize that your Mom just turned into a bear. That spell you got from the witch transformed your Mom /n"
-          "into a bear.")
 
 
 class Item(object):
@@ -283,6 +282,11 @@ class Container(Misc):
         print("You closed the %s" % self.name)
 
 
+class Bear(Item):
+    def __init__(self, name, description):
+        super(Bear, self).__init__(name, description)
+
+
 class SpecialNecklace(Misc):
     def __init__(self, name, description):
         super(SpecialNecklace, self).__init__(name, description)
@@ -320,9 +324,12 @@ class Character(object):
         self.inventory.remove(item)
         print("You dropped %s" % item.name)
 
-
     def eat(self, item):
-        print("%s ate %s" % self.name , item.name)
+        print("%s ate the %s" % (self.name, item.name))
+
+    def transform(self, bear):
+        queen_eleanor.transform(bear)
+        print("%s turned into a bear" % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -462,7 +469,6 @@ dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secre
                    'There is a door to the north.', [bear_statue, shield], [triplets])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
-               'In the kitchen, there is a cake on the table.\n'
                'There is a little crate on the floor next to the door.', [apple, cake], [queen_eleanor])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
@@ -598,11 +604,12 @@ while True:
                 merida.location.items.append(item)
             else:
                 merida.location.items.append(remove)
-    if merida.location == kitchen:
+    if merida.location == kitchen and cake in merida.inventory:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
         print()
         item = ""
-        if cake in merida.inventory:
-            talk_with_mom()
+        talk_with_mom()
+        time.sleep(2)
+        queen_eleanor.eat(cake)
