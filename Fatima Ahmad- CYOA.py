@@ -60,6 +60,21 @@ def talk_with_mom():
     time.sleep(1)
 
 
+def argument():
+    print("It is almost time for the games to begin. The games are for your hand in marriage. \n"
+          "There are three clans here, in which none of their sons are worthy enough to you. \n"
+          "Since you got to decide what the games are going to be, and since your the first born of your kingdom, \n"
+          "you decide that you are going to play for your own hand so you don't have to marry.")
+    time.sleep(2)
+    print()
+    print()
+    print("It's time for the games now, and the three sons shoot their arrows, but only one makes it in the middle.")
+    time.sleep(2)
+    print("You start waling down to the targets and get ready to shoot your arrows.")
+    print("Mom: Merida, don't you dare shoot an arrow!!!")
+    print("")
+
+
 class Item(object):
     inventory = []
 
@@ -327,8 +342,7 @@ class Character(object):
     def eat(self, item):
         print("%s ate the %s" % (self.name, item.name))
 
-    def transform(self, bear):
-        queen_eleanor.transform(bear)
+    def transform(self):
         print("%s turned into a bear" % self.name)
 
     def health(self):
@@ -580,7 +594,8 @@ while True:
                 merida.inventory.append(potion)
 
         else:
-            print("The witch is gone.")
+            print("The witch is gone. \n"
+                  "The witch did leave a message for you in her secret magic room.")
 
     elif 'take' in command:
         take_name = command[5:]
@@ -604,7 +619,7 @@ while True:
                 merida.location.items.append(item)
             else:
                 merida.location.items.append(remove)
-    if merida.location == kitchen and cake in merida.inventory:
+    if merida.location == kitchen and potion in merida.inventory:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
@@ -612,4 +627,4 @@ while True:
         item = ""
         talk_with_mom()
         time.sleep(2)
-        queen_eleanor.eat(cake)
+        queen_eleanor.transform()
