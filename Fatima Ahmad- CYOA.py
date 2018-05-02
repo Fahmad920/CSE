@@ -61,14 +61,12 @@ def talk_with_mom():
     time.sleep(1)
 
 
-def games():
+def beginning_games():
     print("It is almost time for the games to begin. The games are for your hand in marriage. \n"
           "There are three clans here, in which none of their sons are worthy enough to you. \n"
           "Since you got to decide what the games are going to be, and since your the first born of your kingdom, \n"
-          "you decide that you are going to play for your own hand so you don't have to marry.")
-    print("Are you ready?")
-    print()
-    print()
+          "you decide that that games are going to be archery \n"
+          "you are going to play for your own hand so you don't have to marry.")
 
 
 def argument():
@@ -87,6 +85,9 @@ def argument():
     print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
     time.sleep(time_delay)
 
+
+def running_away():
+    print("You get mad at your mom and you run off")
 
 class Item(object):
     inventory = []
@@ -315,6 +316,14 @@ class Bear(Item):
         super(Bear, self).__init__(name, description)
 
 
+class Target(Weapon):
+    def __init__(self, name, description):
+        super(Target, self).__init__(name, description)
+
+    def shoot_in(self, person):
+        print("%s shot the target with a %s" % person.name, self.name)
+
+
 class SpecialNecklace(Misc):
     def __init__(self, name, description):
         super(SpecialNecklace, self).__init__(name, description)
@@ -359,7 +368,10 @@ class Character(object):
         print("%s turned into a bear" % self.name)
 
     def shoot(self):
-        print("%s shot with their a bow and arrow" % self.name)
+        print("%s shot with a bow and arrow" % self.name)
+
+    def shoot_target(self, person):
+        print("%s shoot at the target with %s" % person.name, self.name)
 
     def health(self):
         print(self.name.damage)
@@ -605,6 +617,7 @@ while True:
                 print("That's a deal.")
                 trade_with_witch()
                 merida.inventory.append(potion)
+                merida.inventory.remove(special_necklace)
 
         else:
             print("The witch is gone. \n"
@@ -629,33 +642,24 @@ while True:
                 merida.remove(item)
                 merida.location.items.append(item)
                 remove = item
-    elif merida.location == kitchen and potion in merida.inventory:
-        print(merida.location.name)
-        print(merida.location.description)
-        time.sleep(time_delay)
-        print()
-        item = ""
-        talk_with_mom()
-        time.sleep(2)
-        queen_eleanor.transform()
+    elif merida.location == kitchen:
+        if potion in merida.inventory:
+            print(talk_with_mom())
+            time.sleep(2)
+            queen_eleanor.transform()
     elif 'shoot' in command:
         if bow_and_arrow in merida.inventory:
-            merida.shoot()
+            merida.shoot_target(merida)
         else:
-            print("You don't it in your inventory")
+            print("You don't have it in your inventory")
     elif merida.location == outside:
-        print(merida.location.name)
-        print(merida.location.description)
-        time.sleep(time_delay)
-        print()
         if bow_and_arrow in merida.inventory:
-            games()
-            response = input(">_")
-            while response == 'Yes':
-                argument()
-            else:
-                print("Well, that's too bad, your mom wants you ")
-
-
+            print(beginning_games())
+# if merida.shoot():
+# argument()
+# print()
+# print()
+# time.sleep(time_delay)
+# running_away()
     else:
         print("Command not Recognized")
