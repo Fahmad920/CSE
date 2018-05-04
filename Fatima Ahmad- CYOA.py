@@ -654,7 +654,11 @@ while True:
             print("You don't have it in your inventory")
     elif merida.location == outside:
         if bow_and_arrow in merida.inventory:
-            print(beginning_games())
+            print(merida.location.name)
+            print(merida.location.description)
+            time.sleep(time_delay)
+            print()
+            beginning_games()
 # if merida.shoot():
 # argument()
 # print()
