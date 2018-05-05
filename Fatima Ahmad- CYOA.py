@@ -1,4 +1,5 @@
 # Any import statements
+# https://www.jetbrains.com/shop/eform/students TO GET A BETTER FORM OF PYCHARM
 import time
 
 time_delay = .3  # Default is 3
@@ -60,20 +61,33 @@ def talk_with_mom():
     time.sleep(1)
 
 
-def argument():
+def beginning_games():
     print("It is almost time for the games to begin. The games are for your hand in marriage. \n"
           "There are three clans here, in which none of their sons are worthy enough to you. \n"
           "Since you got to decide what the games are going to be, and since your the first born of your kingdom, \n"
-          "you decide that you are going to play for your own hand so you don't have to marry.")
-    time.sleep(2)
-    print()
-    print()
-    print("It's time for the games now, and the three sons shoot their arrows, but only one makes it in the middle.")
-    time.sleep(2)
-    print("You start waling down to the targets and get ready to shoot your arrows.")
-    print("Mom: Merida, don't you dare shoot an arrow!!!")
-    print("")
+          "you decide that that games are going to be archery \n"
+          "you are going to play for your own hand so you don't have to marry.")
 
+
+def argument():
+    print("You start waling down to the targets and get ready to shoot your arrows.")
+    time.sleep(time_delay)
+    print("Mom: Merida, don't you dare shoot an arrow!!!")
+    time.sleep(time_delay)
+    print("You don't listen to her and you shoot the last target. And you have messed up everything.")
+    time.sleep(time_delay)
+    print("Your mom talks you into your room, and she is really, really mad at you.")
+    time.sleep(time_delay)
+    print("Mom: You embarrassed them, you embarrassed me")
+    time.sleep(time_delay)
+    print("You: Mom it's not fair. You always tell me what to do, and what not to do. IT'S MY LIFE!!")
+    time.sleep(time_delay)
+    print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
+    time.sleep(time_delay)
+
+
+def running_away():
+    print("You get mad at your mom and you run off")
 
 class Item(object):
     inventory = []
@@ -302,6 +316,14 @@ class Bear(Item):
         super(Bear, self).__init__(name, description)
 
 
+class Target(Weapon):
+    def __init__(self, name, description):
+        super(Target, self).__init__(name, description)
+
+    def shoot_in(self, person):
+        print("%s shot the target with a %s" % person.name, self.name)
+
+
 class SpecialNecklace(Misc):
     def __init__(self, name, description):
         super(SpecialNecklace, self).__init__(name, description)
@@ -317,7 +339,7 @@ class Character(object):
     def __init__(self, name, description, item, health, damage=10):
         self.name = name
         self.description = description
-        self.inventory = [container, special_necklace]
+        self.inventory = [special_necklace]
         self.item = item
         self.health = health
         self.damage = damage
@@ -344,6 +366,12 @@ class Character(object):
 
     def transform(self):
         print("%s turned into a bear" % self.name)
+
+    def shoot(self):
+        print("%s shot with a bow and arrow" % self.name)
+
+    def shoot_target(self, person):
+        print("%s shoot at the target with %s" % person.name, self.name)
 
     def health(self):
         print(self.name.damage)
@@ -446,8 +474,7 @@ special_necklace = Item("Special Necklace", "This special necklace is the one th
 
 
 merida = Character("Merida", "Merida is the princes of Dunbroch and has three little brothers. She is adventurous, \n"
-                             "brave, and independent. Merida is the complete opposite of her mom, the Queen.",
-                   [container], 1)
+                             "brave, and independent. Merida is the complete opposite of her mom, the Queen.", 1, 1)
 
 queen_eleanor = Character("Queen Eleanor", "Queen Eleanor is Merida's mother. She wants her daughter to act like a \n"
                                            "princess and ladylike, but Merida is not like that at all.", 1, [])
@@ -571,11 +598,9 @@ while True:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
-        else:
-            print("Command not Recognized")
 
     # talk to characters
-    if merida.location == witches_cottage:
+    elif merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
@@ -592,6 +617,7 @@ while True:
                 print("That's a deal.")
                 trade_with_witch()
                 merida.inventory.append(potion)
+                merida.inventory.remove(special_necklace)
 
         else:
             print("The witch is gone. \n"
@@ -614,17 +640,30 @@ while True:
         for item in merida.inventory:
             if remove_name == item.name.lower():
                 merida.remove(item)
-                remove = item
-            elif merida.remove(item):
                 merida.location.items.append(item)
-            else:
-                merida.location.items.append(remove)
-    if merida.location == kitchen and potion in merida.inventory:
-        print(merida.location.name)
-        print(merida.location.description)
-        time.sleep(time_delay)
-        print()
-        item = ""
-        talk_with_mom()
-        time.sleep(2)
-        queen_eleanor.transform()
+                remove = item
+    elif merida.location == kitchen:
+        if potion in merida.inventory:
+            print(talk_with_mom())
+            time.sleep(2)
+            queen_eleanor.transform()
+    elif 'shoot' in command:
+        if bow_and_arrow in merida.inventory:
+            merida.shoot_target(merida)
+        else:
+            print("You don't have it in your inventory")
+    elif merida.location == outside:
+        if bow_and_arrow in merida.inventory:
+            print(merida.location.name)
+            print(merida.location.description)
+            time.sleep(time_delay)
+            print()
+            beginning_games()
+# if merida.shoot():
+# argument()
+# print()
+# print()
+# time.sleep(time_delay)
+# running_away()
+    else:
+        print("Command not Recognized")

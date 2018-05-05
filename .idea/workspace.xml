@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33ab5e6a-58f1-4b64-9261-d9eb4bde7d30" name="Default" comment="" />
+    <list default="true" id="308168b0-0919-4043-8440-aa2b5d283db3" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,15 +9,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\6qxu\Documents\GitHub\CSE\exportToHTML" />
-  </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf>
+      <file leaf-file-name="Fatima Ahmad- CYOA.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10636">
+              <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Fatima Ahmad - World Map OOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad - World Map OOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="2108">
               <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
               <folding />
             </state>
@@ -27,7 +32,7 @@
       <file leaf-file-name="Fatima Ahmad- Character.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Character.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="1241">
               <caret line="73" column="79" lean-forward="false" selection-start-line="73" selection-start-column="79" selection-end-line="73" selection-end-column="79" />
               <folding />
             </state>
@@ -37,8 +42,8 @@
       <file leaf-file-name="Fatima Ahmad- CYOA.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="74" column="11" lean-forward="false" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+            <state relative-caret-position="1547">
+              <caret line="654" column="36" lean-forward="true" selection-start-line="654" selection-start-column="36" selection-end-line="654" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -47,8 +52,9 @@
       <file leaf-file-name="Fatima Ahmad- Items.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="2992">
               <caret line="176" column="60" lean-forward="false" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
               <folding />
             </state>
           </provider>
@@ -56,6 +62,8 @@
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
+=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -71,37 +79,17 @@
       <find>merida.move</find>
       <find>move</find>
       <find>inventory</find>
+      <find>remove</find>
+      <find>shoot</find>
     </findStrings>
   </component>
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Lucky 7.py" />
-        <option value="$PROJECT_DIR$/Blackjack.py" />
-        <option value="$PROJECT_DIR$/Warmups.py" />
-        <option value="$PROJECT_DIR$/HangMan.py" />
-        <option value="$PROJECT_DIR$/Notes.py" />
-        <option value="$PROJECT_DIR$/Fatima- GuessGame.py" />
-        <option value="$PROJECT_DIR$/Class Notes.py" />
-        <option value="$PROJECT_DIR$/Programmer.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Programmer.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Dictionary World Map.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Inheritance Notes.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Inheritance.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Character.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Final World Map.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- Items.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad - World Map OOP.py" />
-        <option value="$PROJECT_DIR$/Fatima Ahmad- CYOA.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-7" />
-    <option name="width" value="806" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
+    <option name="width" value="420" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -119,6 +107,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="Scratches" />
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,15 +130,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Notes.py" />
-    <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="SearchEverywhereHistoryKey" value="room&#9;null&#9;null" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -152,109 +144,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Fatima Ahmad- CYOA">
-    <configuration name="Fatima Ahmad- CYOA" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fatima Ahmad- CYOA.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Fatima Ahmad- Final World Map" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="C:\Users\6qxu\Documents\GitHub\CSE\Fatima Ahmad- CYOA.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Fatima Ahmad- Inheritance Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fatima Ahmad- Inheritance Notes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Fatima Ahmad- Inheritance" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="C:\Users\6qxu\Documents\GitHub\CSE\Fatima Ahmad- Items.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="Fatima Ahmad- Programmer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CSE" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Fatima Ahmad- Programmer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Programmer" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Final World Map" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Fatima Ahmad- CYOA" />
-    </list>
-    <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Fatima Ahmad- CYOA" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Final World Map" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Programmer" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Fatima Ahmad- Inheritance Notes" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -263,35 +152,52 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="33ab5e6a-58f1-4b64-9261-d9eb4bde7d30" name="Default" comment="" />
-      <created>1511911162235</created>
+      <changelist id="308168b0-0919-4043-8440-aa2b5d283db3" name="Default" comment="" />
+      <created>1525488837441</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1511911162235</updated>
+      <updated>1525488837441</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20278184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27760252" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27760252" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27760252" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -299,8 +205,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
+<<<<<<< HEAD
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10636">
+          <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+=======
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -354,7 +270,7 @@
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Dictionary World Map.py" />
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Character.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="1241">
           <caret line="73" column="79" lean-forward="false" selection-start-line="73" selection-start-column="79" selection-end-line="73" selection-end-column="79" />
           <folding />
         </state>
@@ -362,7 +278,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- Items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="2992">
           <caret line="176" column="60" lean-forward="false" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
           <folding />
         </state>
@@ -370,7 +286,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad - World Map OOP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="2108">
           <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding />
         </state>
@@ -378,8 +294,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Fatima Ahmad- CYOA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="74" column="11" lean-forward="false" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+        <state relative-caret-position="1547">
+          <caret line="654" column="36" lean-forward="true" selection-start-line="654" selection-start-column="36" selection-end-line="654" selection-end-column="36" />
+<<<<<<< HEAD
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
           <folding />
         </state>
       </provider>
