@@ -109,8 +109,13 @@
     <panes>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
 =======
       <pane id="Scratches" />
       <pane id="Scope" />
@@ -163,8 +168,12 @@
   <component name="ToolWindowManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
 =======
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
 >>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
@@ -185,6 +194,9 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27760252" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
 >>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
 =======
 >>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
@@ -297,6 +309,9 @@
         <state relative-caret-position="1547">
           <caret line="654" column="36" lean-forward="true" selection-start-line="654" selection-start-column="36" selection-end-line="654" selection-end-column="36" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
+=======
 >>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
 =======
 >>>>>>> a7f454156c81c6dfdccacd12f2422aeffd02bc28
