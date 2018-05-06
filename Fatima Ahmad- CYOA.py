@@ -653,7 +653,7 @@ while True:
         else:
             print("You don't have it in your inventory")
     elif merida.location == outside:
-        if bow_and_arrow in merida.inventory:
+        if bow_and_arrow in merida.inventory and moved == True:
             print(merida.location.name)
             print(merida.location.description)
             time.sleep(time_delay)
