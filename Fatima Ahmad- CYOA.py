@@ -624,10 +624,21 @@ while True:
             merida.shoot_target(merida)
         else:
             print("You don't have it in your inventory")
+<<<<<<< HEAD
     else:
         print("Command not Recognized")
 
         # if merida.shoot():
+=======
+    elif merida.location == outside:
+        if bow_and_arrow in merida.inventory and moved == True:
+            print(merida.location.name)
+            print(merida.location.description)
+            time.sleep(time_delay)
+            print()
+            beginning_games()
+# if merida.shoot():
+>>>>>>> b8cd4fccce8f0c9af1017fda0dc3e9f80a798da4
 # argument()
 # print()
 # print()
