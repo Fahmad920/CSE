@@ -85,9 +85,12 @@ def argument():
     print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
     time.sleep(time_delay)
 
+def
+
 
 def running_away():
     print("You get mad at your mom and you run off")
+
 
 class Item(object):
     inventory = []
@@ -258,9 +261,8 @@ class Magic(Item):
 
 
 class Potion(Magic):
-    def __init__(self, name, cake, description):
+    def __init__(self, name, description):
         super(Potion, self).__init__(name, description)
-        self.cake = cake
 
     def transform(self, person):
         print("%s consumed the %s and now you transformed into a bear" % person.name, self.name)
@@ -598,9 +600,41 @@ while True:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
+    elif 'take' in command:
+        take_name = command[5:]
+        found = None
+        for item in merida.location.items:
+            if take_name == item.name.lower():
+                merida.take(item)
+                found = item
+        if found is None:
+            print("It is not in the room.")
+        else:
+            merida.location.items.remove(found)
+    elif 'remove' in command:
+        remove_name = command[7:]
+        remove = None
+        for item in merida.inventory:
+            if remove_name == item.name.lower():
+                merida.remove(item)
+                merida.location.items.append(item)
+                remove = item
+    elif 'shoot' in command:
+        if bow_and_arrow in merida.inventory:
+            merida.shoot_target(merida)
+        else:
+            print("You don't have it in your inventory")
+    else:
+        print("Command not Recognized")
 
-    # talk to characters
-    elif merida.location == witches_cottage:
+        # if merida.shoot():
+# argument()
+# print()
+# print()
+# time.sleep(time_delay)
+# running_away()
+    # React to new room
+    if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
@@ -623,47 +657,31 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    elif 'take' in command:
-        take_name = command[5:]
-        found = None
-        for item in merida.location.items:
-            if take_name == item.name.lower():
-                merida.take(item)
-                found = item
-        if found is None:
-            print("It is not in the room.")
-        else:
-            merida.location.items.remove(found)
-    elif 'remove' in command:
-        remove_name = command[7:]
-        remove = None
-        for item in merida.inventory:
-            if remove_name == item.name.lower():
-                merida.remove(item)
-                merida.location.items.append(item)
-                remove = item
-    elif merida.location == kitchen:
-        if potion in merida.inventory:
-            print(talk_with_mom())
-            time.sleep(2)
-            queen_eleanor.transform()
-    elif 'shoot' in command:
-        if bow_and_arrow in merida.inventory:
-            merida.shoot_target(merida)
-        else:
-            print("You don't have it in your inventory")
-    elif merida.location == outside:
-        if bow_and_arrow in merida.inventory:
+    if merida.location == outside:
+        if bow_and_arrow in merida.inventory and potion not in merida.inventory:
+            games = True
             print(merida.location.name)
             print(merida.location.description)
             time.sleep(time_delay)
             print()
             beginning_games()
-# if merida.shoot():
-# argument()
-# print()
-# print()
-# time.sleep(time_delay)
-# running_away()
-    else:
-        print("Command not Recognized")
+            games = False
+        else:
+            games = False
+
+    if merida.location == kitchen:
+        if potion in merida.inventory:
+            talk_with_mom()
+            time.sleep(2)
+            queen_eleanor.transform()
+            merida.inventory.remove(potion)
+
+
+
+
+# HOW TO BEAT THE GAME
+# Merida starts off in her room.
+# In the dining room, Merida is having dinner with her family, when her mom tells her about the marriage. Create a
+# conversation between Merida and Queen Eleanor, but once they have that conversation, it never runs again
+# Merida knows that she has to get married to one of the suitor's sons, but she doesn't want to
+# 
