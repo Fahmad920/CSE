@@ -607,6 +607,7 @@ while True:
         print()
         item = ""
         if potion not in merida.inventory:
+            moved = False
             talk_to_witch()
             response = input(">_")
             while response != 'special necklace':
