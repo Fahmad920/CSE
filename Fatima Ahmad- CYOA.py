@@ -85,7 +85,6 @@ def argument():
     print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
     time.sleep(time_delay)
 
-def
 
 
 def running_away():
@@ -600,7 +599,6 @@ while True:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
-<<<<<<< HEAD
 
     # talk to characters
     elif merida.location == witches_cottage:
@@ -626,9 +624,6 @@ while True:
         else:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
-
-=======
->>>>>>> ac7f786668b8a4b34ea88aa7d123024ff5b61e22
     elif 'take' in command:
         take_name = command[5:]
         found = None
@@ -653,13 +648,11 @@ while True:
             merida.shoot_target(merida)
         else:
             print("You don't have it in your inventory")
-<<<<<<< HEAD
     else:
         print("Command not Recognized")
 
         # if merida.shoot():
-=======
-    elif merida.location == outside:
+    if merida.location == outside:
         if bow_and_arrow in merida.inventory and moved == True:
             print(merida.location.name)
             print(merida.location.description)
@@ -667,13 +660,12 @@ while True:
             print()
             beginning_games()
 # if merida.shoot():
->>>>>>> b8cd4fccce8f0c9af1017fda0dc3e9f80a798da4
 # argument()
 # print()
 # print()
 # time.sleep(time_delay)
 # running_away()
-    # React to new room
+# React to new room
     if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
