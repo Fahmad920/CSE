@@ -5,6 +5,25 @@ import time
 time_delay = .3  # Default is 3
 
 
+def marriage_conversation():
+    time_between = .1
+    print("Queen Eleanor calls you to come to the dining room for dinner.")
+    time.sleep(time_between)
+    print("You go into the dining room, and you sit down to eat, but your mom keeps mumbling about something. ")
+    time.sleep(time_between)
+    print("Queen Eleanor: They've all accepted!")
+    time.sleep(time_between)
+    print("You: Who accepted what Mother?")
+    time.sleep(time_between)
+    print("Queen Eleanor: All three clans have accepted for the games for your hand in marriage.")
+    time.sleep(time_between)
+    print("You: WHAT?!?! THIS IS SO UNFAIR")
+    time.sleep(time_between)
+    print("Queen Eleanor: Merida, I don't know why your so upset, you've been preparing for this your entire life.")
+    time.sleep(time_between)
+    print("No. This is what you've been preparing for me and I won't go through with it.")
+
+
 def talk_to_witch():
     time_between = .1  # Default is 2.5
     print("You go up the witch and start talking.")
@@ -84,7 +103,6 @@ def argument():
     time.sleep(time_delay)
     print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
     time.sleep(time_delay)
-
 
 
 def running_away():
@@ -346,6 +364,7 @@ class Character(object):
         self.damage = damage
         self.alive = False
         self.location = None
+        self.first_time = True
 
     # self.location = location
 
@@ -650,15 +669,6 @@ while True:
             print("You don't have it in your inventory")
     else:
         print("Command not Recognized")
-
-        # if merida.shoot():
-    if merida.location == outside:
-        if bow_and_arrow in merida.inventory and moved == True:
-            print(merida.location.name)
-            print(merida.location.description)
-            time.sleep(time_delay)
-            print()
-            beginning_games()
 # if merida.shoot():
 # argument()
 # print()
@@ -689,17 +699,9 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside:
-        if bow_and_arrow in merida.inventory and potion not in merida.inventory:
-            games = True
-            print(merida.location.name)
-            print(merida.location.description)
-            time.sleep(time_delay)
-            print()
-            beginning_games()
-            games = False
-        else:
-            games = False
+    if merida.location == outside and merida.first_time:
+        beginning_games()
+        merida.first_time = False
 
     if merida.location == kitchen:
         if potion in merida.inventory:
@@ -708,7 +710,9 @@ while True:
             queen_eleanor.transform()
             merida.inventory.remove(potion)
 
-
+    if merida.location == dining_room and queen_eleanor.first_time:
+        marriage_conversation()
+        queen_eleanor.first_time = False
 
 
 # HOW TO BEAT THE GAME
@@ -716,4 +720,6 @@ while True:
 # In the dining room, Merida is having dinner with her family, when her mom tells her about the marriage. Create a
 # conversation between Merida and Queen Eleanor, but once they have that conversation, it never runs again
 # Merida knows that she has to get married to one of the suitor's sons, but she doesn't want to
-# 
+# make a def conversation with Mom and Merida
+# make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
+#
