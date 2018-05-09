@@ -86,6 +86,8 @@ def beginning_games():
           "Since you got to decide what the games are going to be, and since your the first born of your kingdom, \n"
           "you decide that that games are going to be archery \n"
           "you are going to play for your own hand so you don't have to marry.")
+    time.sleep(time_delay)
+    print("Now is your chance to compete. If you want to do it, then start shooting the targets right now.")
 
 
 def argument():
@@ -390,8 +392,8 @@ class Character(object):
     def shoot(self):
         print("%s shot with a bow and arrow" % self.name)
 
-    def shoot_target(self, person):
-        print("%s shoot at the target with %s" % person.name, self.name)
+    def shoot_target(self):
+        print("%s shoot at the target with the bow and arrow." % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -664,9 +666,9 @@ while True:
                 remove = item
     elif 'shoot' in command:
         if bow_and_arrow in merida.inventory:
-            merida.shoot_target(merida)
+            merida.shoot()
         else:
-            print("You don't have it in your inventory")
+            print("You don't have the bow and arrow in your inventory.")
     else:
         print("Command not Recognized")
 # if merida.shoot():
@@ -699,9 +701,13 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside and merida.first_time:
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:
         beginning_games()
         merida.first_time = False
+        response = input(">_")
+        if response == 'shoot target' and merida.location == outside and merida.first_time == False:
+            print(argument())
+            response = input(">_").lower()
 
     if merida.location == kitchen:
         if potion in merida.inventory:
