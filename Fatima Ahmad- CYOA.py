@@ -668,25 +668,9 @@ while True:
         if bow_and_arrow in merida.inventory:
             merida.shoot()
         else:
-<<<<<<< HEAD
             print("You don't have it in your inventory")
     else:
         print("Command not Recognized")
-
-        # if merida.shoot():
-
-    if merida.location == outside:
-        if bow_and_arrow in merida.inventory and moved == True:
-            print(merida.location.name)
-            print(merida.location.description)
-            time.sleep(time_delay)
-            print()
-            beginning_games()
-=======
-            print("You don't have the bow and arrow in your inventory.")
-    else:
-        print("Command not Recognized")
->>>>>>> d312d3b52ac697422aee851a6cb379f754d3f88f
 # if merida.shoot():
 # argument()
 # print()
@@ -732,13 +716,14 @@ while True:
             queen_eleanor.transform()
             merida.inventory.remove(potion)
 
-<<<<<<< HEAD
-=======
     if merida.location == dining_room and queen_eleanor.first_time:
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(time_delay)
+        print()
         marriage_conversation()
         queen_eleanor.first_time = False
 
->>>>>>> d312d3b52ac697422aee851a6cb379f754d3f88f
 
 # HOW TO BEAT THE GAME
 # Merida starts off in her room.
@@ -747,4 +732,5 @@ while True:
 # Merida knows that she has to get married to one of the suitor's sons, but she doesn't want to
 # make a def conversation with Mom and Merida
 # make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
-#
+# Finish up the bear scene where the queen turn into a bear
+# if they get caught, then the king will start to fight them.
