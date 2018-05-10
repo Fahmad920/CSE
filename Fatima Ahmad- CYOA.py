@@ -5,6 +5,25 @@ import time
 time_delay = .3  # Default is 3
 
 
+def marriage_conversation():
+    time_between = .1
+    print("Queen Eleanor calls you to come to the dining room for dinner.")
+    time.sleep(time_between)
+    print("You go into the dining room, and you sit down to eat, but your mom keeps mumbling about something. ")
+    time.sleep(time_between)
+    print("Queen Eleanor: They've all accepted!")
+    time.sleep(time_between)
+    print("You: Who accepted what Mother?")
+    time.sleep(time_between)
+    print("Queen Eleanor: All three clans have accepted for the games for your hand in marriage.")
+    time.sleep(time_between)
+    print("You: WHAT?!?! THIS IS SO UNFAIR")
+    time.sleep(time_between)
+    print("Queen Eleanor: Merida, I don't know why your so upset, you've been preparing for this your entire life.")
+    time.sleep(time_between)
+    print("No. This is what you've been preparing for me and I won't go through with it.")
+
+
 def talk_to_witch():
     time_between = .1  # Default is 2.5
     print("You go up the witch and start talking.")
@@ -67,6 +86,8 @@ def beginning_games():
           "Since you got to decide what the games are going to be, and since your the first born of your kingdom, \n"
           "you decide that that games are going to be archery \n"
           "you are going to play for your own hand so you don't have to marry.")
+    time.sleep(time_delay)
+    print("Now is your chance to compete. If you want to do it, then start shooting the targets right now.")
 
 
 def argument():
@@ -345,6 +366,7 @@ class Character(object):
         self.damage = damage
         self.alive = False
         self.location = None
+        self.first_time = True
 
     # self.location = location
 
@@ -370,8 +392,8 @@ class Character(object):
     def shoot(self):
         print("%s shot with a bow and arrow" % self.name)
 
-    def shoot_target(self, person):
-        print("%s shoot at the target with %s" % person.name, self.name)
+    def shoot_target(self):
+        print("%s shoot at the target with the bow and arrow." % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -644,8 +666,9 @@ while True:
                 remove = item
     elif 'shoot' in command:
         if bow_and_arrow in merida.inventory:
-            merida.shoot_target(merida)
+            merida.shoot()
         else:
+<<<<<<< HEAD
             print("You don't have it in your inventory")
     else:
         print("Command not Recognized")
@@ -659,13 +682,18 @@ while True:
             time.sleep(time_delay)
             print()
             beginning_games()
+=======
+            print("You don't have the bow and arrow in your inventory.")
+    else:
+        print("Command not Recognized")
+>>>>>>> d312d3b52ac697422aee851a6cb379f754d3f88f
 # if merida.shoot():
 # argument()
 # print()
 # print()
 # time.sleep(time_delay)
 # running_away()
-    # React to new room
+# React to new room
     if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
@@ -689,17 +717,13 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside:
-        if bow_and_arrow in merida.inventory and potion not in merida.inventory:
-            games = True
-            print(merida.location.name)
-            print(merida.location.description)
-            time.sleep(time_delay)
-            print()
-            beginning_games()
-            games = False
-        else:
-            games = False
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:
+        beginning_games()
+        merida.first_time = False
+        response = input(">_")
+        if response == 'shoot target' and merida.location == outside and merida.first_time == False:
+            print(argument())
+            response = input(">_").lower()
 
     if merida.location == kitchen:
         if potion in merida.inventory:
@@ -708,10 +732,19 @@ while True:
             queen_eleanor.transform()
             merida.inventory.remove(potion)
 
+<<<<<<< HEAD
+=======
+    if merida.location == dining_room and queen_eleanor.first_time:
+        marriage_conversation()
+        queen_eleanor.first_time = False
+
+>>>>>>> d312d3b52ac697422aee851a6cb379f754d3f88f
 
 # HOW TO BEAT THE GAME
 # Merida starts off in her room.
 # In the dining room, Merida is having dinner with her family, when her mom tells her about the marriage. Create a
 # conversation between Merida and Queen Eleanor, but once they have that conversation, it never runs again
 # Merida knows that she has to get married to one of the suitor's sons, but she doesn't want to
-# 
+# make a def conversation with Mom and Merida
+# make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
+#
