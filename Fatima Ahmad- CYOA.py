@@ -91,7 +91,7 @@ def beginning_games():
 
 
 def argument():
-    print("You start waling down to the targets and get ready to shoot your arrows.")
+    print("You start walking down to the targets and get ready to shoot your arrows.")
     time.sleep(time_delay)
     print("Mom: Merida, don't you dare shoot an arrow!!!")
     time.sleep(time_delay)
@@ -108,7 +108,7 @@ def argument():
 
 
 def running_away():
-    print("You get mad at your mom and you run off")
+    print("You get mad at your mom and you run off.")
 
 
 class Item(object):
@@ -515,7 +515,6 @@ mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, 
                            "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
                            "turned back into a human.", [], 1)
 
-
 angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", [], 1)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
@@ -671,13 +670,13 @@ while True:
             print("You don't have it in your inventory")
     else:
         print("Command not Recognized")
-# if merida.shoot():
-# argument()
-# print()
-# print()
-# time.sleep(time_delay)
-# running_away()
-# React to new room
+    # if merida.shoot():
+    # argument()
+    # print()
+    # print()
+    # time.sleep(time_delay)
+    # running_away()
+    # React to new room
     if merida.location == witches_cottage:
         print(merida.location.name)
         print(merida.location.description)
@@ -705,12 +704,19 @@ while True:
         beginning_games()
         merida.first_time = False
         response = input(">_")
-        if response == 'shoot target' and merida.location == outside and merida.first_time == False:
-            print(argument())
+        while response != 'shoot target' and merida.location == outside and merida.first_time == False:
+            print("You are not shooting yet. Try again")
             response = input(">_").lower()
+        else:
+            print(argument())
+            print(running_away())
 
     if merida.location == kitchen:
         if potion in merida.inventory:
+            print(merida.location.name)
+            print(merida.location.description)
+            time.sleep(time_delay)
+            print()
             talk_with_mom()
             time.sleep(2)
             queen_eleanor.transform()
@@ -723,6 +729,15 @@ while True:
         print()
         marriage_conversation()
         queen_eleanor.first_time = False
+
+    if merida.location == magic_room:
+        if queen_eleanor.transform():
+            print("The witch is not here right now, but she forgot to tell you that if the spell is not broken \n"
+                  "by the second sunrise, the spell will be permanent.")
+            time.sleep(time_delay)
+            print("The message is: Faith be changed \n"
+                  "Look inside \n"
+                  "Mend the bond torn by pride.")
 
 
 # HOW TO BEAT THE GAME
