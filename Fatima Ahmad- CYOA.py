@@ -361,13 +361,13 @@ class Character(object):
         self.name = name
         self.description = description
         self.inventory = [special_necklace]
+        self.character = []
         self.item = item
         self.health = health
         self.damage = damage
         self.alive = False
         self.location = None
         self.first_time = True
-
     # self.location = location
 
     # def look(self):
@@ -620,6 +620,10 @@ while True:
         except KeyError:
             print("You don't have anything in your inventory.")
 
+    #elif command == 'character':
+        #try:
+            #for character_ in
+
     # talk to characters
     elif merida.location == witches_cottage:
         print(merida.location.name)
@@ -700,7 +704,7 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False: # Starting of games
         beginning_games()
         merida.first_time = False
         response = input(">_")
@@ -721,6 +725,9 @@ while True:
             time.sleep(2)
             queen_eleanor.transform()
             merida.inventory.remove(potion)
+            if queen_eleanor.transform():
+                merida.character.append(queen_eleanor)
+                print("You can't let anyone see your mom as a bear, so now you have to hide your mom.")
 
     if merida.location == dining_room and queen_eleanor.first_time:
         print(merida.location.name)
@@ -749,3 +756,6 @@ while True:
 # make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
 # Finish up the bear scene where the queen turn into a bear
 # if they get caught, then the king will start to fight them.
+# how to open a web browser in python
+# import web browser
+# webbrowser.open_new("www.google.com")
