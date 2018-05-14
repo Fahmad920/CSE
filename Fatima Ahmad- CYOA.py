@@ -357,6 +357,8 @@ class SpecialNecklace(Misc):
 
 
 class Character(object):
+    character = []
+
     def __init__(self, name, description, item, health, damage=10):
         self.name = name
         self.description = description
@@ -368,6 +370,8 @@ class Character(object):
         self.alive = False
         self.location = None
         self.first_time = True
+        self.bear = False
+
     # self.location = location
 
     # def look(self):
@@ -585,6 +589,7 @@ merida.location = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 inventory = ['inventory']
+character = ['character']
 moved = True
 
 while True:
@@ -620,9 +625,12 @@ while True:
         except KeyError:
             print("You don't have anything in your inventory.")
 
-    #elif command == 'character':
-        #try:
-            #for character_ in
+    elif command == 'character':
+        try:
+            for character_ in merida.character:
+                print(character_.name)
+        except KeyError:
+            print("There is no one with you.")
 
     # talk to characters
     elif merida.location == witches_cottage:
@@ -704,13 +712,13 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False: # Starting of games
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:  # Starting of games
         beginning_games()
         merida.first_time = False
         response = input(">_")
         while response != 'shoot target' and merida.location == outside and merida.first_time == False:
-            print("You are not shooting yet. Try again")
-            response = input(">_").lower()
+                print("You are not shooting yet. Try again")
+                response = input(">_").lower()
         else:
             print(argument())
             print(running_away())
@@ -724,9 +732,11 @@ while True:
             talk_with_mom()
             time.sleep(2)
             queen_eleanor.transform()
+            queen_eleanor.bear = True
             merida.inventory.remove(potion)
-            if queen_eleanor.transform():
+            if queen_eleanor.bear == True:
                 merida.character.append(queen_eleanor)
+                print(merida.character)
                 print("You can't let anyone see your mom as a bear, so now you have to hide your mom.")
 
     if merida.location == dining_room and queen_eleanor.first_time:
@@ -738,7 +748,7 @@ while True:
         queen_eleanor.first_time = False
 
     if merida.location == magic_room:
-        if queen_eleanor.transform():
+        if queen_eleanor.bear == True:
             print("The witch is not here right now, but she forgot to tell you that if the spell is not broken \n"
                   "by the second sunrise, the spell will be permanent.")
             time.sleep(time_delay)
