@@ -524,10 +524,10 @@ angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out 
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a container. \n'
                     'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container], [merida])
-parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None, None, None, None,
+parents_room = Room("Parents Room", None, None, None, 'meridas_room', None, None, None, None, None,
                     'This is where the king and queen stay.\n'
                     "There is a dresser, and a small box that is full of Queen Elanor's needle and threads in the \n"
-                    "room and a door to the East.",
+                    "room and a door to the West.",
                     [dresser, needle_and_thread], [king_fergus, queen_eleanor])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
@@ -712,13 +712,13 @@ while True:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:  # Starting of games
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time is False:  # Starting of games
         beginning_games()
         merida.first_time = False
         response = input(">_")
-        while response != 'shoot target' and merida.location == outside and merida.first_time == False:
-                print("You are not shooting yet. Try again")
-                response = input(">_").lower()
+        while response != 'shoot target' and merida.location == outside and merida.first_time is False:
+            print("You are not shooting yet. Try again")
+            response = input(">_").lower()
         else:
             print(argument())
             print(running_away())
@@ -734,11 +734,11 @@ while True:
             queen_eleanor.transform()
             queen_eleanor.bear = True
             merida.inventory.remove(potion)
-            if queen_eleanor.bear == True:
-                merida.character.append(queen_eleanor)
-                print(merida.character)
+            if queen_eleanor.bear is True:
+                merida.character.append(queen_eleanor.name)
                 print("You can't let anyone see your mom as a bear, so now you have to hide your mom.")
-
+            for character in merida.character:
+                print(merida.character.__str__())
     if merida.location == dining_room and queen_eleanor.first_time:
         print(merida.location.name)
         print(merida.location.description)
@@ -748,7 +748,7 @@ while True:
         queen_eleanor.first_time = False
 
     if merida.location == magic_room:
-        if queen_eleanor.bear == True:
+        if queen_eleanor.bear is True:
             print("The witch is not here right now, but she forgot to tell you that if the spell is not broken \n"
                   "by the second sunrise, the spell will be permanent.")
             time.sleep(time_delay)
