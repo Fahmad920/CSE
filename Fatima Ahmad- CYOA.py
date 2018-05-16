@@ -632,30 +632,6 @@ while True:
         except KeyError:
             print("There is no one with you.")
 
-    # talk to characters
-    elif merida.location == witches_cottage:
-        print(merida.location.name)
-        print(merida.location.description)
-        time.sleep(time_delay)
-        print()
-        item = ""
-        if potion not in merida.inventory:
-            moved = False
-            talk_to_witch()
-            response = input(">_")
-            while response != 'special necklace':
-                print("That's not worth enough.")
-                print("What else do you got?")
-                response = input(">_").lower()
-            else:
-                print("That's a deal.")
-                trade_with_witch()
-                merida.inventory.append(potion)
-                merida.inventory.remove(special_necklace)
-
-        else:
-            print("The witch is gone. \n"
-                  "The witch did leave a message for you in her secret magic room.")
     elif 'take' in command:
         take_name = command[5:]
         found = None
@@ -695,8 +671,12 @@ while True:
         time.sleep(time_delay)
         print()
         item = ""
-        if potion not in merida.inventory:
+        if potion not in merida.inventory and merida.first_time is True:
             talk_to_witch()
+            merida.first_time = False
+            if merida.first_time is False:
+                print("The witch is gone. \n"
+                      "The witch did leave a message for you in her secret magic room.")
             response = input(">_")
             while response != 'special necklace':
                 print("That's not worth enough.")
@@ -707,12 +687,15 @@ while True:
                 trade_with_witch()
                 merida.inventory.append(potion)
                 merida.inventory.remove(special_necklace)
-
         else:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
     if merida.location == outside and merida.first_time and queen_eleanor.first_time is False:  # Starting of games
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(time_delay)
+        print()
         beginning_games()
         merida.first_time = False
         response = input(">_")
