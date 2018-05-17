@@ -99,6 +99,8 @@ def argument():
     time.sleep(time_delay)
     print("Your mom talks you into your room, and she is really, really mad at you.")
     time.sleep(time_delay)
+    print("Your mom takes you to her room.")
+    time.sleep(time_delay)  # Makes this timer delay a little longer than normal
     print("Mom: You embarrassed them, you embarrassed me")
     time.sleep(time_delay)
     print("You: Mom it's not fair. You always tell me what to do, and what not to do. IT'S MY LIFE!!")
@@ -370,6 +372,7 @@ class Character(object):
         self.alive = False
         self.location = None
         self.first_time = True
+        self.first_time_cottage = True
         self.bear = False
 
     # self.location = location
@@ -398,6 +401,9 @@ class Character(object):
 
     def shoot_target(self):
         print("%s shoot at the target with the bow and arrow." % self.name)
+
+    def rip_tapestry(self, tapestry):
+        print("The tapestry of the family has been torn by %s." % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -446,6 +452,7 @@ class Room(object):
         self.items = items
         self.characters = characters
         self.first_time = True
+        self.first_time_cottage = True
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -528,7 +535,7 @@ parents_room = Room("Parents Room", None, None, None, 'meridas_room', None, None
                     'This is where the king and queen stay.\n'
                     "There is a dresser, and a small box that is full of Queen Elanor's needle and threads in the \n"
                     "room and a door to the West.",
-                    [dresser, needle_and_thread], [king_fergus, queen_eleanor])
+                    [dresser, needle_and_thread, tapestry], [king_fergus, queen_eleanor])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
@@ -665,18 +672,15 @@ while True:
     # time.sleep(time_delay)
     # running_away()
     # React to new room
-    if merida.location == witches_cottage:
+    if merida.location == witches_cottage and merida.first_time_cottage is True:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
         print()
         item = ""
-        if potion not in merida.inventory and merida.first_time is True:
+        if potion not in merida.inventory and merida.first_time_cottage is True:
             talk_to_witch()
-            merida.first_time = False
-            if merida.first_time is False:
-                print("The witch is gone. \n"
-                      "The witch did leave a message for you in her secret magic room.")
+            merida.first_time_cottage = False
             response = input(">_")
             while response != 'special necklace':
                 print("That's not worth enough.")
@@ -704,6 +708,7 @@ while True:
             response = input(">_").lower()
         else:
             print(argument())
+            merida.rip_tapestry(tapestry)
             print(running_away())
 
     if merida.location == kitchen:
