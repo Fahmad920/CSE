@@ -97,9 +97,7 @@ def argument():
     time.sleep(time_delay)
     print("You don't listen to her and you shoot the last target. And you have messed up everything.")
     time.sleep(time_delay)
-    print("Your mom talks you into your room, and she is really, really mad at you.")
-    time.sleep(time_delay)
-    print("Your mom takes you to her room.")
+    print("Your mom takes you into your room, and she is really, really mad at you.")
     time.sleep(time_delay)  # Makes this timer delay a little longer than normal
     print("Mom: You embarrassed them, you embarrassed me")
     time.sleep(time_delay)
@@ -182,6 +180,11 @@ class Apple(Consumable):
     def __init__(self, name, color, description):
         super(Apple, self).__init__(name, description)
         self.color = color
+
+
+class Fish(Consumable):
+    def __init__(self, name, description):
+        super(Fish, self).__init__(name, description)
 
 
 class Weapon(Item):
@@ -405,6 +408,9 @@ class Character(object):
     def rip_tapestry(self, tapestry):
         print("The tapestry of the family has been torn by %s." % self.name)
 
+    def fish(self):
+        print("%s caught some fish" % self.name)
+
     def health(self):
         print(self.name.damage)
         print("You have health")
@@ -577,7 +583,7 @@ magic_room = Room("Magic Room", None, None, None, None, 'witches_cottage', None,
 river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancient_kingdom_ruins', None, None,
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
-             'There is a path that leads north')
+             'There is a path that leads north and northeast')
 ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, 'river',
                              'This is the old kingdom of Dunbroch before Mordu destroyed it.\n'
                              'You find the same symbol you saw in the castle of the three bears.\n'
@@ -744,6 +750,13 @@ while True:
                   "Look inside \n"
                   "Mend the bond torn by pride.")
 
+    if merida.location == river and queen_eleanor.bear is True:
+        print("Here at the river, you can catch some fist.")
+        answer = input(">_")
+        while answer == 'catch fish':
+            merida.fish()
+
+
 
 # HOW TO BEAT THE GAME
 # Merida starts off in her room.
@@ -757,3 +770,4 @@ while True:
 # how to open a web browser in python
 # import web browser
 # webbrowser.open_new("www.google.com")
+#
