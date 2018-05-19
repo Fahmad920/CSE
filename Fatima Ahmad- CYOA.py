@@ -91,14 +91,14 @@ def beginning_games():
 
 
 def argument():
-    print("You start waling down to the targets and get ready to shoot your arrows.")
+    print("You start walking down to the targets and get ready to shoot your arrows.")
     time.sleep(time_delay)
     print("Mom: Merida, don't you dare shoot an arrow!!!")
     time.sleep(time_delay)
     print("You don't listen to her and you shoot the last target. And you have messed up everything.")
     time.sleep(time_delay)
-    print("Your mom talks you into your room, and she is really, really mad at you.")
-    time.sleep(time_delay)
+    print("Your mom takes you into your room, and she is really, really mad at you.")
+    time.sleep(time_delay)  # Makes this timer delay a little longer than normal
     print("Mom: You embarrassed them, you embarrassed me")
     time.sleep(time_delay)
     print("You: Mom it's not fair. You always tell me what to do, and what not to do. IT'S MY LIFE!!")
@@ -108,7 +108,7 @@ def argument():
 
 
 def running_away():
-    print("You get mad at your mom and you run off")
+    print("You get mad at your mom and you run off.")
 
 
 class Item(object):
@@ -180,6 +180,11 @@ class Apple(Consumable):
     def __init__(self, name, color, description):
         super(Apple, self).__init__(name, description)
         self.color = color
+
+
+class Fish(Consumable):
+    def __init__(self, name, description):
+        super(Fish, self).__init__(name, description)
 
 
 class Weapon(Item):
@@ -357,16 +362,21 @@ class SpecialNecklace(Misc):
 
 
 class Character(object):
+    character = []
+
     def __init__(self, name, description, item, health, damage=10):
         self.name = name
         self.description = description
         self.inventory = [special_necklace]
+        self.character = []
         self.item = item
         self.health = health
         self.damage = damage
         self.alive = False
         self.location = None
         self.first_time = True
+        self.first_time_cottage = True
+        self.bear = False
 
     # self.location = location
 
@@ -394,6 +404,12 @@ class Character(object):
 
     def shoot_target(self):
         print("%s shoot at the target with the bow and arrow." % self.name)
+
+    def rip_tapestry(self, tapestry):
+        print("The tapestry of the family has been torn by %s." % self.name)
+
+    def fish(self):
+        print("%s caught some fish" % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -442,6 +458,7 @@ class Room(object):
         self.items = items
         self.characters = characters
         self.first_time = True
+        self.first_time_cottage = True
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -515,17 +532,16 @@ mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, 
                            "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
                            "turned back into a human.", [], 1)
 
-
 angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", [], 1)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a container. \n'
                     'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container], [merida])
-parents_room = Room("Parents Room", None, None, 'meridas_room', None, None, None, None, None, None,
+parents_room = Room("Parents Room", None, None, None, 'meridas_room', None, None, None, None, None,
                     'This is where the king and queen stay.\n'
                     "There is a dresser, and a small box that is full of Queen Elanor's needle and threads in the \n"
-                    "room and a door to the East.",
-                    [dresser, needle_and_thread], [king_fergus, queen_eleanor])
+                    "room and a door to the West.",
+                    [dresser, needle_and_thread, tapestry], [king_fergus, queen_eleanor])
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
@@ -567,7 +583,7 @@ magic_room = Room("Magic Room", None, None, None, None, 'witches_cottage', None,
 river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancient_kingdom_ruins', None, None,
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
-             'There is a path that leads north')
+             'There is a path that leads north and northeast')
 ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, 'river',
                              'This is the old kingdom of Dunbroch before Mordu destroyed it.\n'
                              'You find the same symbol you saw in the castle of the three bears.\n'
@@ -586,6 +602,7 @@ merida.location = meridas_room
 directions = ['north', 'south', 'east', 'west', 'up', 'down', 'northeast', 'northwest', 'southeast']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 inventory = ['inventory']
+character = ['character']
 moved = True
 
 while True:
@@ -621,30 +638,13 @@ while True:
         except KeyError:
             print("You don't have anything in your inventory.")
 
-    # talk to characters
-    elif merida.location == witches_cottage:
-        print(merida.location.name)
-        print(merida.location.description)
-        time.sleep(time_delay)
-        print()
-        item = ""
-        if potion not in merida.inventory:
-            moved = False
-            talk_to_witch()
-            response = input(">_")
-            while response != 'special necklace':
-                print("That's not worth enough.")
-                print("What else do you got?")
-                response = input(">_").lower()
-            else:
-                print("That's a deal.")
-                trade_with_witch()
-                merida.inventory.append(potion)
-                merida.inventory.remove(special_necklace)
+    elif command == 'character':
+        try:
+            for character_ in merida.character:
+                print(character_.name)
+        except KeyError:
+            print("There is no one with you.")
 
-        else:
-            print("The witch is gone. \n"
-                  "The witch did leave a message for you in her secret magic room.")
     elif 'take' in command:
         take_name = command[5:]
         found = None
@@ -671,21 +671,22 @@ while True:
             print("You don't have it in your inventory")
     else:
         print("Command not Recognized")
-# if merida.shoot():
-# argument()
-# print()
-# print()
-# time.sleep(time_delay)
-# running_away()
-# React to new room
-    if merida.location == witches_cottage:
+    # if merida.shoot():
+    # argument()
+    # print()
+    # print()
+    # time.sleep(time_delay)
+    # running_away()
+    # React to new room
+    if merida.location == witches_cottage and merida.first_time_cottage is True:
         print(merida.location.name)
         print(merida.location.description)
         time.sleep(time_delay)
         print()
         item = ""
-        if potion not in merida.inventory:
+        if potion not in merida.inventory and merida.first_time_cottage is True:
             talk_to_witch()
+            merida.first_time_cottage = False
             response = input(">_")
             while response != 'special necklace':
                 print("That's not worth enough.")
@@ -696,26 +697,42 @@ while True:
                 trade_with_witch()
                 merida.inventory.append(potion)
                 merida.inventory.remove(special_necklace)
-
         else:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
 
-    if merida.location == outside and merida.first_time and queen_eleanor.first_time == False:
+    if merida.location == outside and merida.first_time and queen_eleanor.first_time is False:  # Starting of games
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(time_delay)
+        print()
         beginning_games()
         merida.first_time = False
         response = input(">_")
-        if response == 'shoot target' and merida.location == outside and merida.first_time == False:
-            print(argument())
+        while response != 'shoot target' and merida.location == outside and merida.first_time is False:
+            print("You are not shooting yet. Try again")
             response = input(">_").lower()
+        else:
+            print(argument())
+            merida.rip_tapestry(tapestry)
+            print(running_away())
 
     if merida.location == kitchen:
         if potion in merida.inventory:
+            print(merida.location.name)
+            print(merida.location.description)
+            time.sleep(time_delay)
+            print()
             talk_with_mom()
             time.sleep(2)
             queen_eleanor.transform()
+            queen_eleanor.bear = True
             merida.inventory.remove(potion)
-
+            if queen_eleanor.bear is True:
+                merida.character.append(queen_eleanor.name)
+                print("You can't let anyone see your mom as a bear, so now you have to hide your mom.")
+            for character in merida.character:
+                print(merida.character.__str__())
     if merida.location == dining_room and queen_eleanor.first_time:
         print(merida.location.name)
         print(merida.location.description)
@@ -723,6 +740,22 @@ while True:
         print()
         marriage_conversation()
         queen_eleanor.first_time = False
+
+    if merida.location == magic_room:
+        if queen_eleanor.bear is True:
+            print("The witch is not here right now, but she forgot to tell you that if the spell is not broken \n"
+                  "by the second sunrise, the spell will be permanent.")
+            time.sleep(time_delay)
+            print("The message is: Faith be changed \n"
+                  "Look inside \n"
+                  "Mend the bond torn by pride.")
+
+    if merida.location == river and queen_eleanor.bear is True:
+        print("Here at the river, you can catch some fist.")
+        answer = input(">_")
+        while answer == 'catch fish':
+            merida.fish()
+
 
 
 # HOW TO BEAT THE GAME
@@ -734,3 +767,7 @@ while True:
 # make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
 # Finish up the bear scene where the queen turn into a bear
 # if they get caught, then the king will start to fight them.
+# how to open a web browser in python
+# import web browser
+# webbrowser.open_new("www.google.com")
+#
