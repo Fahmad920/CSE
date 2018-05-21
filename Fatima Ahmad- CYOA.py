@@ -111,6 +111,13 @@ def running_away():
     print("You get mad at your mom and you run off.")
 
 
+def mordu_cave():
+    print('Your in a dark cave with only faint light from above.\n'
+          'There are bones everywhere, and many broken weapons.\n'
+          'There is also a tapestry of four princes.\n'
+          'You hear heavy breathing behind you, and you see Mordu behind you.')
+
+
 class Item(object):
     inventory = []
 
@@ -376,6 +383,7 @@ class Character(object):
         self.location = None
         self.first_time = True
         self.first_time_cottage = True
+        self.first_time_cave = True
         self.bear = False
 
     # self.location = location
@@ -410,6 +418,9 @@ class Character(object):
 
     def fish(self):
         print("%s caught some fish" % self.name)
+
+    def fall(self):
+        print("%s fell down the hole" % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -459,6 +470,7 @@ class Room(object):
         self.characters = characters
         self.first_time = True
         self.first_time_cottage = True
+        self.first_time_cave = True
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -532,7 +544,7 @@ witch = Character("Witch", "The witch covers her identity as a woodcarver and ca
 mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, before the kingdom fell.\n"
                            "He found the witch, and asked her for a spell that would give him the strength of 10 men\n"
                            "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
-                           "turned back into a human.", [], 1)
+                           "turned back into a human.", [], 100)
 
 angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", [], 1)
 # END OF CHARACTERS BEGINNING OF ROOMS
@@ -571,11 +583,12 @@ fire_fall = Room("Fire Fall", 'forest', None, 'the_ring_of_stones', None, None, 
                  'Here there is a water fall and a rock to climb.\n'
                  'Legends say that only kings were brave enough to drink from this water fall. \n'
                  'There are paths to North, and East')
-the_ring_of_stones = Room("The Ring of Stones", None, 'river', 'witches_cottage', 'fire_fall', None, None, None,
-                          'forest',
-                          None, 'Here are stones that are placed in a circular pattern.\n'
+the_ring_of_stones = Room("The Ring of Stones", 'ancient_kingdom_ruins',
+                          'river', 'witches_cottage', 'fire_fall', None, None,
+                          None, 'forest', None, 'Here are stones that are placed in a circular pattern.\n'
                                 'People said that The Ring of Stones tends to take you places to change your fate.\n'
-                                'There are paths that lead to East, West, Northwest, and South', [willo_the_wisp])
+                                'There are paths that lead to East, West, Northwest, South, and North',
+                          [willo_the_wisp])
 witches_cottage = Room("Witches Cottage", None, None, None, 'the_ring_of_stones', 'dining_room', 'magic_room', None,
                        None, None, 'You have found the witches cottage.\n'
                                    'Inside you find many wood carvings, but one carving in the back catches your eye.\n'
@@ -588,15 +601,16 @@ river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancie
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
              'There is a path that leads north and northeast', [fish])
-ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, 'river',
+ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, 'the_ring_of_stones',
+                             None, None, None, 'moruds_cave', None, None, 'river',
                              'This is the old kingdom of Dunbroch before Mordu destroyed it.\n'
                              'You find the same symbol you saw in the castle of the three bears.\n'
                              'There is a path that leads down and another one that goes southeast.')
 mordus_cave = Room("Mordus Cave", None, None, None, None, 'ancient_kingdom_ruins', None, None, None, None,
-                   'Your in a dark cave with only faint light from above.\n'
-                   'There are bones everywhere, and many broken weapons.\n'
-                   'There is also a tapestry of four princes.\n'
-                   'You hear heavy breathing behind you, and you see Mordu behind you.', [mordu])
+                   'The Willo-the-Wisp lead you and your mom to an ancient looking place, \n'
+                   'but to you it look familiar.You start walking, but fall down a hole to a cave.\n'
+                   'The only way out is up.',
+                   None, [mordu])
 
 water = Room("Water", 'fighting_area', None, None, None, None, None, None, None, None,
              'Out here, there is a lake in front of you and some boats tied to the dock \n'
@@ -641,14 +655,6 @@ while True:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
-
-    elif command == 'character':
-        try:
-            for character_ in merida.character:
-                print(character_.name)
-        except KeyError:
-            print("There is no one with you.")
-
     elif 'take' in command:
         take_name = command[5:]
         found = None
@@ -740,8 +746,7 @@ while True:
             if queen_eleanor.bear is True:
                 merida.character.append(queen_eleanor.name)
                 print("You can't let anyone see your mom as a bear, so now you have to hide your mom.")
-            for character in merida.character:
-                print(merida.character.__str__())
+                print("Your mom is now with you where ever you go.")
     if merida.location == dining_room and queen_eleanor.first_time:
         print(merida.location.name)
         print(merida.location.description)
@@ -759,16 +764,57 @@ while True:
                   "Look inside \n"
                   "Mend the bond torn by pride.")
 
-# HOW TO BEAT THE GAME
-# Merida starts off in her room.
-# In the dining room, Merida is having dinner with her family, when her mom tells her about the marriage. Create a
-# conversation between Merida and Queen Eleanor, but once they have that conversation, it never runs again
-# Merida knows that she has to get married to one of the suitor's sons, but she doesn't want to
-# make a def conversation with Mom and Merida
-# make it so Merida has something in her inventory that when she enters the dining room, it drops out, and Merida is mad
-# Finish up the bear scene where the queen turn into a bear
-# if they get caught, then the king will start to fight them.
+    if merida.location == ancient_kingdom_ruins and merida.first_time_cave is True:
+        print(merida.location.name)
+        print(merida.location.description)
+        time.sleep(time_delay)
+        if queen_eleanor.bear is True:
+            merida.fall()
+            time.sleep(time_delay)
+            print()
+            merida.location = mordus_cave
+            print(merida.location.name)
+            print(merida.location.description)
+            print()
+            time.sleep(time_delay)
+            mordu_cave()
+            time.sleep(time_delay)
+        if merida.location == mordus_cave:
+            print(mordu.description)
+            time.sleep(time_delay)
+            print()
+            mordu.attack(merida)
+            print("There is not space to run, but Mordu is cornering you.")
+            print("Your mom reaches her hand to grab yours, and she pulls you from the cave.")
+            print("The two of you run away and somehow appear back at the Ring of Stones.")
+            time.sleep(time_delay)
+            print()
+            merida.location = the_ring_of_stones
+            mordus_cave = False
+            merida.first_time_cave = False
+
 # how to open a web browser in python
 # import web browser
 # webbrowser.open_new("www.google.com")
-#
+
+
+# when the Queen turns into a bear and Merida and mom goes to Mordu's cave for the first time, merida gets attacked by
+# Mordu, Queen Elenor saves Merida from the cave, and they no longer can't go back there
+# print some statements where Merida relizes what the witch meant and how to turn her mom back into a human
+# However the queen starts to become more and more of a bear
+# Merida sneaks into the parents room, but if they get caught, then the queen remains a bear and could possible die
+# Merida gets the needle and thread and tapestry from the parent's room,
+# but the dad sees the queen as a bear and he starts to attack
+# queen eleanor runs away into the forest and into the ring of stones and the king and the clans chase after her, after
+# Merida's dad lock Merida in her room
+# The triplets finally come in as bears and the only place they could find the key is in the crate in the kitchen
+# the triplets get the key and merida rides Angus as she sews the tapestry
+# Merida arrives at the ring of stones and finds her mom being attacked, so she attacks her dad and starts fighting
+# Mordu comes and everyone tries to fight him, but Mordu gets Merida cornered
+# characters switch from Merida to the Queen to fight Mordu
+# Mordu dies and and merida puts the tapestry on her mom
+# have a conversation where merida talks to her mom
+# print the second sunrise is rising
+# wait a few second, before the queen turns back into her normal self
+# the triplets also turn back into little boys
+# That's how you beat the game, print they all live happily ever after
