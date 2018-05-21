@@ -470,6 +470,8 @@ apple = Item("Apple", "There is a bowl full of apples in the kitchen.")
 
 cake = Item("Cake", "There is a little cake topped off with blueberries on the table.")
 
+fish = Item("Fish", "There are fishes in the river.")
+
 sword = Item("Sword", "The swords are kept in the fighting area, but Merida secretly has one in her room.")
 
 bow_and_arrow = Item("Bow and Arrow", "These are kept in the fighting area, but Merida has her own bow and arrow \n"
@@ -548,7 +550,8 @@ dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secre
                    'There is a door to the north.', [bear_statue, shield], [triplets])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
-               'There is a little crate on the floor next to the door.', [apple, cake], [queen_eleanor])
+               'There is a little crate on the floor next to the door.\n'
+               'There are some apples in the barrel', [apple, cake], [queen_eleanor])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
                'West to the gate is the forest.\n'
@@ -568,10 +571,11 @@ fire_fall = Room("Fire Fall", 'forest', None, 'the_ring_of_stones', None, None, 
                  'Here there is a water fall and a rock to climb.\n'
                  'Legends say that only kings were brave enough to drink from this water fall. \n'
                  'There are paths to North, and East')
-the_ring_of_stones = Room("The Ring of Stones", None, None, 'witches_cottage', 'fire_fall', None, None, None, 'forest',
+the_ring_of_stones = Room("The Ring of Stones", None, 'river', 'witches_cottage', 'fire_fall', None, None, None,
+                          'forest',
                           None, 'Here are stones that are placed in a circular pattern.\n'
                                 'People said that The Ring of Stones tends to take you places to change your fate.\n'
-                                'There are paths that lead to East, West, and Northwest', [willo_the_wisp])
+                                'There are paths that lead to East, West, Northwest, and South', [willo_the_wisp])
 witches_cottage = Room("Witches Cottage", None, None, None, 'the_ring_of_stones', 'dining_room', 'magic_room', None,
                        None, None, 'You have found the witches cottage.\n'
                                    'Inside you find many wood carvings, but one carving in the back catches your eye.\n'
@@ -583,7 +587,7 @@ magic_room = Room("Magic Room", None, None, None, None, 'witches_cottage', None,
 river = Room("River", 'the_ring_of_stones', None, None, None, None, None, 'ancient_kingdom_ruins', None, None,
              'There is a river that runs off into two separate rivers.\n'
              'Here you see some bears catching fish.\n'
-             'There is a path that leads north and northeast')
+             'There is a path that leads north and northeast', [fish])
 ancient_kingdom_ruins = Room("Ancient Kingdom Ruins", None, None, None, None, None, 'moruds_cave', None, None, 'river',
                              'This is the old kingdom of Dunbroch before Mordu destroyed it.\n'
                              'You find the same symbol you saw in the castle of the three bears.\n'
@@ -669,14 +673,19 @@ while True:
             merida.shoot()
         else:
             print("You don't have it in your inventory")
+    elif 'catch fish' in command:
+        if merida.location == river:
+            merida.fish()
+            merida.inventory.append(fish)
+    elif 'eat' in command:
+        eat_name = command[4:]
+        for item in merida.inventory:
+            if eat_name == item.name.lower():
+                merida.eat(item)
+                merida.inventory.remove(item)
     else:
         print("Command not Recognized")
-    # if merida.shoot():
-    # argument()
-    # print()
-    # print()
-    # time.sleep(time_delay)
-    # running_away()
+
     # React to new room
     if merida.location == witches_cottage and merida.first_time_cottage is True:
         print(merida.location.name)
@@ -749,14 +758,6 @@ while True:
             print("The message is: Faith be changed \n"
                   "Look inside \n"
                   "Mend the bond torn by pride.")
-
-    if merida.location == river and queen_eleanor.bear is True:
-        print("Here at the river, you can catch some fist.")
-        answer = input(">_")
-        while answer == 'catch fish':
-            merida.fish()
-
-
 
 # HOW TO BEAT THE GAME
 # Merida starts off in her room.
