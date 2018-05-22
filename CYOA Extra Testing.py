@@ -702,8 +702,9 @@ while True:
         print()
         item = ""
         if potion not in merida.inventory and merida.first_time_cottage is True:
-            talk_to_witch()
-            merida.first_time_cottage = False
+            if beginning_games() is False:
+                talk_to_witch()
+                merida.first_time_cottage = False
             response = input(">_")
             while response != 'special necklace':
                 print("That's not worth enough.")
