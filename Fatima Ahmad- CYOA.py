@@ -1,9 +1,10 @@
 # Any import statements
 # https://www.jetbrains.com/shop/eform/students TO GET A BETTER FORM OF PYCHARM
 import time
+import datetime
 
 time_delay = .3  # Default is 3
-
+a = datetime.datetime.now()
 
 def marriage_conversation():
     time_between = .1
@@ -379,7 +380,7 @@ class Character(object):
         self.item = item
         self.health = health
         self.damage = damage
-        self.alive = False
+        self.alive = True
         self.location = None
         self.first_time = True
         self.first_time_cottage = True
@@ -393,16 +394,16 @@ class Character(object):
     # print("You have looked around")
     # def eat_cake(self, item):
 
-    def take(self, item):
-        self.inventory.append(item)
-        print("You have picked up %s" % item.name)
+    def take(self, item1):
+        self.inventory.append(item1)
+        print("You have picked up %s" % item1.name)
 
-    def remove(self, item):
-        self.inventory.remove(item)
-        print("You dropped %s" % item.name)
+    def remove(self, item2):
+        self.inventory.remove(item2)
+        print("You dropped %s" % item2.name)
 
-    def eat(self, item):
-        print("%s ate the %s" % (self.name, item.name))
+    def eat(self, item3):
+        print("%s ate the %s" % (self.name, item3.name))
 
     def transform(self):
         print("%s turned into a bear" % self.name)
@@ -424,6 +425,12 @@ class Character(object):
 
     def see(self, person):
         print("%s saw %d as a bear." % self.name % person.name)
+
+    def run_away(self):
+        print("%s ran away." % self.name)
+
+    def lock_inside(self):
+        print("%s locked you inside of the room." % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -637,7 +644,10 @@ while True:
     removed = False
     # Take input
     command = input('> ').strip().lower()
-
+# Timer Starts
+    if merida.location == parents_room:
+        a = datetime.datetime.now()
+    answer = input('>_').strip().lower()
     # Pre-processing
     if command == 'quit':
         quit(0)
@@ -645,6 +655,9 @@ while True:
         # Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
+# Timer stops
+    check_movement = False
+    if merida.location
 
     # Processing
     if command in directions:
@@ -660,6 +673,7 @@ while True:
                 print(item_.name)
         except KeyError:
             print("You don't have anything in your inventory.")
+
     elif 'take' in command:
         take_name = command[5:]
         found = None
@@ -789,13 +803,17 @@ while True:
             time.sleep(time_delay)
             print()
             mordu.attack(merida)
+            print("You dodged the attack.")
+            print()
+            time.sleep(time_delay)
             print("There is not space to run, but Mordu is cornering you.")
+            time.sleep(time_delay)
             print("Your mom reaches her hand to grab yours, and she pulls you from the cave.")
             print("The two of you run away and somehow appear back at the Ring of Stones.")
             time.sleep(time_delay)
             print()
             merida.location = the_ring_of_stones
-            time.sleep(.5) # change to 1 second
+            time.sleep(.5)  # change to 1 second
             mordus_cave = False
             merida.first_time_cave = False
             print("You realize how to turn your mom back into human.\n"
@@ -804,12 +822,9 @@ while True:
             print("You have to go back to the parent's room to get the tapestry")
 
     if merida.location == outside:
-        print("You have to be careful no one sees you, especially the King.")
+        if queen_eleanor.bear is True and mordu_cave() is False:
+            print("You have to be careful no one sees you, especially the King.")
 
-    if merida.location == parents_room:
-        time_left = 5
-        if time_left <= 0:
-            king_fergus.see
 
 # how to open a web browser in python
 # import web browser
