@@ -422,6 +422,9 @@ class Character(object):
     def fall(self):
         print("%s fell down the hole" % self.name)
 
+    def see(self, person):
+        print("%s saw %d as a bear." % self.name % person.name)
+
     def health(self):
         print(self.name.damage)
         print("You have health")
@@ -564,8 +567,8 @@ dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secre
                    'There is a door to the north.', [bear_statue, shield], [triplets])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
-               'There is a little crate on the floor next to the door.\n'
-               'There are some apples in the barrel', [apple, cake], [queen_eleanor])
+               'There is a little container on the floor next to the door.\n'
+               'There are some apples in the barrel', [apple, cake, container], [queen_eleanor])
 outside = Room("Outside", 'stables', 'kitchen', None, 'forest', None, None, None, None, 'fighting_area',
                'Out here is the main gate.\n'
                'West to the gate is the forest.\n'
@@ -797,6 +800,16 @@ while True:
             merida.first_time_cave = False
             print("You realize how to turn your mom back into human.\n"
                   "You have to mend that tapestry that you ripped.")
+            print()
+            print("You have to go back to the parent's room to get the tapestry")
+
+    if merida.location == outside:
+        print("You have to be careful no one sees you, especially the King.")
+
+    if merida.location == parents_room:
+        time_left = 5
+        if time_left <= 0:
+            king_fergus.see
 
 # how to open a web browser in python
 # import web browser
