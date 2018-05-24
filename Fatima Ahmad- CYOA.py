@@ -657,7 +657,13 @@ while True:
         command = directions[pos]
 # Timer stops
     check_movement = False
-    if merida.location
+    if merida.location == parents_room:
+        b = datetime.datetime.now()
+        check_movement = True
+        duration_object = b - a
+        if duration_object.days != 0 or duration_object.seconds > 5:
+            print("It took you too long; the King saw you and the queen as a bear.")
+            queen_eleanor.run_away()
 
     # Processing
     if command in directions:
@@ -710,6 +716,11 @@ while True:
                 merida.inventory.remove(item)
     else:
         print("Command not Recognized")
+
+    if check_movement:
+        if merida.location == parents_room:
+            print("It took you too long; the King saw you and the queen as a bear.")
+            queen_eleanor.run_away()
 
     # React to new room
     if merida.location == witches_cottage and merida.first_time_cottage is True:
