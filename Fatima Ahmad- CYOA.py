@@ -1,10 +1,9 @@
 # Any import statements
 # https://www.jetbrains.com/shop/eform/students TO GET A BETTER FORM OF PYCHARM
 import time
-import datetime
 
 time_delay = .3  # Default is 3
-a = datetime.datetime.now()
+
 
 def marriage_conversation():
     time_between = .1
@@ -369,13 +368,32 @@ class SpecialNecklace(Misc):
         print("You placed the necklace in the %s" % self.name)
 
 
+class Door(Misc):
+    def __init__(self, name, description):
+        super(Door, self).__init__(name, description)
+
+    def lock(self):
+        print("%s locked the door" % self.name)
+
+    def unlock(self, name, description):
+        super(Door, self).__init__(name, description)
+
+
+class Key(Misc):
+    def __init__(self, name, description):
+        super(Key, self).__init__(name, description)
+
+    def unlock(self, door1):
+        print("The door has been unlocked with the %s" % self.name)
+
+
 class Character(object):
     character = []
 
     def __init__(self, name, description, item, health, damage=10):
         self.name = name
         self.description = description
-        self.inventory = [special_necklace]
+        self.inventory = [special_necklace, bow_and_arrow]
         self.character = []
         self.item = item
         self.health = health
@@ -385,6 +403,7 @@ class Character(object):
         self.first_time = True
         self.first_time_cottage = True
         self.first_time_cave = True
+        self.first_time_bear_in_room = True
         self.bear = False
 
     # self.location = location
@@ -424,13 +443,19 @@ class Character(object):
         print("%s fell down the hole" % self.name)
 
     def see(self, person):
-        print("%s saw %d as a bear." % self.name % person.name)
+        print("%s saw %s as a bear." % (self.name, person.name))
 
     def run_away(self):
         print("%s ran away." % self.name)
 
     def lock_inside(self):
         print("%s locked you inside of the room." % self.name)
+
+    def locked(self, room, person):
+        print("%s is locked inside the %s by %s" % (self.name, room.name, person.name))
+
+    def look(self):
+        print("The triplets went to go find the %s" % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -533,12 +558,14 @@ container = Item("Container", "You have a little brown sack that has all of your
 
 special_necklace = Item("Special Necklace", "This special necklace is the one that the Queen gave you. It's valuable \n"
                                             "and it has three bears in a circle engraved onto it.")
+door = Item("Door", "The doors can only be unlocked with a special key that the King has placed somewhere in the \n"
+                    "kitchen.")
 # END OF ITEMS BEGINNING OF CHARACTERS
 
 
 merida = Character("Merida", "Merida is the princes of Dunbroch and has three little brothers. She is adventurous, \n"
                              "brave, and independent. Merida is the complete opposite of her mom, the Queen.",
-                   [special_necklace], 100, 10)
+                   [special_necklace, bow_and_arrow], 100, 10)
 
 queen_eleanor = Character("Queen Eleanor", "Queen Eleanor is Merida's mother. She wants her daughter to act like a \n"
                                            "princess and ladylike, but Merida is not like that at all.", None, 100, 10)
@@ -561,7 +588,7 @@ angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out 
                   10)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
-                    'Welcome to Meridas room! In here there is a bow and arrow, a sword, and a container. \n'
+                    'Welcome to Meridas room! In here there is sword and a container. \n'
                     'There is a door South, East, and West of the room.', [sword, bow_and_arrow, container], [merida])
 parents_room = Room("Parents Room", None, None, None, 'meridas_room', None, None, None, None, None,
                     'This is where the king and queen stay.\n'
@@ -598,8 +625,9 @@ fire_fall = Room("Fire Fall", 'forest', None, 'the_ring_of_stones', None, None, 
 the_ring_of_stones = Room("The Ring of Stones", 'ancient_kingdom_ruins',
                           'river', 'witches_cottage', 'fire_fall', None, None,
                           None, 'forest', None, 'Here are stones that are placed in a circular pattern.\n'
-                                'People said that The Ring of Stones tends to take you places to change your fate.\n'
-                                'There are paths that lead to East, West, Northwest, South, and North',
+                                                'People said that The Ring of Stones tends to take you places \n'
+                                                'to change your fate.'
+                                                'There are paths that lead to East, West, Northwest, South, and North',
                           [willo_the_wisp])
 witches_cottage = Room("Witches Cottage", None, None, None, 'the_ring_of_stones', 'dining_room', 'magic_room', None,
                        None, None, 'You have found the witches cottage.\n'
@@ -644,10 +672,6 @@ while True:
     removed = False
     # Take input
     command = input('> ').strip().lower()
-# Timer Starts
-    if merida.location == parents_room:
-        a = datetime.datetime.now()
-    answer = input('>_').strip().lower()
     # Pre-processing
     if command == 'quit':
         quit(0)
@@ -655,16 +679,6 @@ while True:
         # Finds the command in short directions (index number)
         pos = short_directions.index(command)
         command = directions[pos]
-# Timer stops
-    check_movement = False
-    if merida.location == parents_room:
-        b = datetime.datetime.now()
-        check_movement = True
-        duration_object = b - a
-        if duration_object.days != 0 or duration_object.seconds > 5:
-            print("It took you too long; the King saw you and the queen as a bear.")
-            queen_eleanor.run_away()
-
     # Processing
     if command in directions:
         try:
@@ -716,11 +730,6 @@ while True:
                 merida.inventory.remove(item)
     else:
         print("Command not Recognized")
-
-    if check_movement:
-        if merida.location == parents_room:
-            print("It took you too long; the King saw you and the queen as a bear.")
-            queen_eleanor.run_away()
 
     # React to new room
     if merida.location == witches_cottage and merida.first_time_cottage is True:
@@ -833,8 +842,37 @@ while True:
             print("You have to go back to the parent's room to get the tapestry")
 
     if merida.location == outside:
-        if queen_eleanor.bear is True and mordu_cave() is False:
+        if queen_eleanor.bear is True and merida.first_time_cave is False:
             print("You have to be careful no one sees you, especially the King.")
+
+    if merida.location == parents_room:
+        if queen_eleanor.bear is True and merida.first_time_cave is False and merida.first_time_bear_in_room:
+            print("You got little time before King Fergus sees you.")
+            time.sleep(time_delay)
+            print()
+            time.sleep(2)
+            king_fergus.see(queen_eleanor)
+            print("King Fergus: OY Merida, get back! There's a bear in here.")
+            print("You: No dad, that's just mom. That's your wife Eleanor.")
+            time.sleep(time_delay)
+            queen_eleanor.run_away()
+            queen_eleanor.location = the_ring_of_stones
+            time.sleep(time_delay)
+            print("You: Dad, it's okay that's just mom. Don't hurt her.")
+            print("King Fergus: Your mom or not, I'll avenge her.")
+            time.sleep(time_delay)
+            print("King Fergus: You are not to leave this room.")
+            king_fergus.lock_inside()
+            merida.locked(parents_room, king_fergus)
+        if merida.locked(parents_room, king_fergus):
+            print("You call out your little brothers to go get the key.")
+            triplets.bear = True
+            triplets.location = merida.location
+            merida.see(triplets)
+            print("You: Oh my gosh, not you guys too.")
+            time.sleep(time_delay)
+            print("You: Go get the key.")
+            time.sleep(2)  # change this to be longer 2 or 3 seconds
 
 
 # how to open a web browser in python
