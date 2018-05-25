@@ -387,15 +387,23 @@ class Key(Misc):
         print("The door has been unlocked with the %s" % self.name)
 
 
-class Character(object):
-    character = []
+class Angus(Misc):
+    def __init__(self, name, description):
+        super(Angus, self).__init__(name, description)
 
-    def __init__(self, name, description, item, health, damage=10):
+    def ride(self):
+        print("%s rode Angus" % self.name)
+
+
+class Character(object):
+
+    def __init__(self, name, description, item, character2, health, damage=10):
         self.name = name
         self.description = description
         self.inventory = [special_necklace, bow_and_arrow]
         self.character = []
         self.item = item
+        self.character2 = character2
         self.health = health
         self.damage = damage
         self.alive = True
@@ -430,6 +438,9 @@ class Character(object):
     def shoot(self):
         print("%s shot with a bow and arrow" % self.name)
 
+    def shoot_person(self, person):
+        print("%s shot %s with a bow and arrow" % (self.name, person.name))
+
     def shoot_target(self):
         print("%s shoot at the target with the bow and arrow." % self.name)
 
@@ -456,6 +467,18 @@ class Character(object):
 
     def look(self):
         print("The triplets went to go find the %s" % self.name)
+
+    def found(self, item2):
+        print("%s found the %s" % (self.name, item2.name))
+
+    def unlock(self, item3):
+        print("%s unlocked the %s" % (self.name, item3.name))
+
+    def ride(self):
+        print("%s is riding Angus" % self.name)
+
+    def mend_tapestry(self):
+        print("%s mended the tapestry." % self.name)
 
     def health(self):
         print(self.name.damage)
@@ -560,6 +583,9 @@ special_necklace = Item("Special Necklace", "This special necklace is the one th
                                             "and it has three bears in a circle engraved onto it.")
 door = Item("Door", "The doors can only be unlocked with a special key that the King has placed somewhere in the \n"
                     "kitchen.")
+key = Item("Key", "The key is the only key that unlocks the parent's room, which is where Merida is locked in.")
+
+angus = Item("Angus", "Angus is Merida's horse.")
 # END OF ITEMS BEGINNING OF CHARACTERS
 
 
@@ -584,8 +610,6 @@ mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, 
                            "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
                            "turned back into a human.", None, 100, 10)
 
-angus = Character("Angus", "Angus is Merida's horse. She always takes Angus out on the days she has off. ", None, 100,
-                  10)
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
                     'Welcome to Meridas room! In here there is sword and a container. \n'
@@ -614,7 +638,7 @@ fighting_area = Room("Fighting Area", None, 'water', None, None, None, None, Non
 stables = Room("Stables", None, 'outside', None, None, None, None, 'kitchen', None, None,
                'Here are all the horses.\n'
                'There is hay and water here as well.\n'
-               'You can go South or Northeast.', [hay, water], [angus])
+               'You can go South or Northeast.', [hay, water, angus], [angus])
 forest = Room("Forest", None, 'fire_fall', 'outside', None, None, None, None, None, 'the_ring_of_stones',
               'There is a path to the South and to the Southeast.\n'
               'There is also a path that leads to the East', [willo_the_wisp])
@@ -728,6 +752,23 @@ while True:
             if eat_name == item.name.lower():
                 merida.eat(item)
                 merida.inventory.remove(item)
+    elif 'unlock door' in command:
+        if merida.locked(parents_room, king_fergus):
+            triplets.unlock(door)
+    elif 'mend tapestry' in command:
+        mend_name = command[5:]
+        for item in merida.inventory:
+            if mend_name == item.name.lower():
+                merida.mend_tapestry()
+    elif 'ride angus' in command:
+        ride_name = command[5:]
+        for item in merida.inventory:
+            if ride_name == item.name.lower():
+                merida.ride()
+    elif 'attack' in command:
+        attack_name = command[7:]
+        merida.attack(character)
+
     else:
         print("Command not Recognized")
 
@@ -846,7 +887,7 @@ while True:
             print("You have to be careful no one sees you, especially the King.")
 
     if merida.location == parents_room:
-        if queen_eleanor.bear is True and merida.first_time_cave is False and merida.first_time_bear_in_room:
+        if merida.first_time_cave is False and merida.first_time_bear_in_room:
             print("You got little time before King Fergus sees you.")
             time.sleep(time_delay)
             print()
@@ -864,15 +905,42 @@ while True:
             print("King Fergus: You are not to leave this room.")
             king_fergus.lock_inside()
             merida.locked(parents_room, king_fergus)
-        if merida.locked(parents_room, king_fergus):
+            merida.first_time_bear_in_room = False
             print("You call out your little brothers to go get the key.")
             triplets.bear = True
             triplets.location = merida.location
             merida.see(triplets)
             print("You: Oh my gosh, not you guys too.")
             time.sleep(time_delay)
-            print("You: Go get the key.")
             time.sleep(2)  # change this to be longer 2 or 3 seconds
+            item = ""
+            if merida.location == parents_room:
+                print("You: Go get the key.")
+                response = input(">_")
+                while response != 'look for key':
+                    print("You need to look again for the key.")
+                    response = input(">_").lower()
+                else:
+                    print("The triplets found the key.")
+                    print("The triplets unlocked the door, and now Merida can now leave.")
+                    print("You need to grab the tapestry, needle, and thread quick before they kill your mom.")
+                    time.sleep(6)  # change to like 3 or 4
+                    merida.location = stables
+            if merida.location == stables and tapestry in merida.inventory and needle_and_thread in merida.inventory:
+                merida.character.append(triplets)
+                merida.location = the_ring_of_stones
+    if merida.location == the_ring_of_stones and tapestry in merida.inventory:
+        print("You: GET AWAY FROM MY MOM!")
+        time.sleep(time_delay)
+        print("King Fergus: Merida step away.")
+        king_fergus.shoot_person(queen_eleanor)
+        print("Queen Eleanor got shot in the arm, but now is weak.")
+        time.sleep(time_delay)
+        print("You: I won't let you hurt my mom.")
+        mordu.location = the_ring_of_stones
+        if mordu.location == the_ring_of_stones:
+            print("Mordu has you pinned down to the ground, but your mom comes and attacks Mordu.")
+            queen_eleanor.attack(mordu)
 
 
 # how to open a web browser in python
