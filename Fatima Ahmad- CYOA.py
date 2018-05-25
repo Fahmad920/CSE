@@ -21,7 +21,7 @@ def marriage_conversation():
     time.sleep(time_between)
     print("Queen Eleanor: Merida, I don't know why your so upset, you've been preparing for this your entire life.")
     time.sleep(time_between)
-    print("No. This is what you've been preparing for me and I won't go through with it.")
+    print("You: No. This is what you've been preparing for me and I won't go through with it.")
 
 
 def talk_to_witch():
