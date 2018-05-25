@@ -799,6 +799,8 @@ while True:
                 trade_with_witch()
                 merida.inventory.append(potion)
                 merida.inventory.remove(special_necklace)
+                print()
+                print("You could now give the potion to your mom in the kitchen.")
         else:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
@@ -870,8 +872,8 @@ while True:
             print(mordu.description)
             time.sleep(time_delay)
             print()
-            mordu.attack(merida)
             print("Mordu is about to attack you.")
+            print("You should dodge right now.")
             command = input(">_").strip().lower()
             if command != 'dodge':
                 mordu.attack(merida)
@@ -955,6 +957,7 @@ while True:
             mordu = False
             item = ""
         if mordu is False:
+            print("Hurry and put the tapestry on your mom.")
             response = input('> ').strip().lower()
             while response != 'put tapestry on mom':
                 print("You have to hurry to put the tapestry onto your mom before the second sunrise.")
@@ -968,6 +971,10 @@ while True:
                 triplets.transform_human()
                 triplets.bear = False
             print("They all turned back into humans, and they lived happily ever after.")
+            merida.location = meridas_room
+            print(merida.location.name)
+            print("The End")
+            quit(0)
 
 
 # how to open a web browser in python
@@ -995,4 +1002,3 @@ while True:
 # wait a few second, before the queen turns back into her normal self
 # the triplets also turn back into little boys
 # That's how you beat the game, print they all live happily ever after
-
