@@ -480,6 +480,12 @@ class Character(object):
     def mend_tapestry(self):
         print("%s mended the tapestry." % self.name)
 
+    def transform_human(self):
+        print("%s transformed back into human." % self.name)
+
+    def doge(self, person):
+        print("%s dodged %s" % (self.name, person.name))
+
     def health(self):
         print(self.name.damage)
         print("You have health")
@@ -591,19 +597,19 @@ angus = Item("Angus", "Angus is Merida's horse.")
 
 merida = Character("Merida", "Merida is the princes of Dunbroch and has three little brothers. She is adventurous, \n"
                              "brave, and independent. Merida is the complete opposite of her mom, the Queen.",
-                   [special_necklace, bow_and_arrow], 100, 10)
+                   [special_necklace, bow_and_arrow], 100, 100)
 
 queen_eleanor = Character("Queen Eleanor", "Queen Eleanor is Merida's mother. She wants her daughter to act like a \n"
-                                           "princess and ladylike, but Merida is not like that at all.", None, 100, 10)
+                                           "princess and ladylike, but Merida is not like that at all.", None, 100, 100)
 
 king_fergus = Character("King Fergus", "King Fergus is Merida's father. The story of how King Fergus lost his left to\n"
-                                       "Mordu became legend.", None, 100, 10)
+                                       "Mordu became legend.", None, 100, 100)
 
 triplets = Character("Triplets", "The triplets are Merida's three little brothers. They are very mischievous, but \n"
-                                 "they never get caught.", None, 100, 10)
+                                 "they never get caught.", None, 100, 100)
 
 witch = Character("Witch", "The witch covers her identity as a woodcarver and carves pictures of bears. She has a \n"
-                           "secret magic room where she does all of her magic making.", None, 100, 10)
+                           "secret magic room where she does all of her magic making.", None, 100, 100)
 
 mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, before the kingdom fell.\n"
                            "He found the witch, and asked her for a spell that would give him the strength of 10 men\n"
@@ -686,6 +692,7 @@ short_directions = ['n', 's', 'e', 'w', 'u', 'd', 'ne', 'nw', 'se']
 inventory = ['inventory']
 character = ['character']
 moved = True
+second_sunrise = False
 
 while True:
     # Room information
@@ -782,11 +789,11 @@ while True:
         if potion not in merida.inventory and merida.first_time_cottage is True:
             talk_to_witch()
             merida.first_time_cottage = False
-            response = input(">_")
+            response = input('> ').strip().lower()
             while response != 'special necklace':
                 print("That's not worth enough.")
                 print("What else do you got?")
-                response = input(">_").lower()
+                response = input(">_").strip().lower()
             else:
                 print("That's a deal.")
                 trade_with_witch()
@@ -803,10 +810,10 @@ while True:
         print()
         beginning_games()
         merida.first_time = False
-        response = input(">_")
+        response = input(">_").strip().lower()
         while response != 'shoot target' and merida.location == outside and merida.first_time is False:
             print("You are not shooting yet. Try again")
-            response = input(">_").lower()
+            response = input(">_").strip().lower()
         else:
             print(argument())
             merida.rip_tapestry(tapestry)
@@ -864,7 +871,12 @@ while True:
             time.sleep(time_delay)
             print()
             mordu.attack(merida)
-            print("You dodged the attack.")
+            print("Mordu is about to attack you.")
+            command = input(">_").strip().lower()
+            if command != 'dodge':
+                mordu.attack(merida)
+            else:
+                merida.doge(mordu)
             print()
             time.sleep(time_delay)
             print("There is not space to run, but Mordu is cornering you.")
@@ -916,22 +928,15 @@ while True:
             item = ""
             if merida.location == parents_room:
                 print("You: Go get the key.")
-                response = input(">_")
+                response = input('>_').strip().lower()
                 while response != 'look for key':
                     print("You need to look again for the key.")
-                    response = input(">_").lower()
+                    response = input(">_").strip().lower()
                 else:
                     print("The triplets found the key.")
                     print("The triplets unlocked the door, and now Merida can now leave.")
                     print("You need to grab the tapestry, needle, and thread quick before they kill your mom.")
                     time.sleep(6)  # change to like 3 or 4
-                    input(">_").lower()
-                    # if input(">_").lower() == tapestry:
-                      #  merida.inventory.append(tapestry)
-                       # print("You took the tapestry.")
-                    #if input(">_").lower() == needle_and_thread:
-                     #   merida.inventory.append(needle_and_thread)
-                      #  print("You took the needle and thread.")
             if merida.location == stables and tapestry in merida.inventory and needle_and_thread in merida.inventory:
                 merida.character.append(triplets)
                 merida.location = the_ring_of_stones
@@ -947,6 +952,22 @@ while True:
         if mordu.location == the_ring_of_stones:
             print("Mordu has you pinned down to the ground, but your mom comes and attacks Mordu.")
             queen_eleanor.attack(mordu)
+            mordu = False
+            item = ""
+        if mordu is False:
+            response = input('> ').strip().lower()
+            while response != 'put tapestry on mom':
+                print("You have to hurry to put the tapestry onto your mom before the second sunrise.")
+                response = input(">_").strip().lower()
+            else:
+                second_sunrise = True
+                print("The sun is rising.")
+                time.sleep(time_delay)
+                queen_eleanor.transform_human()
+                queen_eleanor.bear = False
+                triplets.transform_human()
+                triplets.bear = False
+            print("They all turned back into humans, and they lived happily ever after.")
 
 
 # how to open a web browser in python
