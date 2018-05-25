@@ -925,7 +925,13 @@ while True:
                     print("The triplets unlocked the door, and now Merida can now leave.")
                     print("You need to grab the tapestry, needle, and thread quick before they kill your mom.")
                     time.sleep(6)  # change to like 3 or 4
-                    merida.location = stables
+                    input(">_").lower()
+                    # if input(">_").lower() == tapestry:
+                      #  merida.inventory.append(tapestry)
+                       # print("You took the tapestry.")
+                    #if input(">_").lower() == needle_and_thread:
+                     #   merida.inventory.append(needle_and_thread)
+                      #  print("You took the needle and thread.")
             if merida.location == stables and tapestry in merida.inventory and needle_and_thread in merida.inventory:
                 merida.character.append(triplets)
                 merida.location = the_ring_of_stones
