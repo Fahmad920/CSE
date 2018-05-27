@@ -9,18 +9,25 @@ def marriage_conversation():
     time_between = .1
     print("Queen Eleanor calls you to come to the dining room for dinner.")
     time.sleep(time_between)
+    print()
     print("You go into the dining room, and you sit down to eat, but your mom keeps mumbling about something. ")
     time.sleep(time_between)
+    print()
     print("Queen Eleanor: They've all accepted!")
     time.sleep(time_between)
+    print()
     print("You: Who accepted what Mother?")
     time.sleep(time_between)
+    print()
     print("Queen Eleanor: All three clans have accepted for the games for your hand in marriage.")
     time.sleep(time_between)
+    print()
     print("You: WHAT?!?! THIS IS SO UNFAIR")
     time.sleep(time_between)
+    print()
     print("Queen Eleanor: Merida, I don't know why your so upset, you've been preparing for this your entire life.")
     time.sleep(time_between)
+    print()
     print("You: No. This is what you've been preparing for me and I won't go through with it.")
 
 
@@ -28,24 +35,34 @@ def talk_to_witch():
     time_between = .1  # Default is 2.5
     print("You go up the witch and start talking.")
     time.sleep(time_between)
+    print()
     print("Witch: Welcome to my wood carving shop. Look around, everything is half off.")
     time.sleep(time_between)
+    print()
     print("You: What the?")
     time.sleep(time_between)
+    print()
     print("You: Why did the Willo-the-Wisps bring me here?")
     time.sleep(time_between)
+    print()
     print("Crow: You know staring is rude.")
     time.sleep(time_between)
+    print()
     print("You: THAT CROW JUST TALKED!! Your a witch!")
     time.sleep(time_between)
+    print()
     print("Witch: No, woodcarver")
     time.sleep(time_between)
+    print()
     print("You: I need a spell that will change my mum.")
     time.sleep(time_between)
+    print()
     print("Witch: Too many unsatisfied customers. If you aren't going to buy anything, then get out.")
     time.sleep(time_between)
+    print()
     print("You: I'll buy it all, every single wood carving, and a spell that can change my fate.")
     time.sleep(time_between)
+    print()
     print("Witch: and how are going to pay for that?")
     time.sleep(time_between)
 
@@ -58,23 +75,29 @@ def trade_with_witch():
 def talk_with_mom():
     print("You got the spell from the witch in a form of a little cake.")
     time.sleep(time_delay)
+    print()
     print("Mom: Where have you been? I've been looking all over for you.")
     time.sleep(time_delay)
+    print()
     print("You: I've just been in the forest with Angus.")
     time.sleep(time_delay)
+    print()
     print("Mom: Well I've talked with the suitors about the marriage...")
     time.sleep(.1)
+    print()
     print("You show your mom the little cake, and offer it as a peace offering.")
     time.sleep(time_delay)
+    print()
     queen_eleanor.eat(cake)
     print("Your mom takes a bite of the cake, but there is something wrong going on with the cake.")
     time.sleep(2)
     print()
-    print()
     print("After a while, your mom is not feeling so good, and you know it has to do with the cake.")
     time.sleep(time_delay)
+    print()
     print("You take your Mom to your room, and she starts yelling at you about the cake.")
     time.sleep(time_delay)
+    print()
     print("You tried to play it off, but something starts happening to your Mom. \n"
           "She falls off the bed, and she starts transforming into something else.")
     time.sleep(1)
@@ -87,22 +110,29 @@ def beginning_games():
           "you decide that that games are going to be archery \n"
           "you are going to play for your own hand so you don't have to marry.")
     time.sleep(time_delay)
+    print()
     print("Now is your chance to compete. If you want to do it, then start shooting the targets right now.")
 
 
 def argument():
     print("You start walking down to the targets and get ready to shoot your arrows.")
     time.sleep(time_delay)
+    print()
     print("Mom: Merida, don't you dare shoot an arrow!!!")
     time.sleep(time_delay)
+    print()
     print("You don't listen to her and you shoot the last target. And you have messed up everything.")
     time.sleep(time_delay)
+    print()
     print("Your mom takes you into your room, and she is really, really mad at you.")
-    time.sleep(time_delay)  # Makes this timer delay a little longer than normal
+    time.sleep(time_delay)
+    print()  # Makes this timer delay a little longer than normal
     print("Mom: You embarrassed them, you embarrassed me")
     time.sleep(time_delay)
+    print()
     print("You: Mom it's not fair. You always tell me what to do, and what not to do. IT'S MY LIFE!!")
     time.sleep(time_delay)
+    print()
     print("Mom: I AM THE QUEEN, YOU LISTEN TO ME")
     time.sleep(time_delay)
 
@@ -216,7 +246,7 @@ class BowAndArrow(Weapon):
         super(BowAndArrow, self).__init__(name, description)
 
     def shoot(self, person):
-        print("You shot %s with the bow and arrow" % person.name)
+        print("%s %s with the bow and arrow" % (self.name, person.name))
 
     def carry(self):
         print("You picked up the %s" % self.name)
@@ -628,7 +658,7 @@ parents_room = Room("Parents Room", None, None, None, 'meridas_room', None, None
 dining_room = Room("Dining Room", 'meridas_room', None, None, None, None, 'secret_room', None, None, None,
                    'There is a table in the middle of the room.\n'
                    'There is a shield on the wall and a bear statue in the corner.\n'
-                   'There is a door to the north.', [bear_statue, shield], [triplets])
+                   'There is a door to the north.', [bear_statue, shield, table], [triplets])
 kitchen = Room("Kitchen", 'outside', None, 'meridas_room', None, None, None, None, 'stables', None,
                'There is a door that leads Northwest, North, and East.\n'
                'There is a little container on the floor next to the door.\n'
