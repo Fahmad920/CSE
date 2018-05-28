@@ -427,21 +427,24 @@ class Angus(Misc):
 
 class Character(object):
 
-    def __init__(self, name, description, item, character2, health, damage=10):
+    def __init__(self, name, description, item2, character2, health, amt, damage=20):
         self.name = name
         self.description = description
         self.inventory = [special_necklace, bow_and_arrow]
         self.character = []
-        self.item = item
+        self.item = item2
         self.character2 = character2
         self.health = health
         self.damage = damage
+        self.amt = amt
         self.alive = True
         self.location = None
         self.first_time = True
         self.first_time_cottage = True
         self.first_time_cave = True
         self.first_time_bear_in_room = True
+        self.first_time_fight_scene = True  # This is when merida arrives the scene where the king is going after the
+        # queen and mordu comes
         self.bear = False
 
     # self.location = location
@@ -474,7 +477,7 @@ class Character(object):
     def shoot_target(self):
         print("%s shoot at the target with the bow and arrow." % self.name)
 
-    def rip_tapestry(self, tapestry):
+    def rip_tapestry(self, tapestry1):
         print("The tapestry of the family has been torn by %s." % self.name)
 
     def fish(self):
@@ -565,6 +568,8 @@ class Room(object):
         self.first_time = True
         self.first_time_cottage = True
         self.first_time_cave = True
+        self.first_time_fight_scene = True  # This is when merida arrives the scene where the king is going after the
+        # queen and mordu comes
 
 
 # Instantiation of class Room BEGINNING OF ITEMS
@@ -627,24 +632,25 @@ angus = Item("Angus", "Angus is Merida's horse.")
 
 merida = Character("Merida", "Merida is the princes of Dunbroch and has three little brothers. She is adventurous, \n"
                              "brave, and independent. Merida is the complete opposite of her mom, the Queen.",
-                   [special_necklace, bow_and_arrow], 100, 100)
+                   [special_necklace, bow_and_arrow], 100, 100, 0)
 
 queen_eleanor = Character("Queen Eleanor", "Queen Eleanor is Merida's mother. She wants her daughter to act like a \n"
-                                           "princess and ladylike, but Merida is not like that at all.", None, 100, 100)
+                                           "princess and ladylike, but Merida is not like that at all.", None, 100, 100,
+                          0)
 
 king_fergus = Character("King Fergus", "King Fergus is Merida's father. The story of how King Fergus lost his left to\n"
-                                       "Mordu became legend.", None, 100, 100)
+                                       "Mordu became legend.", None, 100, 100, 0)
 
 triplets = Character("Triplets", "The triplets are Merida's three little brothers. They are very mischievous, but \n"
-                                 "they never get caught.", None, 100, 100)
+                                 "they never get caught.", None, 100, 100, 0)
 
 witch = Character("Witch", "The witch covers her identity as a woodcarver and carves pictures of bears. She has a \n"
-                           "secret magic room where she does all of her magic making.", None, 100, 100)
+                           "secret magic room where she does all of her magic making.", None, 100, 100, 0)
 
 mordu = Character("Mordu", "Mordu is actually the oldest prince of the kingdom, before the kingdom fell.\n"
                            "He found the witch, and asked her for a spell that would give him the strength of 10 men\n"
                            "but that spell changed him into a bear. If he did mend the bond he broke, he could have \n"
-                           "turned back into a human.", None, 100, 10)
+                           "turned back into a human.", None, 100, 100, 0)
 
 # END OF CHARACTERS BEGINNING OF ROOMS
 meridas_room = Room("Meridas Room", None, 'dining_room', 'parents_room', 'kitchen', None, None, None, None, None,
@@ -802,9 +808,31 @@ while True:
         for item in merida.inventory:
             if ride_name == item.name.lower():
                 merida.ride()
-    elif 'attack' in command:
-        attack_name = command[7:]
-        merida.attack(character)
+    elif 'move rug' in command:
+        move_name = command[5:]
+        print("There is a protection spell on the rug. You can not move it.")
+    elif 'attack mordu' in command:
+        attack_mordu = command[7:]
+        if mordu.location == the_ring_of_stones:
+            queen_eleanor.attack(mordu)
+            mordu.health -= 20
+            if mordu.alive is False:
+                print("Mordu has died. Hurry now and put the tapestry on your mom.")
+                response = input('> ').strip().lower()
+                while response != 'put tapestry on mom':
+                    print("You have to hurry to put the tapestry onto your mom before the second sunrise.")
+                    response = input(">_").strip().lower()
+                else:
+                    second_sunrise = True
+                    print("The sun is rising.")
+                    time.sleep(time_delay)
+                    queen_eleanor.transform_human()
+                    queen_eleanor.bear = False
+                    triplets.transform_human()
+                    triplets.bear = False
+                    print()
+                    print("They all turned back into humans, and they lived happily ever after.")
+                    quit(0)
 
     else:
         print("Command not Recognized")
@@ -936,14 +964,18 @@ while True:
             time.sleep(2)
             king_fergus.see(queen_eleanor)
             print("King Fergus: OY Merida, get back! There's a bear in here.")
+            print()
             print("You: No dad, that's just mom. That's your wife Eleanor.")
             time.sleep(time_delay)
+            print()
             queen_eleanor.run_away()
             queen_eleanor.location = the_ring_of_stones
             time.sleep(time_delay)
             print("You: Dad, it's okay that's just mom. Don't hurt her.")
+            print()
             print("King Fergus: Your mom or not, I'll avenge her.")
             time.sleep(time_delay)
+            print()
             print("King Fergus: You are not to leave this room.")
             king_fergus.lock_inside()
             merida.locked(parents_room, king_fergus)
@@ -954,7 +986,8 @@ while True:
             merida.see(triplets)
             print("You: Oh my gosh, not you guys too.")
             time.sleep(time_delay)
-            time.sleep(2)  # change this to be longer 2 or 3 seconds
+            print()
+            time.sleep(.5)  # change this to be longer 2 or 3 seconds
             item = ""
             if merida.location == parents_room:
                 print("You: Go get the key.")
@@ -966,38 +999,26 @@ while True:
                     print("The triplets found the key.")
                     print("The triplets unlocked the door, and now Merida can now leave.")
                     print("You need to grab the tapestry, needle, and thread quick before they kill your mom.")
-                    time.sleep(6)  # change to like 3 or 4
+                    time.sleep(2)  # change to like 3 or 4
             if merida.location == stables and tapestry in merida.inventory and needle_and_thread in merida.inventory:
                 merida.character.append(triplets)
                 merida.location = the_ring_of_stones
-    if merida.location == the_ring_of_stones and tapestry in merida.inventory:
+    if merida.location == the_ring_of_stones and tapestry in merida.inventory and merida.first_time_fight_scene is True:
+        print(merida.location.name)
         print("You: GET AWAY FROM MY MOM!")
         time.sleep(time_delay)
+        print()
         print("King Fergus: Merida step away.")
         king_fergus.shoot_person(queen_eleanor)
         print("Queen Eleanor got shot in the arm, but now is weak.")
         time.sleep(time_delay)
+        print()
         print("You: I won't let you hurt my mom.")
+        merida.first_time_fight_scene = False
         mordu.location = the_ring_of_stones
-        if mordu.location == the_ring_of_stones:
+        if mordu.location == the_ring_of_stones and merida.first_time_fight_scene is False:
             print("Mordu has you pinned down to the ground, but your mom comes and attacks Mordu.")
-            queen_eleanor.attack(mordu)
-            mordu = False
             item = ""
-        if mordu is False:
-            response = input('> ').strip().lower()
-            while response != 'put tapestry on mom':
-                print("You have to hurry to put the tapestry onto your mom before the second sunrise.")
-                response = input(">_").strip().lower()
-            else:
-                second_sunrise = True
-                print("The sun is rising.")
-                time.sleep(time_delay)
-                queen_eleanor.transform_human()
-                queen_eleanor.bear = False
-                triplets.transform_human()
-                triplets.bear = False
-            print("They all turned back into humans, and they lived happily ever after.")
 
 
 # how to open a web browser in python
