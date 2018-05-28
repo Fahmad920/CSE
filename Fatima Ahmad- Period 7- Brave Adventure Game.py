@@ -857,6 +857,8 @@ while True:
                 trade_with_witch()
                 merida.inventory.append(potion)
                 merida.inventory.remove(special_necklace)
+                print()
+                print("You could now give the potion to your mom in the kitchen.")
         else:
             print("The witch is gone. \n"
                   "The witch did leave a message for you in her secret magic room.")
@@ -928,8 +930,8 @@ while True:
             print(mordu.description)
             time.sleep(time_delay)
             print()
-            mordu.attack(merida)
             print("Mordu is about to attack you.")
+            print("You should dodge right now.")
             command = input(">_").strip().lower()
             if command != 'dodge':
                 mordu.attack(merida)
@@ -1019,6 +1021,28 @@ while True:
         if mordu.location == the_ring_of_stones and merida.first_time_fight_scene is False:
             print("Mordu has you pinned down to the ground, but your mom comes and attacks Mordu.")
             item = ""
+<<<<<<< HEAD
+=======
+        if mordu is False:
+            print("Hurry and put the tapestry on your mom.")
+            response = input('> ').strip().lower()
+            while response != 'put tapestry on mom':
+                print("You have to hurry to put the tapestry onto your mom before the second sunrise.")
+                response = input(">_").strip().lower()
+            else:
+                second_sunrise = True
+                print("The sun is rising.")
+                time.sleep(time_delay)
+                queen_eleanor.transform_human()
+                queen_eleanor.bear = False
+                triplets.transform_human()
+                triplets.bear = False
+            print("They all turned back into humans, and they lived happily ever after.")
+            merida.location = meridas_room
+            print(merida.location.name)
+            print("The End")
+            quit(0)
+>>>>>>> 386e94549a701aa082886ea8963c7499f2ec8f53
 
 
 # how to open a web browser in python
