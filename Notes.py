@@ -1,7 +1,5 @@
 # # # print("Hello World")
 # # #
-# # # # Keep loving who you are- Harris J (use ctrl / to toggle comment)
-# # #
 # # # print(3 + 5)
 # # # print(5 - 3)
 # # # print(5 * 3)
@@ -44,7 +42,7 @@
 # #     print("Hello %s" % name1)
 # #     print("I hope you have a fantastic day.")
 # #
-# # say_hi("Harris J")
+# # say_hi("fatima)
 # #
 # #
 # #
